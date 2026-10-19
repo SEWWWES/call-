@@ -1,0 +1,18 @@
+{
+  "nomo_manifest_version": "1.2.0",
+  "webon_id": "net.sewwwes.call",
+  "webon_name": "SmartEarthPhone P2P Call Gateway",
+  "webon_version": "1.0.0",
+  "webon_description": "call.sewwwes.net - Sovereign SmartEarthPhone P2P Call Gateway & Encrypted Phonebook v1.0.0 SUPREME",
+  "webon_icon": "assets/images/www-token-logo.png",
+  "webon_card": "assets/images/smartearthland_family_mandala.jpg",
+  "min_nomo_version": "0.5.0",
+  "permissions": [
+    "nomo.permission.CAMERA",
+    "nomo.permission.CLIPBOARD",
+    "nomo.permission.MESSENGER",
+    "nomo.permission.SEND_ASSETS",
+    "nomo.permission.SIGN_EVM_TRANSACTION",
+    "nomo.permission.GET_EVM_ADDRESS"
+  ]
+}
