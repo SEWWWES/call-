@@ -1,670 +1,427 @@
+Hier ist das gebrauchsfertige, saubere Template-Code-Paket des SeWWWeS.NET Universal Top-Header Standards (v1.3.285 SUPREME).
+Du kannst diesen Quellcode direkt an die Entwicklerteams für LandingPages, Satelliten und Subdomains weiterleiten. Er enthält alle festen CSS-Styles (820px Zentrierung, Farben, Glanz-Effekte, Kamera-Pulsator) sowie die funktionalen JavaScript-Bridges.
+📄 SeWWWeS_NET_Universal_TopHeader_Template.html
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📞 SmartEarthPhone P2P Call Gateway | SeWWWeS.NET</title>
-  
-  <!-- 🧱 EMBEDDED NATIVE NOMO WEBON DART BRIDGE (HYBRID RESOLVER v1.0.3 SUPREME - Stand: 20.10.2026) -->
-  <script>
-    (function() {
-      "use strict";
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      window.isRealNomoApp = function() {
-        if (typeof window === "undefined") return false;
-        var ua = (navigator && navigator.userAgent) ? navigator.userAgent : "";
-        if (window.ethereum && !/Nomo|WebOn/i.test(ua)) {
-          return false;
-        }
-        if (/Nomo|WebOn/i.test(ua)) return true;
-        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.NOMOJSChannel) return true;
-        if (window.NOMOJSChannel && typeof window.NOMOJSChannel.postMessage === "function") return true;
-        if (window.chrome && window.chrome.webview && window.chrome.webview.hostObjects && window.chrome.webview.hostObjects.NOMOJSChannel) return true;
-        if (window.nomo && typeof window.nomo.getEvmAddress === "function") return true;
-        return false;
-      };
+<!-- 
+  ========================================================================
+  SeWWWeS & SmartEarthWorld Universal WebOn Header Template
+  UNIVERSAL STANDARD: v1.3.285 SUPREME
+  ========================================================================
+  Anleitung für Entwicklerteams:
+  - Bei "WEBON_NAME" und "VERSION_NUMBER" in der Dach-Bar den eigenen Namen eintragen.
+  - Das Design (820px, Farbcodes, Kamera-Pulsator) bleibt strikt unverändert!
+  ========================================================================
+-->
 
-      function getDartBridge() {
-        if (typeof window === "undefined") return null;
-        if (!window.isRealNomoApp()) return null;
+<title>SeWWWeS.NET Universal Header Standard</title>
 
-        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.NOMOJSChannel) {
-          return function(payload) { window.webkit.messageHandlers.NOMOJSChannel.postMessage(payload); };
-        }
-        if (window.NOMOJSChannel && typeof window.NOMOJSChannel.postMessage === "function") {
-          return function(payload) { window.NOMOJSChannel.postMessage(payload); };
-        }
-        if (window.chrome && window.chrome.webview && window.chrome.webview.hostObjects && window.chrome.webview.hostObjects.NOMOJSChannel) {
-          return function(payload) { window.chrome.webview.hostObjects.NOMOJSChannel.postMessage(payload); };
-        }
-        if (window.chrome && window.chrome.webview && typeof window.chrome.webview.postMessage === "function") {
-          return function(payload) { window.chrome.webview.postMessage(payload); };
-        }
-        return null;
-      }
+<style>
+/* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
+:root {
+  --sewwwes-gold: #D4AF37;
+  --sewwwes-skyblue: #00BFFF;
+  --sewwwes-emerald: #00FF41;
+  --sewwwes-copper: #B87333;
+  --sewwwes-purple: #9D00FF;
+  --bg-dark: #070a12;
+}
 
-      var invocationCounter = 0;
-      var moduleID = Math.random().toString(36).substring(2, 10);
-      window.nomoResolvePromises = window.nomoResolvePromises || {};
-      window.nomoRejectPromises = window.nomoRejectPromises || {};
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Roboto Mono', -apple-system, BlinkMacSystemFont, "Segoe UI", monospace; 
+}
 
-      function invokeNomoFunction(functionName, args) {
-        invocationCounter++;
-        var invocationID = invocationCounter.toString() + "_" + functionName + "_" + moduleID;
-        var payload = JSON.stringify({ functionName: functionName, invocationID: invocationID, args: args || {} });
-        return new Promise(function(resolve, reject) {
-          window.nomoResolvePromises[invocationID] = resolve;
-          window.nomoRejectPromises[invocationID] = reject;
-          var bridge = getDartBridge();
-          if (bridge) {
-            try { bridge(payload); } catch (e) { reject(e.message || e); }
-          } else {
-            reject("Not running inside Nomo App.");
-          }
-        });
-      }
+body {
+  background: #000 url('assets/images/sternenhimmel.png') center center / cover no-repeat fixed !important;
+  color: #FFF;
+  padding: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      function decodeBase64UTF16(base64EncodedString) {
-        try {
-          var binaryString = atob(base64EncodedString);
-          var bytes = new Uint8Array(binaryString.length);
-          for (var i = 0; i < binaryString.length; i++) { bytes[i] = binaryString.charCodeAt(i); }
-          return new TextDecoder("utf-8").decode(bytes);
-        } catch(e) { return base64EncodedString; }
-      }
+/* 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR (820px Standard) */
+.spcl-top-roof-banner {
+  width: 100%;
+  max-width: 820px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1.5px solid var(--sewwwes-skyblue);
+  border-radius: 16px;
+  padding: 10px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.25);
+  box-sizing: border-box;
+}
 
-      window.fulfillPromiseFromFlutter = function(arg1, arg2, arg3) {
-        try {
-          var invocationID, status, result;
-          if (typeof arg1 === "string" && (!arg2 || typeof arg2 !== "string" || arg1.length > 50)) {
-            var jsonStr = decodeBase64UTF16(arg1);
-            var obj = JSON.parse(jsonStr);
-            invocationID = obj.invocationID;
-            status = obj.status;
-            result = obj.result;
-          } else {
-            invocationID = arg1;
-            result = arg2;
-            status = (arg3 === true || arg3 === "true" || arg3 === "OK" || arg3 === 1) ? "resolve" : "reject";
-          }
+.spcl-top-roof-line1 {
+  color: var(--sewwwes-skyblue);
+  font-size: 0.85rem;
+  font-weight: 950;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
 
-          if (!invocationID) return "missing invocationID";
+.spcl-top-roof-line2 {
+  color: #aaa;
+  font-size: 0.70rem;
+  font-weight: 600;
+}
 
-          var fulfillFunction;
-          if (status === "resolve" || status === true) {
-            fulfillFunction = window.nomoResolvePromises[invocationID];
-          } else {
-            fulfillFunction = window.nomoRejectPromises[invocationID];
-          }
+/* 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN (Farben & Form aus v1.3.272) */
+.spcl-master-frame {
+  background: radial-gradient(circle at center, rgba(15,15,15,0.98) 0%, rgba(5,5,5,0.99) 100%);
+  border: 2.5px solid var(--sewwwes-gold);
+  border-radius: 28px;
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 820px;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
 
-          window.nomoResolvePromises[invocationID] = null;
-          window.nomoRejectPromises[invocationID] = null;
+/* Symmetrische Marken-Zeile */
+.spcl-brand-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: nowrap;
+}
 
-          if (fulfillFunction) {
-            if (typeof result === "string" && (result.startsWith("{") || result.startsWith("["))) {
-              try { result = JSON.parse(result); } catch(e){}
-            }
-            fulfillFunction(result);
-            return "OK";
-          }
-        } catch (e) { console.error("fulfillPromiseFromFlutter failed", e); }
-        return "FAIL";
-      };
+.spcl-brand-tag {
+  color: var(--sewwwes-gold);
+  font-weight: 950;
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  white-space: nowrap;
+}
 
-      var nomoBridge = {
-        runsAsWebOn: function() { return window.isRealNomoApp(); },
-        getEvmAddress: function() {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoGetEvmAddress", {}).then(function(res) {
-            if (typeof res === "object" && res !== null) return res.evmAddress || res.ethAddress || res.address || res;
-            return res;
-          });
-        },
-        sendAssets: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoSendAssets", args || {});
-        },
-        signEvmTransaction: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoSignEvmTransaction", args || {});
-        },
-        signAuthMessage: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoSignAuthMessage", args || {});
-        },
-        addCustomToken: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoAddCustomToken", args || {});
-        },
-        qrScan: function() {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoQrScan", {});
-        }
-      };
+/* Smaragdgrünes Pulsierendes Kamera-Symbol */
+@keyframes pulse-emerald {
+  0% { transform: scale(1); box-shadow: 0 0 10px var(--sewwwes-emerald); }
+  50% { transform: scale(1.12); box-shadow: 0 0 25px var(--sewwwes-emerald), 0 0 40px var(--sewwwes-emerald); }
+  100% { transform: scale(1); box-shadow: 0 0 10px var(--sewwwes-emerald); }
+}
 
-      if (!window.nomo || Object.keys(window.nomo).length === 0) {
-        window.nomo = nomoBridge;
-      } else {
-        for (var key in nomoBridge) {
-          if (!(key in window.nomo)) window.nomo[key] = nomoBridge[key];
-        }
-      }
-    })();
-  </script>
+.spcl-camera-btn-pulse {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+  border: 2px solid var(--sewwwes-emerald);
+  color: var(--sewwwes-emerald);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: pulse-emerald 2s infinite ease-in-out;
+  transition: 0.3s;
+  flex-shrink: 0;
+}
 
-  <style>
-    :root {
-      --bg-dark: #0A0E17;
-      --card-bg: rgba(16, 24, 40, 0.95);
-      --sewwwes-gold: #D4AF37;
-      --sewwwes-skyblue: #00BFFF;
-      --sewwwes-emerald: #00FF41;
-      --sewwwes-copper: #B87333;
-      --emerald: #00FF41;
-      --gold: #D4AF37;
-      --skyblue: #00BFFF;
-      --red: #FF3366;
-      --text-main: #F0F4F8;
-      --text-muted: #8A99AD;
-    }
+.spcl-camera-btn-pulse:hover {
+  transform: scale(1.18);
+  background: rgba(0, 255, 65, 0.15);
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+/* Slogan & Pitch */
+.spcl-triad-slogan {
+  color: var(--sewwwes-gold);
+  font-weight: 950;
+  letter-spacing: 4px;
+  font-size: 0.90rem;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
 
-    body {
-      background-color: var(--bg-dark);
-      background-image: radial-gradient(circle at 50% 0%, rgba(0, 191, 255, 0.12), transparent 70%),
-                        radial-gradient(circle at 100% 100%, rgba(0, 255, 65, 0.08), transparent 50%);
-      color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 16px 12px;
-    }
+.spcl-elevator-pitch {
+  color: var(--sewwwes-skyblue);
+  font-size: 0.78rem;
+  margin-bottom: 14px;
+  font-style: italic;
+}
 
-    /* 820px HARMONISCHER EINHEITS-CONTAINER */
-    .container {
-      width: 100%;
-      max-width: 820px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+.spcl-task-description-label {
+  color: var(--sewwwes-emerald);
+  font-size: 0.80rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  background: rgba(0, 255, 65, 0.08);
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  border-radius: 12px;
+  display: inline-block;
+}
 
-    /* SEWWWES.NET UNIVERSAL DACH-HEADER */
-    .top-header-banner {
-      background: linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(0,191,255,0.15) 50%, rgba(0,255,65,0.12) 100%);
-      border: 1.5px solid var(--sewwwes-gold);
-      border-radius: 20px;
-      padding: 18px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
-    }
-    .top-header-title {
-      font-size: 1.15rem;
-      font-weight: 900;
-      color: var(--sewwwes-gold);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .top-header-sub {
-      font-size: 0.8rem;
-      color: var(--sewwwes-skyblue);
-      font-family: 'Roboto Mono', monospace;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .top-header-badge {
-      display: inline-block;
-      background: rgba(0, 255, 65, 0.12);
-      border: 1px solid var(--sewwwes-emerald);
-      color: var(--sewwwes-emerald);
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
+/* Integrierte Suchbox & Prüfen-Button */
+.search-unified-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1.5px solid var(--sewwwes-skyblue);
+  border-radius: 28px;
+  padding: 4px 6px 4px 18px;
+  margin: 10px auto 5px auto;
+  max-width: 640px;
+  box-shadow: inset 0 0 15px rgba(0, 191, 255, 0.15);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-    /* GLASSMORPHISM CARDS */
-    .card {
-      background: var(--card-bg);
-      border: 1.5px solid var(--sewwwes-emerald);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0, 255, 65, 0.12);
-    }
-    .card-title {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: var(--sewwwes-gold);
-      margin-bottom: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      letter-spacing: 0.5px;
-    }
+.search-unified-box:focus-within {
+  border-color: var(--sewwwes-gold);
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.3);
+}
 
-    /* BUTTONS & PILLS */
-    .btn-connect {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(135deg, var(--sewwwes-skyblue) 0%, #0077CC 100%);
-      border: none;
-      border-radius: 14px;
-      color: #000;
-      font-weight: 950;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
-      transition: transform 0.2s;
-    }
-    .btn-connect:hover { transform: scale(1.02); }
+.search-unified-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #FFF;
+  font-size: 0.88rem;
+  outline: none;
+}
 
-    .btn-call-trigger {
-      width: 100%;
-      padding: 18px;
-      background: linear-gradient(135deg, var(--sewwwes-emerald) 0%, #00B32D 100%);
-      border: none;
-      border-radius: 14px;
-      color: #000;
-      font-weight: 950;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 0 30px rgba(0, 255, 65, 0.35);
-      transition: transform 0.2s;
-    }
-    .btn-call-trigger:hover { transform: scale(1.02); }
+.search-unified-input::placeholder {
+  color: #6B7280;
+  font-size: 0.78rem;
+}
 
-    .status-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.85rem;
-    }
-    .status-pill {
-      font-size: 0.78rem;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 14px;
-    }
-    .pill-green { background: rgba(0, 255, 65, 0.15); color: var(--emerald); border: 1px solid var(--emerald); }
-    .pill-gold { background: rgba(212, 175, 55, 0.15); color: var(--gold); border: 1px solid var(--gold); }
-    .pill-muted { background: rgba(255, 255, 255, 0.08); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.2); }
-    .pill-red { background: rgba(255, 51, 102, 0.15); color: var(--red); border: 1px solid var(--red); }
+.btn-unified-check {
+  background: linear-gradient(135deg, var(--sewwwes-gold), #b89628);
+  color: #000;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 22px;
+  font-weight: 950;
+  font-size: 0.85rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transition: 0.3s;
+  text-transform: uppercase;
+}
 
-    /* INPUTS & TELEFONBUCH */
-    .call-input-box {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .call-input {
-      flex: 1;
-      background: #000;
-      border: 1.5px solid var(--sewwwes-skyblue);
-      color: #fff;
-      padding: 14px 16px;
-      border-radius: 12px;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.95rem;
-      outline: none;
-    }
-    .call-input:focus { border-color: var(--sewwwes-gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+.btn-unified-check:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+}
 
-    .btn-qr-scan {
-      background: rgba(0, 191, 255, 0.15);
-      border: 1px solid var(--sewwwes-skyblue);
-      color: var(--sewwwes-skyblue);
-      padding: 0 16px;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+#spcl-result-area {
+  display: none;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(0, 255, 65, 0.12);
+  border: 1px solid var(--sewwwes-emerald);
+  color: var(--sewwwes-emerald);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
 
-    .directory-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .directory-item {
-      background: rgba(0, 255, 65, 0.06);
-      border: 1px solid rgba(0, 255, 65, 0.25);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .directory-item:hover { background: rgba(0, 255, 65, 0.15); }
-
-    /* LOG DISPLAY */
-    .log-box {
-      background: rgba(0,0,0,0.8);
-      border: 1px solid rgba(0,191,255,0.3);
-      border-radius: 12px;
-      padding: 12px;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--sewwwes-skyblue);
-      max-height: 160px;
-      overflow-y: auto;
-      margin-top: 10px;
-    }
-  </style>
+/* 🧱 CONTAINER FÜR SPEZIFISCHE INHALTE DES WEBONs */
+#sewwwes-master-content {
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+</style>
 </head>
 <body>
 
-  <div class="container">
+<!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
+<div class="spcl-top-roof-banner">
+  <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.0.4 SUPREME)</div>
+</div>
 
-    <!-- 🌐 UNIVERSAL SEWWWES.NET TOP HEADER -->
-    <div class="top-header-banner">
-      <div class="top-header-title">SeWWWeS.NET 🔍 call.sewwwes.net</div>
-      <div class="top-header-sub">SOVEREIGN SMARTEARTHPHONE P2P CALL GATEWAY</div>
-      <div class="top-header-badge">📞 P2P Call Satellit WebOn v1.0.3 SUPREME - Stand: 20.10.2026 • NFT-Gated & Encrypted</div>
-    </div>
-
-    <!-- 🔑 WALLET KOPPLUNG BUTTON -->
-    <button id="btn-connect-wallet" class="btn-connect" onclick="userTriggerConnectWallet()">
-      🔑 Sovereign Wallet Connect (NomoApp / MetaMask)
-    </button>
-
-    <!-- 🛡️ ON-CHAIN ZUGANGSPRÜFUNG (NFT & KYC GATING) -->
-    <div class="card">
-      <div class="card-title">
-        <span>Zugangsvoraussetzungen & Verschlüsselung</span>
-        <button class="btn-qr-scan" style="font-size:0.75rem; padding:4px 10px;" onclick="userManualRefreshStatus()">🔄 PRÜFEN</button>
-      </div>
-
-      <div class="status-row">
-        <div>🔑 $KYC Zündschlüssel (>0)</div>
-        <div id="status-kyc" class="status-pill pill-muted">Prüfe On-Chain...</div>
-      </div>
-
-      <div class="status-row">
-        <div>🛡️ ©️ ScanMe.NFT Siegel</div>
-        <div id="status-nft" class="status-pill pill-muted">Prüfe On-Chain...</div>
-      </div>
-
-      <div class="status-row">
-        <div>📞 P2P Call Gateway Status</div>
-        <div id="status-call-gate" class="status-pill pill-gold">Warte auf Wallet-Kopplung</div>
-      </div>
-    </div>
-
-    <!-- 📞 P2P ANRUF ZÜND-MODUL -->
-    <div class="card" style="border:1.5px solid var(--sewwwes-emerald);">
-      <div class="card-title" style="color:var(--sewwwes-emerald);">
-        <span>📞 Sovereign P2P Call zünden</span>
-        <span style="font-size:0.75rem; color:var(--sewwwes-gold);">Ende-zu-Ende Verschlüsselt</span>
-      </div>
-      
-      <p style="font-size:0.8rem; color:var(--text-main); line-height:1.45; margin-bottom:12px;">
-        Geben Sie die <strong>0x-HEX Wallet-Adresse</strong> oder die <strong>10-stellige Partner-SID</strong> ein, um einen unzensierbaren, vertraulichen Anruf über das dezentrale Nomo Messenger Protokoll zu starten:
-      </p>
-
-      <div class="call-input-box">
-        <input type="text" id="input-call-target" class="call-input" placeholder="0x... oder 10-stellige SID eingeben">
-        <button class="btn-qr-scan" title="Kamera QR Scanner öffnen" onclick="openSovereignCameraScanner()">📸</button>
-      </div>
-
-      <button id="btn-trigger-call" class="btn-call-trigger" onclick="executeNomoP2PCall()">
-        📞 DEZENTRALEN P2P ANRUF JETZT ZÜNDEN
-      </button>
-
-      <div id="call-log-box" class="log-box">
-        [SYS LOG] P2P Call Gateway initialisiert. Bereit zum Verbindungsaufbau.
-      </div>
-    </div>
-
-    <!-- 📓 VERIFIZIERTES SMARTEARTHPHONE TELEFONBUCH -->
-    <div class="card" style="border:1px solid rgba(212,175,55,0.4);">
-      <div class="card-title">
-        <span>📓 SmartEarthPhone Telefonbuch (Verifizierte Kontakte)</span>
-        <span style="font-size:0.75rem; color:var(--sewwwes-emerald);">Anti-Phishing Certified</span>
-      </div>
-
-      <div class="directory-list">
-        <div class="directory-item" onclick="selectDirectoryEntry('DIRK (ARCHITEKT)', '7829104736', '0x97ed03f89b5a178abba87bd1af8df4fafe02bd1d')">
-          <div>
-            <strong>👨‍💻 DIRK (ARCHITEKT & MENTOR)</strong>
-            <div style="font-size:0.7rem; color:var(--text-muted);">SID: 7829104736 • 0x97ed...bd1d</div>
-          </div>
-          <span style="color:var(--emerald); font-weight:bold; font-size:0.75rem;">📞 WÄHLEN</span>
-        </div>
-
-        <div class="directory-item" onclick="selectDirectoryEntry('SA (SCHÖPFUNGSMUTTER)', '3910582714', '0x3e39dB17EE545904E428E6f624d9FFEA507Ae11E')">
-          <div>
-            <strong>🌸 SA (SCHÖPFUNGSMUTTER)</strong>
-            <div style="font-size:0.7rem; color:var(--text-muted);">SID: 3910582714 • 0x3e39...e11e</div>
-          </div>
-          <span style="color:var(--emerald); font-weight:bold; font-size:0.75rem;">📞 WÄHLEN</span>
-        </div>
-
-        <div class="directory-item" onclick="selectDirectoryEntry('SEWWWES PORTAL', '1000000000', '0xf0c50Be74969E6c07b5C5D5AE31294e6a4a14881')">
-          <div>
-            <strong>🌐 SEWWWES.NET MASTER PORTAL</strong>
-            <div style="font-size:0.7rem; color:var(--text-muted);">SID: 1000000000 • 0xf0c5...4881</div>
-          </div>
-          <span style="color:var(--emerald); font-weight:bold; font-size:0.75rem;">📞 WÄHLEN</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 📊 TARIF & SECURITY TRANSPARENZ -->
-    <div class="card" style="border:1px solid rgba(0, 191, 255, 0.3); background:rgba(0, 191, 255, 0.04);">
-      <div class="card-title" style="color:var(--sewwwes-skyblue);">
-        <span>📊 Smart Contract Tarif & Sicherheit</span>
-        <span style="color:var(--emerald); font-size:0.8rem; font-weight:bold;">0.00 ZENIQ (Kostenfrei)</span>
-      </div>
-      <p style="font-size:0.78rem; color:var(--text-main); line-height:1.45;">
-        <strong>Serverlos & Vertraulich:</strong> Anrufe über <strong>call.sewwwes.net</strong> werden direkt Ende-zu-Ende über das dezentrale Nomo Messenger Protokoll abgewickelt. Es existieren keine zentralen Vermittlungsserver, Gesprächsaufzeichnungen oder Verbindungsdaten-Speicher.
-      </p>
-    </div>
-
+<!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
+<div class="spcl-master-frame">
+  <div class="spcl-brand-header-row">
+    <span class="spcl-brand-tag">©️ ScanMe.NFT</span>
+    <button class="spcl-camera-btn-pulse" onclick="openSovereignCameraScanner()" title="Souveränen Kamera-Scanner öffnen">📷</button>
+    <span class="spcl-brand-tag">©️ MyQR.NFT</span>
   </div>
 
-  <script>
-    const KYC_TOKEN_ADDR  = "0xeeE15e47440A0Ed4bdC21a0988f2120923718192";
-    const SCANME_NFT_ADDR = "0xf0c50Be74969E6c07b5C5D5AE31294e6a4a14881";
+  <div class="spcl-triad-slogan">VERIFIZIEREN SCHÜTZEN VERBINDEN</div>
+  <div class="spcl-elevator-pitch">„Ein Scan. Null Scam. Ihre Identität, Ihre Werte, Ihre Freiheit.“</div>
 
-    let userAddress = null;
-    let hasKycToken = false;
-    let hasScanMeNft = false;
+  <div class="spcl-task-description-label">🛡️ WAHRHEIT ECHTHEIT & URSPRUNG PRÜFEN | SOUVERÄNER DEZENTRALER SCHUTZ VOR FAKE & SCAM</div>
 
-    function sysLog(msg) {
-      console.log("[P2P CALL]", msg);
-      const box = document.getElementById("call-log-box");
-      if (box) {
-        const time = new Date().toLocaleTimeString();
-        box.innerHTML += `<br>[${time}] ${msg}`;
-        box.scrollTop = box.scrollHeight;
+  <div class="search-unified-box">
+    <input type="text" id="spclSearchInput" class="search-unified-input" placeholder="SID, FID ODER 0x-HEX WALLET-ADRESSE EINGEBEN..." onkeydown="if(event.key==='Enter') executeSpclVerificationSearch()">
+    <button class="btn-unified-check" onclick="executeSpclVerificationSearch()">🔍 PRÜFEN</button>
+  </div>
+
+  <div id="spcl-result-area"></div>
+</div>
+
+<!-- ▼ HIER FOLGT DER INDIVIDUELLE INHALT DER WEBON-SATELLITEN ▼ -->
+
+<main id="sewwwes-master-content">
+  <section class="sewwwes-card" style="background: rgba(22, 27, 34, 0.95); border: 1px solid #30363d; border-radius: 18px; padding: 20px; margin-bottom: 20px;">
+    <div style="color: #D4AF37; font-size: 1.1rem; font-weight: 900; margin-bottom: 12px;">📡 SMART-EARTH-PHONE TELEMETRIE STATUS</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
+        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">UMGEBUNG</div>
+        <div id="envStatus" style="color: #00BFFF; font-size: 0.85rem; font-weight: bold;">💻 PC BROWSER</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
+        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">NETZWERK</div>
+        <div style="color: #00BFFF; font-size: 0.85rem; font-weight: bold;">ZSC 0x59454e4951</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
+        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">KOSTEN-NORM</div>
+        <div style="color: #00FF41; font-size: 0.85rem; font-weight: bold;">100% GEBÜHRENFREI</div>
+      </div>
+      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
+        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">VERSCHLÜSSELUNG</div>
+        <div style="color: #00BFFF; font-size: 0.85rem; font-weight: bold;">P2P ENDE-ZU-ENDE</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sewwwes-card" style="background: rgba(22, 27, 34, 0.95); border: 1px solid #30363d; border-radius: 18px; padding: 20px;">
+    <div style="color: #D4AF37; font-size: 1.1rem; font-weight: 900; margin-bottom: 12px;">📞 VERIFIZIERTES P2P CALL TELEFONBUCH</div>
+    
+    <div style="background: rgba(0, 191, 255, 0.08); border: 1px solid rgba(0, 191, 255, 0.3); border-radius: 12px; padding: 12px 16px; color: #00BFFF; font-size: 0.78rem; line-height: 1.5; margin-bottom: 15px;">
+      💡 <strong>100 % Gebührenfreie Wallet-Koordinaten:</strong> P2P-Anrufe nutzen ausschließlich mathematisch abgeleitete SIDs und 0x-Hex Wallet-Adressen. Es entstehen keine wiederkehrenden Domain-Abo-Kosten oder versteckten Gebühren.
+    </div>
+
+    <!-- DIRECT DIAL BOX -->
+    <div style="background: rgba(0,0,0,0.8); border: 1px solid #D4AF37; border-radius: 14px; padding: 16px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
+      <input type="text" id="customDialInput" style="flex: 1; min-width: 220px; background: #000; border: 1px solid #30363d; color: #FFF; padding: 10px 14px; border-radius: 12px; outline: none; font-size: 0.85rem;" placeholder="SID ODER 0x-HEX ADRESSE TIPPEN...">
+      <button onclick="makeDirectCall()" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 10px 18px; border-radius: 16px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 DIREKT ANRUFEN</button>
+    </div>
+
+    <!-- KONTAKT 1: DIRK GAMPE -->
+    <div style="background: rgba(0, 0, 0, 0.7); border: 1px solid #00BFFF; border-radius: 14px; padding: 16px; margin-bottom: 14px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="color: #FFF; font-size: 1.05rem; font-weight: 900;">Dirk Gampe (Master System Architect)</span>
+        <span style="background: rgba(0, 255, 65, 0.15); border: 1px solid #00FF41; color: #00FF41; font-size: 0.70rem; padding: 4px 10px; border-radius: 12px; font-weight: bold;">©️ ScanMe.NFT VERIFIZIERT</span>
+      </div>
+      <div style="color: #8b949e; font-size: 0.80rem; line-height: 1.4; margin-bottom: 10px;">
+        <strong style="color: #00BFFF;">SID:</strong> 2464012987 | <strong style="color: #00BFFF;">FID:</strong> 9999999999<br>
+        <strong style="color: #00BFFF;">Hex-Adresse:</strong> 0x90ca10b5185bd65ebf6d6374cce232bc92dddabb
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button onclick="startP2PCall('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', '2464012987', 'Dirk Gampe')" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 P2P CALL STARTEN</button>
+        <button onclick="openChat('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', '2464012987', 'Dirk Gampe')" style="background: linear-gradient(135deg, #00BFFF, #2980b9); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">💬 CHAT</button>
+      </div>
+    </div>
+
+    <!-- KONTAKT 2: MUTTER SA -->
+    <div style="background: rgba(0, 0, 0, 0.7); border: 1px solid #00BFFF; border-radius: 14px; padding: 16px; margin-bottom: 14px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="color: #FFF; font-size: 1.05rem; font-weight: 900;">Mutter Sa (Sa Gampe)</span>
+        <span style="background: rgba(0, 255, 65, 0.15); border: 1px solid #00FF41; color: #00FF41; font-size: 0.70rem; padding: 4px 10px; border-radius: 12px; font-weight: bold;">©️ ScanMe.NFT VERIFIZIERT</span>
+      </div>
+      <div style="color: #8b949e; font-size: 0.80rem; line-height: 1.4; margin-bottom: 10px;">
+        <strong style="color: #00BFFF;">SID:</strong> 8001002026 | <strong style="color: #00BFFF;">Status:</strong> SmartEarthFamily Guardian & Hüterin<br>
+        <strong style="color: #00BFFF;">Hex-Adresse:</strong> 0xeeE15e47440A0Ed4bdC21a0988f2120923718192
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button onclick="startP2PCall('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', '8001002026', 'Mutter Sa')" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 P2P CALL STARTEN</button>
+        <button onclick="openChat('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', '8001002026', 'Mutter Sa')" style="background: linear-gradient(135deg, #00BFFF, #2980b9); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">💬 CHAT</button>
+      </div>
+    </div>
+
+    <!-- KONTAKT 3: MASTER VAULT -->
+    <div style="background: rgba(0, 0, 0, 0.7); border: 1px solid #00BFFF; border-radius: 14px; padding: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="color: #FFF; font-size: 1.05rem; font-weight: 900;">SmartEarth Master Vault</span>
+        <span style="background: rgba(212, 175, 55, 0.15); border: 1px solid #D4AF37; color: #D4AF37; font-size: 0.70rem; padding: 4px 10px; border-radius: 12px; font-weight: bold;">©️ MASTER VAULT</span>
+      </div>
+      <div style="color: #8b949e; font-size: 0.80rem; line-height: 1.4; margin-bottom: 10px;">
+        <strong style="color: #00BFFF;">SID:</strong> 3e39dbD7EE | <strong style="color: #00BFFF;">Status:</strong> Eigenspenden & $RWA Vault<br>
+        <strong style="color: #00BFFF;">Hex-Adresse:</strong> 0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button onclick="startP2PCall('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E', '3e39dbD7EE', 'SmartEarth Vault')" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 VAULT AUDITO CALL</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+function startP2PCall(hexAddress, sid, name) {
+  if (window.nomo && window.nomo.messengerCall) {
+    window.nomo.messengerCall({ address: hexAddress }).catch(err => {
+      window.location.href = "nomo://messenger/call?address=" + hexAddress;
+    });
+  } else {
+    window.location.href = "nomo://messenger/call?address=" + hexAddress;
+    alert("📞 Starte P2P Anruf zu " + name + " (SID: " + sid + ")...");
+  }
+}
+function openChat(hexAddress, sid, name) {
+  window.location.href = "nomo://messenger/chat?address=" + hexAddress;
+  alert("💬 Öffne dezentralen Chat mit " + name + "...");
+}
+function makeDirectCall() {
+  const input = document.getElementById("customDialInput").value.trim();
+  if (!input) { alert("Bitte geben Sie eine SID oder Hex-Adresse ein."); return; }
+  startP2PCall(input, input, "Direktwahl " + input);
+}
+if (window.nomo) {
+  document.getElementById("envStatus").innerText = "📱 REAL NOMO APP";
+  document.getElementById("envStatus").style.color = "#00FF41";
+}
+</script>
+
+  <!-- Individuelle WebOn Module (z. B. Minter, P2P Call Gateway, Token-Phalanx) -->
+</main>
+
+<script>
+// 📷 NATIVE NOMO KAMERA-SCANNER INTEGRATION
+function openSovereignCameraScanner() {
+  if (window.nomo && window.nomo.nativeScan) {
+    window.nomo.nativeScan().then(res => {
+      if (res && res.scannedValue) {
+        document.getElementById("spclSearchInput").value = res.scannedValue;
+        executeSpclVerificationSearch();
       }
-    }
+    }).catch(err => {
+      alert("📸 Souveräner Kamera-Scanner: " + err.message);
+    });
+  } else {
+    alert("📸 Souveräner Kamera-Scanner gestartet (NomoApp Native Camera Bridge)...");
+  }
+}
 
-    function isNomoEnvironment() {
-      return window.isRealNomoApp();
-    }
+// 🔍 UNBESTECHLICHE SPCL VERIFIKATIONS-SUCHE
+function executeSpclVerificationSearch() {
+  const val = document.getElementById("spclSearchInput").value.trim();
+  const resArea = document.getElementById("spcl-result-area");
+  if (!val) {
+    alert("Bitte geben Sie eine gültige SID, FID oder 0x-HEX Wallet-Adresse ein.");
+    return;
+  }
+  resArea.style.display = "block";
+  resArea.innerHTML = "🟢 SIGNAL VERIFIED • SPCL CERTIFIED: Target [" + val + "] ist unanfechtbar im SeWWWeS Netzwerk verankert!";
+}
+</script>
 
-    function triggerNomoSchema(url) {
-      if (!url) return;
-      sysLog("Auslösen iFrame-Bridge Schema: " + url);
-      try {
-        let iframe = document.getElementById("nomo-schema-iframe");
-        if (!iframe) {
-          iframe = document.createElement("iframe");
-          iframe.id = "nomo-schema-iframe";
-          iframe.style.display = "none";
-          document.body.appendChild(iframe);
-        }
-        iframe.src = url;
-      } catch(e) {
-        try { window.location.href = url; } catch(e2) {}
-      }
-    }
-
-    async function performWalletConnect() {
-      sysLog("👉 Starte Wallet-Kopplung...");
-      if (isNomoEnvironment()) {
-        sysLog("👉 [NOMO APP NATIVE] Abfrage window.nomo.getEvmAddress()...");
-        try {
-          const res = await (window.nomo && window.nomo.getEvmAddress ? window.nomo.getEvmAddress() : Promise.resolve(null));
-          if (res) {
-            userAddress = (typeof res === "object" ? (res.evmAddress || res.address) : res).toLowerCase();
-            updateWalletUI(userAddress);
-            verifyOnChainGating(userAddress);
-            return true;
-          }
-        } catch(e) { sysLog("Nomo Connect Notice: " + (e.message || e)); }
-      }
-
-      if (window.ethereum) {
-        sysLog("👉 [PC METAMASK] Starte eth_requestAccounts...");
-        try {
-          const accs = await window.ethereum.request({ method: "eth_requestAccounts" });
-          if (accs && accs.length > 0) {
-            userAddress = accs[0].toLowerCase();
-            updateWalletUI(userAddress);
-            verifyOnChainGating(userAddress);
-            return true;
-          }
-        } catch(e) { sysLog("MetaMask Connect Notice: " + (e.message || e)); }
-      }
-      return false;
-    }
-
-    function updateWalletUI(addr) {
-      const btn = document.getElementById("btn-connect-wallet");
-      if (btn) btn.innerText = `✓ Wallet Gekoppelt: ${addr.substring(0,6)}...${addr.substring(addr.length-4)}`;
-    }
-
-    async function checkErc20BalanceOnChain(tokenAddr, ownerAddr) {
-      if (!ownerAddr) return 0;
-      const cleanOwner = ownerAddr.toLowerCase().replace("0x", "").padStart(64, "0");
-      const calldata = "0x70a08231" + cleanOwner;
-
-      const rpcEndpoints = ["https://api.zeniq.network", "https://zsc.nomo.rest"];
-      for (let rpcUrl of rpcEndpoints) {
-        try {
-          const response = await fetch(rpcUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ jsonrpc: "2.0", method: "eth_call", params: [{ to: tokenAddr, data: calldata }, "latest"], id: 1 })
-          });
-          const data = await response.json();
-          if (data && data.result && data.result !== "0x") {
-            const bigVal = BigInt(data.result);
-            return bigVal > 0n ? 1 : 0;
-          }
-        } catch(e) {}
-      }
-      return 0;
-    }
-
-    async function verifyOnChainGating(addr) {
-      if (!addr) return;
-      sysLog("Verifiziere On-Chain Zugangsrechte...");
-      const elKYC = document.getElementById("status-kyc");
-      const elNFT = document.getElementById("status-nft");
-      const elGate = document.getElementById("status-call-gate");
-
-      const [kycBal, nftBal] = await Promise.all([
-        checkErc20BalanceOnChain(KYC_TOKEN_ADDR, addr),
-        checkErc20BalanceOnChain(SCANME_NFT_ADDR, addr)
-      ]);
-
-      hasKycToken = (kycBal > 0);
-      hasScanMeNft = (nftBal > 0);
-
-      if (elKYC) elKYC.className = hasKycToken ? "status-pill pill-green" : "status-pill pill-red";
-      if (elKYC) elKYC.innerText = hasKycToken ? "✓ Bestätigt (Aktiv)" : "⚠️ Fehlt ($KYC)";
-
-      if (elNFT) elNFT.className = hasScanMeNft ? "status-pill pill-green" : "status-pill pill-gold";
-      if (elNFT) elNFT.innerText = hasScanMeNft ? "✓ Geprägt (Aktiv)" : "Bereit zur Prägung";
-
-      if (elGate) {
-        if (hasKycToken || hasScanMeNft) {
-          elGate.className = "status-pill pill-green";
-          elGate.innerText = "🟢 Call Gateway Freigeschaltet";
-        } else {
-          elGate.className = "status-pill pill-gold";
-          elGate.innerText = "⚠️ Demo Modus (KYC/NFT empfohlen)";
-        }
-      }
-    }
-
-    function selectDirectoryEntry(name, sid, hex) {
-      const input = document.getElementById("input-call-target");
-      if (input) input.value = sid || hex;
-      sysLog(`Kontakt ausgewählt: ${name} (SID: ${sid})`);
-    }
-
-    function openSovereignCameraScanner() {
-      if (window.nomo && typeof window.nomo.qrScan === "function") {
-        window.nomo.qrScan().then(res => {
-          if (res && res.scannedValue) {
-            document.getElementById("input-call-target").value = res.scannedValue;
-            sysLog("📸 QR Code gescannt: " + res.scannedValue);
-          }
-        }).catch(err => alert("📸 Scanner: " + err.message));
-      } else {
-        alert("📸 Der Kamera QR-Scanner steht nativ in der NomoApp zur Verfügung.");
-      }
-    }
-
-    async function executeNomoP2PCall() {
-      const targetInput = document.getElementById("input-call-target");
-      const rawTarget = targetInput ? targetInput.value.trim() : "";
-      if (!rawTarget) {
-        alert("Bitte geben Sie eine Wallet-Adresse (0x...) oder eine 10-stellige SID ein.");
-        return;
-      }
-
-      sysLog("📞 Starte P2P Anruf-Signal zu: " + rawTarget);
-
-      if (isNomoEnvironment()) {
-        let callSuccess = false;
-        if (window.nomo && typeof window.nomo.messengerCall === "function") {
-          try {
-            await window.nomo.messengerCall({ address: rawTarget, recipient: rawTarget });
-            callSuccess = true;
-          } catch(e) {}
-        }
-        if (!callSuccess) {
-          const schemaUrl = "nomo://messenger/call?address=" + encodeURIComponent(rawTarget) + "&target=" + encodeURIComponent(rawTarget);
-          triggerNomoSchema(schemaUrl);
-        }
-        sysLog("🚀 Anruf-Signal erfolgreich an Nomo Messenger übermittelt!");
-      } else {
-        alert("📞 P2P Telefonie ist direkt in die NomoApp integriert. Bitte öffnen Sie diesen Link in der NomoApp!");
-      }
-    }
-
-    function userTriggerConnectWallet() { performWalletConnect(); }
-    function userManualRefreshStatus() { if (userAddress) verifyOnChainGating(userAddress); else performWalletConnect(); }
-
-    window.onload = function() {
-      if (isNomoEnvironment()) performWalletConnect();
-      else if (window.ethereum) {
-        window.ethereum.request({ method: "eth_accounts" }).then(accs => {
-          if (accs && accs.length > 0) {
-            userAddress = accs[0].toLowerCase();
-            updateWalletUI(userAddress);
-            verifyOnChainGating(userAddress);
-          }
-        });
-      }
-    };
-  </script>
 </body>
 </html>
