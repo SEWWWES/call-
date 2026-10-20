@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.1.0 SUPREME (Kaiserliche Norm v1.3.285)
+  UNIVERSAL STANDARD: v1.1.1 SUPREME (Kaiserliche Norm v1.3.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.0 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.1 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -408,7 +408,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.0 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.1 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -596,7 +596,7 @@ body {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.0 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.1 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -629,7 +629,7 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.0 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.1 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
@@ -817,13 +817,25 @@ function executeSpclVerificationSearch() {
 // INITIALISIERUNGSPRÜFUNG
 window.addEventListener("DOMContentLoaded", () => {
   const envPill = document.getElementById("env-mode-pill");
-  if (window.nomo) {
-    logDiagnostics("🟢 NomoApp Environment erkannt (window.nomo aktiv).");
-    if (envPill) envPill.innerText = "📱 REAL NOMO APP WEBON MODE";
-  } else {
-    logDiagnostics("💻 PC Browser / Standalone Web Mode erkannt.");
-    if (envPill) envPill.innerText = "💻 PC BROWSER MODE";
-  }
+  let attempts = 0;
+  logDiagnostics("🔎 Prüfe NomoApp Native Bridge (Async Polling)...");
+
+  const checkBridge = () => {
+    attempts++;
+    const isNativeBridge = !!(window.nomo || window.NOMOJSChannel || (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.NOMOJSChannel));
+    if (isNativeBridge) {
+      logDiagnostics("🟢 Native NomoApp Brücke erfolgreich erkannt!");
+      if (envPill) envPill.innerText = "📱 REAL NOMO APP WEBON MODE";
+      return true;
+    }
+    if (attempts >= 20) {
+      logDiagnostics("💻 Standalone Browser Mode (Universal Nomo.ID Messenger-Routen aktiv).");
+      if (envPill) envPill.innerText = "💻 BROWSER / NOMO.ID ROUTING MODE";
+      return false;
+    }
+    setTimeout(checkBridge, 150);
+  };
+  checkBridge();
 });
 </script>
 
