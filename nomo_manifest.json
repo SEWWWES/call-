@@ -2,7 +2,7 @@
   "nomo_manifest_version": "1.2.0",
   "webon_id": "net.sewwwes.call",
   "webon_name": "SeWWWeS P2P Call Gateway",
-  "webon_version": "1.4.2",
+  "webon_version": "1.4.3",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
