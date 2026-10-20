@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.1.8 SUPREME (Kaiserliche Norm v1.3.285)
+  UNIVERSAL STANDARD: v1.1.9 SUPREME (Kaiserliche Norm v1.3.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.8 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.9 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -533,13 +533,8 @@ body {
         launchUrl: function(a) {
           var url = (typeof a === "string") ? a : (a ? (a.url || a.href) : "");
           if (!url) return Promise.reject("MISSING_URL");
-          if (window.isRealNomoApp()) {
-            window.location.href = url;
-            return Promise.resolve("DISPATCHED");
-          } else {
-            window.open(url, "_blank");
-            return Promise.resolve("OPENED_IN_BROWSER");
-          }
+          safeExecuteDeepLink(url);
+          return Promise.resolve("DISPATCHED_VIA_IFRAME");
         },
         runsAsWebOn: function() { return window.isRealNomoApp(); },
         getEvmAddress: function() {
@@ -584,7 +579,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.8 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.9 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -779,7 +774,7 @@ body {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.8 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.9 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -812,13 +807,25 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.8 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.9 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
 // 🛡️ 100% CRASH-PROOF IFRAME DEEPLINK DISPATCH (PREVENTS ERR_UNKNOWN_URL_SCHEME GRAY SCREEN)
 function safeExecuteDeepLink(url) {
-  logDiagnostics("ℹ️ No-Navigation Safety Mode: Native Call/Chat initiated.");
+  if (!url) return;
+  logDiagnostics("🔗 Dispatche DeepLink via Safe Iframe Bridge: " + url);
+  try {
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = url;
+    document.body.appendChild(iframe);
+    setTimeout(function() {
+      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+    }, 1200);
+  } catch (e) {
+    logDiagnostics("⚠️ Safe Iframe error: " + (e.message || e));
+  }
 }
 
 // 💬/📞 INTERAKTIVES STATUS MODAL ANZEIGEN
