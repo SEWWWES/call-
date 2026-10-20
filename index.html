@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.1.1 SUPREME (Kaiserliche Norm v1.3.285)
+  UNIVERSAL STANDARD: v1.1.2 SUPREME (Kaiserliche Norm v1.3.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.1 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.2 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -357,6 +357,25 @@ body {
   transform: scale(1.05);
 }
 
+
+.btn-pair {
+  background: linear-gradient(135deg, var(--sewwwes-gold), #b89628);
+  color: #000;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 16px;
+  font-weight: 950;
+  font-size: 0.80rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s;
+}
+.btn-pair:hover {
+  transform: scale(1.05);
+}
+
 .btn-chat {
   background: linear-gradient(135deg, var(--sewwwes-skyblue), #0088cc);
   color: #000;
@@ -408,7 +427,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.1 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.2 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -479,6 +498,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', 'Dirk Gampe')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', 'Dirk Gampe')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing(\'0x90ca10b5185bd65ebf6d6374cce232bc92dddabb\')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -496,6 +516,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', 'Mutter Sa')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', 'Mutter Sa')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing(\'0xeeE15e47440A0Ed4bdC21a0988f2120923718192\')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -513,6 +534,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E', 'SmartEarth Vault')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E', 'SmartEarth Vault')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing(\'0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E\')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -529,6 +551,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x3b22a300000000000000000000000000000022a3', 'Partner #1')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x3b22a300000000000000000000000000000022a3', 'Partner #1')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing(\'0x3b22a300000000000000000000000000000022a3\')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -545,6 +568,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x2B265C000000000000000000000000000000265C', 'Partner #2')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x2B265C000000000000000000000000000000265C', 'Partner #2')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing(\'0x2B265C000000000000000000000000000000265C\')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -561,6 +585,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x2F34d600000000000000000000000000000034d6', 'Partner #3')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x2F34d600000000000000000000000000000034d6', 'Partner #3')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing(\'0x2F34d600000000000000000000000000000034d6\')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -577,6 +602,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x7E707E000000000000000000000000000000707E', 'Partner #4')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x7E707E000000000000000000000000000000707E', 'Partner #4')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing(\'0x7E707E000000000000000000000000000000707E\')">👥 KOPPELN</button>
       </div>
     </div>
   </div>
@@ -596,7 +622,7 @@ body {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.1 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.2 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -629,7 +655,7 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.1 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.2 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
@@ -673,6 +699,13 @@ function showCallStatusModal(partnerName, address, type) {
       <div style="background:rgba(0,0,0,0.8); border:1px solid var(--sewwwes-skyblue); border-radius:12px; padding:10px; font-size:0.75rem; word-break:break-all; margin-bottom:18px; color:var(--sewwwes-emerald);">
         ${address}
       </div>
+      
+      <button onclick="openNomoIdPairing('${address}')" style="background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:12px 20px; border-radius:18px; font-weight:bold; font-size:0.85rem; cursor:pointer; width:100%; margin-bottom:12px; box-shadow:0 0 15px rgba(212,175,55,0.3);">
+        👥 ERST-KONTAKT / NOMO-ID KOPPELN
+      </button>
+      <p style="color:#aaa; font-size:0.75rem; margin-top:4px; margin-bottom:14px; line-height:1.4; text-align:left;">
+        💡 <strong>Erreichbarkeits-Hinweis:</strong> Falls der Anruf stumm bleibt, ist die Gegenstelle noch nicht mit Ihrer Wallet im Messenger gekoppelt. Tippen Sie auf <strong>"ERST-KONTAKT / NOMO-ID KOPPELN"</strong>, um den Kontakt einmalig freizuschalten.
+      </p>
       <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
         <button onclick="navigator.clipboard.writeText('${address}'); alert('📋 Adresse in Zwischenablage kopiert!');" style="background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:10px 18px; border-radius:18px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
           📋 ADRESSE KOPIEREN
@@ -779,6 +812,32 @@ async function initiateP2PChat(targetAddress, targetName) {
     logDiagnostics(`📱 Starte P2P Chat DeepLink via Safe Iframe Bridge: ${deepLinkUrl}`);
     safeExecuteDeepLink(deepLinkUrl);
   }
+}
+
+
+// NOMO-ID ERST-KONTAKT KOPPELUNGS ENGINE
+function openNomoIdPairing(targetAddress) {
+  if (!targetAddress || targetAddress.trim() === "") {
+    alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
+    return;
+  }
+  const cleanAddr = targetAddress.trim();
+  const nomoIdUrl = "https://" + "nomo.id/@" + cleanAddr + ":nomo";
+  logDiagnostics("Öffne Nomo-ID Koppelungs-Route: " + nomoIdUrl);
+
+  try {
+    if (window.nomo && typeof window.nomo.launchUrl === 'function') {
+      logDiagnostics("Rufe window.nomo.launchUrl auf...");
+      window.nomo.launchUrl({ url: nomoIdUrl });
+      logDiagnostics("Nomo-ID Koppelungsseite via Nomo Bridge gestartet.");
+      return;
+    }
+  } catch (e) {
+    logDiagnostics("Exception in Native launchUrl Bridge: " + e.message);
+  }
+
+  // Safe Iframe Fallback
+  safeExecuteDeepLink(nomoIdUrl);
 }
 
 // 📷 NATIVE NOMO KAMERA-SCANNER INTEGRATION
