@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.2.0 SUPREME (Kaiserliche Norm v1.3.285)
+  UNIVERSAL STANDARD: v1.2.1 SUPREME (Kaiserliche Norm v1.3.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.2.0 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.2.1 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -528,9 +528,14 @@ body {
       };
 
       var nomoBridge = {
-        messengerCall: function(a) { var addr = (typeof a === "string") ? a : (a.recipientAddress || a.address || a.recipient || ""); return this.launchUrl({ url: "nomo://messenger/call?address=" + encodeURIComponent(addr) }).catch(function() { return invokeNomoFunction("nomoLaunchUrl", { url: "https://nomo.id/@" + addr + ":nomo" }); }); }).catch(function() { return invokeNomoFunction("nomoCall", a || {}); }); },
-        messengerChat: function(a) { var addr = (typeof a === "string") ? a : (a.recipientAddress || a.address || a.recipient || ""); return this.launchUrl({ url: "nomo://messenger/chat?address=" + encodeURIComponent(addr) }).catch(function() { return invokeNomoFunction("nomoLaunchUrl", { url: "https://nomo.id/@" + addr + ":nomo" }); }); }).catch(function() { return invokeNomoFunction("nomoChat", a || {}); }); },
-        launchUrl: function(a) { return invokeNomoFunction("nomoLaunchUrl", a || {}).catch(function() { return invokeNomoFunction("nomoOpenUrl", a || {}); }); },
+        messengerCall: function(a) { var addr = (typeof a === "string") ? a : (a.recipientAddress || a.address || a.recipient || ""); return this.launchUrl({ url: "nomo://messenger/call?address=" + encodeURIComponent(addr) }).catch(function() { return invokeNomoFunction("nomoLaunchUrl", { url: "https://nomo.id/@" + addr + ":nomo" }); }).catch(function() { return invokeNomoFunction("nomoCall", a || {}); }); },
+        messengerChat: function(a) { var addr = (typeof a === "string") ? a : (a.recipientAddress || a.address || a.recipient || ""); return this.launchUrl({ url: "nomo://messenger/chat?address=" + encodeURIComponent(addr) }).catch(function() { return invokeNomoFunction("nomoLaunchUrl", { url: "https://nomo.id/@" + addr + ":nomo" }); }).catch(function() { return invokeNomoFunction("nomoChat", a || {}); }); },
+        launchUrl: function(a) {
+          var url = (typeof a === "string") ? a : (a ? (a.url || a.href) : "");
+          if (!url) return Promise.reject("MISSING_URL");
+          safeExecuteDeepLink(url);
+          return Promise.resolve("DISPATCHED_VIA_IFRAME");
+        },
         runsAsWebOn: function() { return window.isRealNomoApp(); },
         getEvmAddress: function() {
           if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
@@ -555,6 +560,7 @@ body {
           if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
           return invokeNomoFunction("nomoAddCustomToken", args || {});
         },
+        nativeScan: function() { return this.qrScan(); },
         qrScan: function() {
           if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
           return invokeNomoFunction("nomoQrScan", {});
@@ -573,7 +579,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.2.0 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.2.1 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -642,9 +648,9 @@ body {
         Hex: <span style="font-size:0.72rem; color:var(--sewwwes-skyblue);">0x90ca10b5185bd65ebf6d6374cce232bc92dddabb</span>
       </div>
       <div class="contact-actions">
-        <button class="btn-call" href="nomo://messenger/call?address=0x90ca10b5185bd65ebf6d6374cce232bc92dddabb&recipient=0x90ca10b5185bd65ebf6d6374cce232bc92dddabb" target="_self">📞 CALL</button>
-        <button class="btn-chat" href="nomo://messenger/chat?address=0x90ca10b5185bd65ebf6d6374cce232bc92dddabb&recipient=0x90ca10b5185bd65ebf6d6374cce232bc92dddabb" target="_self">💬 CHAT</button>
-        <button class="btn-pair" onclick="openNomoIdPairing(\'0x90ca10b5185bd65ebf6d6374cce232bc92dddabb\')">👥 KOPPELN</button>
+        <button class="btn-call" onclick="initiateP2PCall('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', 'Dirk Gampe')">📞 CALL</button>
+        <button class="btn-chat" onclick="initiateP2PChat('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', 'Dirk Gampe')">💬 CHAT</button>
+        <button class="btn-pair" onclick="openNomoIdPairing('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -662,7 +668,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', 'Mutter Sa')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', 'Mutter Sa')">💬 CHAT</button>
-        <button class="btn-pair" onclick="openNomoIdPairing(\'0xeeE15e47440A0Ed4bdC21a0988f2120923718192\')">👥 KOPPELN</button>
+        <button class="btn-pair" onclick="openNomoIdPairing('0xeeE15e47440A0Ed4bdC21a0988f2120923718192')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -680,7 +686,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E', 'SmartEarth Vault')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E', 'SmartEarth Vault')">💬 CHAT</button>
-        <button class="btn-pair" onclick="openNomoIdPairing(\'0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E\')">👥 KOPPELN</button>
+        <button class="btn-pair" onclick="openNomoIdPairing('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -697,7 +703,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x3b22a300000000000000000000000000000022a3', 'Partner #1')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x3b22a300000000000000000000000000000022a3', 'Partner #1')">💬 CHAT</button>
-        <button class="btn-pair" onclick="openNomoIdPairing(\'0x3b22a300000000000000000000000000000022a3\')">👥 KOPPELN</button>
+        <button class="btn-pair" onclick="openNomoIdPairing('0x3b22a300000000000000000000000000000022a3')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -714,7 +720,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x2B265C000000000000000000000000000000265C', 'Partner #2')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x2B265C000000000000000000000000000000265C', 'Partner #2')">💬 CHAT</button>
-        <button class="btn-pair" onclick="openNomoIdPairing(\'0x2B265C000000000000000000000000000000265C\')">👥 KOPPELN</button>
+        <button class="btn-pair" onclick="openNomoIdPairing('0x2B265C000000000000000000000000000000265C')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -731,7 +737,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x2F34d600000000000000000000000000000034d6', 'Partner #3')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x2F34d600000000000000000000000000000034d6', 'Partner #3')">💬 CHAT</button>
-        <button class="btn-pair" onclick="openNomoIdPairing(\'0x2F34d600000000000000000000000000000034d6\')">👥 KOPPELN</button>
+        <button class="btn-pair" onclick="openNomoIdPairing('0x2F34d600000000000000000000000000000034d6')">👥 KOPPELN</button>
       </div>
     </div>
 
@@ -748,7 +754,7 @@ body {
       <div class="contact-actions">
         <button class="btn-call" onclick="initiateP2PCall('0x7E707E000000000000000000000000000000707E', 'Partner #4')">📞 CALL</button>
         <button class="btn-chat" onclick="initiateP2PChat('0x7E707E000000000000000000000000000000707E', 'Partner #4')">💬 CHAT</button>
-        <button class="btn-pair" onclick="openNomoIdPairing(\'0x7E707E000000000000000000000000000000707E\')">👥 KOPPELN</button>
+        <button class="btn-pair" onclick="openNomoIdPairing('0x7E707E000000000000000000000000000000707E')">👥 KOPPELN</button>
       </div>
     </div>
   </div>
@@ -768,7 +774,7 @@ body {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.2.0 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.2.1 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -801,13 +807,25 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.2.0 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.2.1 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
 // 🛡️ 100% CRASH-PROOF IFRAME DEEPLINK DISPATCH (PREVENTS ERR_UNKNOWN_URL_SCHEME GRAY SCREEN)
 function safeExecuteDeepLink(url) {
-  logDiagnostics("ℹ️ No-Navigation Safety Mode: Native Call/Chat initiated.");
+  if (!url) return;
+  logDiagnostics("🔗 Dispatche DeepLink via Safe Iframe Bridge: " + url);
+  try {
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = url;
+    document.body.appendChild(iframe);
+    setTimeout(function() {
+      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+    }, 1200);
+  } catch (e) {
+    logDiagnostics("⚠️ Safe Iframe error: " + (e.message || e));
+  }
 }
 
 // 💬/📞 INTERAKTIVES STATUS MODAL ANZEIGEN
@@ -861,7 +879,7 @@ async function initiateP2PCall(targetAddress, targetName) {
     alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
     return;
   }
-  const cleanAddr = targetAddress.trim();
+  const cleanAddr = targetAddress.trim().toLowerCase();
   logDiagnostics(`📞 Initiere P2P Sprachanruf an ${targetName || "Ziel"} [${cleanAddr}]...`);
 
   showCallStatusModal(targetName || cleanAddr, cleanAddr, "call");
@@ -897,7 +915,7 @@ async function initiateP2PChat(targetAddress, targetName) {
     alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
     return;
   }
-  const cleanAddr = targetAddress.trim();
+  const cleanAddr = targetAddress.trim().toLowerCase();
   logDiagnostics(`💬 Öffne P2P Messenger Chat für ${targetName || "Ziel"} [${cleanAddr}]...`);
 
   showCallStatusModal(targetName || cleanAddr, cleanAddr, "chat");
@@ -934,7 +952,7 @@ function openNomoIdPairing(targetAddress) {
     alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
     return;
   }
-  const cleanAddr = targetAddress.trim();
+  const cleanAddr = targetAddress.trim().toLowerCase();
   const nomoIdUrl = "https://" + "nomo.id/@" + cleanAddr + ":nomo";
   logDiagnostics("Öffne Nomo-ID Koppelungs-Route: " + nomoIdUrl);
 
