@@ -2,10 +2,8 @@
   "manifestVersion": "1.2.0",
   "webonId": "net.sewwwes.call",
   "webonName": "Call.SeWWWeS.Net",
-  "webonVersion": "1.4.6",
-  "webonDescription": "SeWWWeS.NET Universal P2P Call & Chat Gateway v1.4.6 SUPREME",
-  "webonIcon": "assets/images/webon-icon-sewwwes-call.png",
-  "webonCard": "assets/images/webon-icon-sewwwes-call.png",
+  "webonVersion": "1.4.7",
+  "webonDescription": "SeWWWeS.NET P2P Call Gateway v1.4.7 SUPREME - Sovereign On-Chain ScanMe.NFT Verification & VIP Guard",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
