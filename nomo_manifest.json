@@ -1,27 +1,17 @@
 {
-  "nomo_manifest_version": "1.2.0",
+  "nomo_manifest_version": "1.1.0",
   "webon_id": "net.sewwwes.call",
-  "webon_name": "SmartEarthPhone P2P Call Gateway",
-  "webon_version": "1.0.6",
-  "webon_description": "call.sewwwes.net - Sovereign SmartEarthPhone P2P Call & Chat Gateway v1.0.6 SUPREME",
-  "webon_icon": "assets/images/smartearthfamily-logo.png",
-  "weboncard": "assets/images/smartearthfamily-logo.png",
-  "webon_card": "assets/images/smartearthfamily-logo.png",
-  "nomo_webon_id": "net.sewwwes.call",
-  "nomo_webon_name": "SmartEarthPhone P2P Call Gateway",
-  "nomo_webon_version": "1.0.6",
-  "nomo_webon_description": "call.sewwwes.net - Sovereign SmartEarthPhone P2P Call & Chat Gateway v1.0.6 SUPREME",
-  "nomo_webon_icon": "assets/images/smartearthfamily-logo.png",
-  "nomo_webon_card": "assets/images/smartearthfamily-logo.png",
-  "min_nomo_version": "0.5.0",
+  "webon_name": "SeWWWeS Call",
+  "webon_version": "1.0.8",
+  "webon_description": "SeWWWeS.NET Universal P2P Call & Chat Gateway v1.0.8 SUPREME - Ende-zu-Ende verschlüsselte P2P Sprach- & Chatverbindung über gebührenfreie Wallet-Koordinaten",
+  "webon_icon": "assets/images/webon-icon-sewwwes-call.png",
+  "webon_card": "assets/images/webon-icon-sewwwes-call.png",
+  "min_nomo_version": "0.4.0",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
-    "nomo.permission.CLIPBOARD",
-    "nomo.permission.DEVICE_INFO",
-    "nomo.permission.SEND_ASSETS",
+    "nomo.permission.GET_EVM_ADDRESS",
     "nomo.permission.SIGN_EVM_TRANSACTION",
-    "nomo.permission.SIGN_EVM_MESSAGE",
-    "nomo.permission.GET_EVM_ADDRESS"
+    "nomo.permission.SEND_ASSETS"
   ]
 }
