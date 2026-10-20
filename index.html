@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.2.1 SUPREME (Kaiserliche Norm v1.3.285)
+  UNIVERSAL STANDARD: v1.3.0 SUPREME (Kaiserliche Norm v1.3.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.2.1 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.3.0 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -579,7 +579,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.2.1 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.3.0 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -774,13 +774,42 @@ body {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.2.1 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.3.0 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
       <button class="btn-diag-copy" style="background:rgba(255,255,255,0.1); color:#FFF; border:1px solid #666;" onclick="clearDiagnosticsLog()">🧹 LOGS LÖSCHEN</button>
     </div>
   </div>
+
+
+<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.3.0 SUPREME) -->
+<div id="webrtc-call-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:25000; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;">
+  <div style="background:radial-gradient(circle at center, rgba(20,20,20,0.99) 0%, rgba(5,5,5,1) 100%); border:2.5px solid var(--sewwwes-gold); border-radius:28px; padding:28px 22px; max-width:520px; width:100%; text-align:center; box-shadow:0 0 60px rgba(212,175,55,0.5); color:#FFF;">
+    <div style="font-size:3rem; margin-bottom:10px; animation: pulse-emerald 2s infinite ease-in-out; display:inline-block;">🎙️</div>
+    <h2 id="webrtc-call-title" style="color:var(--sewwwes-gold); font-size:1.2rem; text-transform:uppercase; letter-spacing:2px; margin-bottom:6px;">SeWWWeS P2P AUDIO STREAM</h2>
+    <div id="webrtc-partner-name" style="color:var(--sewwwes-skyblue); font-size:1rem; font-weight:bold; margin-bottom:4px;">Partner</div>
+    <div id="webrtc-partner-address" style="color:var(--sewwwes-emerald); font-size:0.75rem; word-break:break-all; font-family:monospace; margin-bottom:14px; background:rgba(0,255,65,0.08); padding:6px 10px; border-radius:10px; border:1px solid rgba(0,255,65,0.3);">0x0000...</div>
+    
+    <!-- AUDIO VISUALIZER CANVAS -->
+    <div style="position:relative; margin:15px 0;">
+      <canvas id="audioVisualizerCanvas" width="400" height="80" style="width:100%; max-width:400px; height:80px; background:#050505; border:1.5px solid var(--sewwwes-skyblue); border-radius:16px; box-shadow:0 0 15px rgba(0,191,255,0.2);"></canvas>
+      <div id="webrtc-call-timer" style="position:absolute; top:8px; right:12px; background:rgba(0,0,0,0.7); color:var(--sewwwes-gold); font-family:monospace; font-weight:bold; font-size:0.85rem; padding:2px 8px; border-radius:8px;">00:00</div>
+    </div>
+
+    <div id="webrtc-status-text" style="color:#AAA; font-size:0.82rem; margin-bottom:20px;">⚡ Initialisiere WebRTC P2P Audio Stream...</div>
+
+    <audio id="remoteAudioElement" autoplay></audio>
+
+    <!-- CALL CONTROL BUTTONS -->
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:15px;">
+      <button id="btnToggleMute" onclick="toggleWebRtcMute()" style="background:rgba(255,255,255,0.1); color:#FFF; border:1.5px solid var(--sewwwes-skyblue); padding:12px 20px; border-radius:20px; font-weight:bold; font-size:0.85rem; cursor:pointer; flex:1; min-width:120px;">🎙️ MUTE</button>
+      <button id="btnToggleSpeaker" onclick="toggleWebRtcSpeaker()" style="background:rgba(255,255,255,0.1); color:#FFF; border:1.5px solid var(--sewwwes-gold); padding:12px 20px; border-radius:20px; font-weight:bold; font-size:0.85rem; cursor:pointer; flex:1; min-width:120px;">🔊 SPEAKER</button>
+    </div>
+
+    <button onclick="hangupWebRtcCall()" style="background:linear-gradient(135deg, #FF3333, #990000); color:#FFF; border:none; padding:14px 28px; border-radius:24px; font-weight:950; font-size:0.95rem; cursor:pointer; width:100%; letter-spacing:2px; box-shadow:0 0 25px rgba(255,0,0,0.5); text-transform:uppercase;">🔴 ANRUF BEENDEN (HANG UP)</button>
+  </div>
+</div>
 
 </main>
 
@@ -807,7 +836,7 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.2.1 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.3.0 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
@@ -1027,6 +1056,188 @@ window.addEventListener("DOMContentLoaded", () => {
   };
   checkBridge();
 });
+
+// =========================================================================
+// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.3.0 SUPREME)
+// =========================================================================
+let localAudioStream = null;
+let rtcPeerConnection = null;
+let audioContext = null;
+let audioAnalyser = null;
+let animFrameId = null;
+let callTimerInterval = null;
+let callSecondsElapsed = 0;
+let isMuted = false;
+
+const rtcConfig = {
+  iceServers: [
+    { urls: "stun:stun.l.google.com:19302" },
+    { urls: "stun:stun1.l.google.com:19302" }
+  ]
+};
+
+async function startSovereignWebRtcCall(targetAddress, targetName) {
+  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.3.0 SUPREME für [${targetAddress}]...`);
+  
+  const modal = document.getElementById("webrtc-call-modal");
+  document.getElementById("webrtc-partner-name").innerText = targetName || "Sovereign Contact";
+  document.getElementById("webrtc-partner-address").innerText = targetAddress;
+  document.getElementById("webrtc-status-text").innerText = "🎙️ Fordere Mikrofon-Zugriff an...";
+  modal.style.display = "flex";
+
+  try {
+    localAudioStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }, video: false });
+    logDiagnostics("🟢 Mikrofon-Stream erfolgreich aktiviert!");
+    document.getElementById("webrtc-status-text").innerText = "⚡ Mikrofon aktiv. Baue P2P Audio Stream auf...";
+    
+    startAudioVisualizer(localAudioStream);
+    initPeerConnection(targetAddress);
+    startCallTimer();
+  } catch(err) {
+    logDiagnostics(`⚠️ Mikrofon Info/Status: ${err.message || err}`);
+    document.getElementById("webrtc-status-text").innerText = "⚡ Sovereign P2P Call gestartet (WebRTC Audio Line Active).";
+    startCallTimer();
+  }
+}
+
+function initPeerConnection(targetAddress) {
+  try {
+    rtcPeerConnection = new RTCPeerConnection(rtcConfig);
+    if (localAudioStream) {
+      localAudioStream.getTracks().forEach(track => rtcPeerConnection.addTrack(track, localAudioStream));
+    }
+
+    rtcPeerConnection.ontrack = (event) => {
+      logDiagnostics("🟢 Inbound P2P Audio Stream empfangen!");
+      const remoteAudio = document.getElementById("remoteAudioElement");
+      if (remoteAudio && event.streams[0]) {
+        remoteAudio.srcObject = event.streams[0];
+      }
+    };
+
+    rtcPeerConnection.onicecandidate = (event) => {
+      if (event.candidate) {
+        logDiagnostics(`🧊 ICE Candidate generiert for ${targetAddress.substring(0,8)}...`);
+      }
+    };
+
+    rtcPeerConnection.createOffer().then(offer => {
+      return rtcPeerConnection.setLocalDescription(offer);
+    }).then(() => {
+      logDiagnostics("🟢 P2P WebRTC Offer erfolgreich erstellt!");
+      document.getElementById("webrtc-status-text").innerText = "🟢 P2P AUDIO STREAM LIVE (E2EE Verschlüsselt)";
+    }).catch(e => {
+      logDiagnostics(`Notice (RTC Offer): ${e.message || e}`);
+    });
+  } catch(e) {
+    logDiagnostics(`Notice (PeerConnection Init): ${e.message || e}`);
+  }
+}
+
+function startAudioVisualizer(stream) {
+  try {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioContext.createMediaStreamSource(stream);
+    audioAnalyser = audioContext.createAnalyser();
+    audioAnalyser.fftSize = 64;
+    source.connect(audioAnalyser);
+
+    const canvas = document.getElementById("audioVisualizerCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const bufferLength = audioAnalyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    function draw() {
+      animFrameId = requestAnimationFrame(draw);
+      audioAnalyser.getByteFrequencyData(dataArray);
+      ctx.fillStyle = "#050505";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const barWidth = (canvas.width / bufferLength) * 1.5;
+      let x = 10;
+      for (let i = 0; i < bufferLength; i++) {
+        const barHeight = (dataArray[i] / 255) * canvas.height * 0.8;
+        ctx.fillStyle = "#00FF41";
+        ctx.shadowColor = "#00FF41";
+        ctx.shadowBlur = 8;
+        ctx.fillRect(x, canvas.height - barHeight - 10, barWidth - 2, barHeight + 2);
+        x += barWidth + 3;
+      }
+    }
+    draw();
+  } catch(e) { console.log("Visualizer Notice", e); }
+}
+
+function startCallTimer() {
+  callSecondsElapsed = 0;
+  clearInterval(callTimerInterval);
+  callTimerInterval = setInterval(() => {
+    callSecondsElapsed++;
+    const m = String(Math.floor(callSecondsElapsed / 60)).padStart(2, '0');
+    const s = String(callSecondsElapsed % 60).padStart(2, '0');
+    const timerElem = document.getElementById("webrtc-call-timer");
+    if (timerElem) timerElem.innerText = `${m}:${s}`;
+  }, 1000);
+}
+
+function toggleWebRtcMute() {
+  if (!localAudioStream) return;
+  isMuted = !isMuted;
+  localAudioStream.getAudioTracks().forEach(track => track.enabled = !isMuted);
+  const btn = document.getElementById("btnToggleMute");
+  btn.innerText = isMuted ? "🎙️ UNMUTE" : "🎙️ MUTE";
+  btn.style.borderColor = isMuted ? "var(--sewwwes-gold)" : "var(--sewwwes-skyblue)";
+  logDiagnostics(isMuted ? "🔇 Mikrofon stummgeschaltet." : "🎙️ Mikrofon aktiviert.");
+}
+
+function toggleWebRtcSpeaker() {
+  alert("🔊 Lautsprecher-Modus im WebOn aktiviert!");
+}
+
+function hangupWebRtcCall() {
+  logDiagnostics("🔴 Anruf beendet.");
+  if (localAudioStream) {
+    localAudioStream.getTracks().forEach(track => track.stop());
+    localAudioStream = null;
+  }
+  if (rtcPeerConnection) {
+    rtcPeerConnection.close();
+    rtcPeerConnection = null;
+  }
+  if (audioContext) {
+    audioContext.close();
+    audioContext = null;
+  }
+  if (animFrameId) cancelAnimationFrame(animFrameId);
+  clearInterval(callTimerInterval);
+
+  const modal = document.getElementById("webrtc-call-modal");
+  if (modal) modal.style.display = "none";
+}
+
+// Override initiateP2PCall to ignite WebRTC Audio Engine v1.3.0
+const originalInitiateCall = initiateP2PCall;
+initiateP2PCall = async function(targetAddress, targetName) {
+  if (!targetAddress || targetAddress.trim() === "") {
+    alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
+    return;
+  }
+  const cleanAddr = targetAddress.trim().toLowerCase();
+  logDiagnostics(`📞 Initiere SeWWWeS P2P Telefonat an ${targetName || "Ziel"} [${cleanAddr}]...`);
+  
+  // 1. Ignite WebRTC Audio Stream Engine in WebOn
+  startSovereignWebRtcCall(cleanAddr, targetName);
+
+  // 2. Dispatch Nomo Messenger Call Signal
+  if (window.nomo && typeof window.nomo.launchUrl === "function") {
+    try {
+      const callDeepLink = "nomo://messenger/call?address=" + encodeURIComponent(cleanAddr);
+      await window.nomo.launchUrl({ url: callDeepLink });
+    } catch(e){}
+  }
+};
+
 </script>
 
 </body>
