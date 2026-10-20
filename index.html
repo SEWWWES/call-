@@ -425,29 +425,29 @@ body {
   <script>
 
 // 🦊 METAMASK & DUAL-ENGINE PROVIDER DETECTION (v1.4.0 SUPREME)
-let currentWeb3Provider = "NOMO";
+let currentWeb3Provider = 'NOMO';
 
 async function detectWeb3Provider() {
   if (window.ethereum) {
-    currentWeb3Provider = "METAMASK";
-    logDiagnostics("🦊 MetaMask / Standard EVM Web3 Browser erkannt!");
+    currentWeb3Provider = 'METAMASK';
+    logDiagnostics('🦊 MetaMask / Standard EVM Web3 Browser erkannt!');
     try {
-      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       if (accounts && accounts.length > 0) {
-        logDiagnostics("🟢 Active MetaMask Account: " + accounts[0]);
+        logDiagnostics('🟢 Active MetaMask Account: ' + accounts[0]);
       }
     } catch(err) {
-      logDiagnostics("⚠️ MetaMask Connect Info: " + (err.message || err));
+      logDiagnostics('⚠️ MetaMask Connect Info: ' + (err.message || err));
     }
   } else if (window.nomo) {
-    currentWeb3Provider = "NOMO";
-    logDiagnostics("🟢 Native NomoApp Brücke aktiv.");
+    currentWeb3Provider = 'NOMO';
+    logDiagnostics('🟢 Native NomoApp Brücke aktiv.');
   } else {
-    currentWeb3Provider = "WEB3_GENERIC";
-    logDiagnostics("💻 Web3 Browser / Standalone PWA Modus.");
+    currentWeb3Provider = 'WEB3_GENERIC';
+    logDiagnostics('💻 Web3 Browser / Standalone PWA Modus.');
   }
 }
-window.addEventListener("DOMContentLoaded", detectWeb3Provider);
+window.addEventListener('DOMContentLoaded', detectWeb3Provider);
 
     (function() {
       "use strict";
@@ -630,6 +630,9 @@ window.addEventListener("DOMContentLoaded", detectWeb3Provider);
 </div>
 
 <!-- ▼ INHALT DES CALL GATEWAYs ▼ -->
+<div style="text-align:center; margin:10px auto;">
+  <button id="btnMetaMaskConnect" onclick="detectWeb3Provider()" style="background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:10px 20px; border-radius:18px; font-weight:900; font-size:0.85rem; cursor:pointer; box-shadow:0 0 15px rgba(212,175,55,0.4);">🦊 WALLET VERBINDEN (METAMASK / WEB3)</button>
+</div>
 <main id="sewwwes-master-content">
 
   <!-- SEKTION 1: TELEMETRIE & MODE STATUS -->
@@ -1193,7 +1196,7 @@ async function startSovereignWebRtcCall(targetAddress, targetName) {
     }
   } catch(err) {
     logDiagnostics(`⚠️ Mikrofon Info/Status: ${err.message || err}`);
-    logDiagnostics(`💡 WICHTIG: P2P Signal gesendet!<br><button onclick="openHttpsPwaCallGateway('${targetAddress}', '${targetName}')" style="margin-top:10px; background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:8px 14px; border-radius:14px; font-weight:900; font-size:0.85rem; cursor:pointer; width:100%; box-shadow:0 0 15px rgba(212,175,55,0.4);">🌐 IN SAFARI / CHROME TELEFONIEREN (HTTPS PWA)</button> Tippen Sie unten auf '🎙️ MIKROFON PER TIPPER FREIGEBEN', um Ihr Mikrofon zu aktivieren.`);
+    logDiagnostics("💡 WICHTIG: P2P Signal gesendet!<br><button onclick="openHttpsPwaCallGateway('${targetAddress}', '${targetName}')" style="margin-top:10px; background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:8px 14px; border-radius:14px; font-weight:900; font-size:0.85rem; cursor:pointer; width:100%; box-shadow:0 0 15px rgba(212,175,55,0.4);">🌐 IN SAFARI / CHROME TELEFONIEREN (HTTPS PWA)</button> Tippen Sie unten auf '🎙️ MIKROFON PER TIPPER FREIGEBEN', um Ihr Mikrofon zu aktivieren.");
     
     const statusBox = document.getElementById("webrtc-status-text");
     if (statusBox) {
@@ -1354,32 +1357,6 @@ async function requestMicPermissionAgain(targetAddress, targetName) {
     }
   } catch(e) {
     alert("⚠️ Mikrofon-Zugriff weiterhin blockiert. Bitte in den Smartphone-Einstellungen der NomoApp aktivieren: " + (e.message || e));
-  }
-}
-
-
-
-async function openHttpsPwaCallGateway(targetAddress, targetName) {
-  const cleanAddr = (targetAddress || '').trim();
-  const cleanName = (targetName || '').trim();
-  logDiagnostics(`🌐 Öffne HTTPS PWA Call Gateway für ${cleanName} [${cleanAddr}] in Safari/Chrome...`);
-  
-  const pwaUrl = "https://" + "sewwwes.net/call/?target=" + encodeURIComponent(cleanAddr) + "&name=" + encodeURIComponent(cleanName);
-  
-  if (window.nomo && typeof window.nomo.launchUrl === "function") {
-    try {
-      await window.nomo.launchUrl({ url: pwaUrl });
-      logDiagnostics("🟢 HTTPS PWA Call Gateway via nomo.launchUrl gestartet!");
-      return;
-    } catch(e) {
-      logDiagnostics(`⚠️ Notice: ${e.message || e}`);
-    }
-  }
-  
-  try {
-    window.open(pwaUrl, "_system") || window.open(pwaUrl, "_blank");
-  } catch(e2) {
-    window.location.href = pwaUrl;
   }
 }
 
