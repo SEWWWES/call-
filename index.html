@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn Call Gateway
-  UNIVERSAL STANDARD: v1.0.8 SUPREME
+  UNIVERSAL STANDARD: v1.0.9 SUPREME
   ========================================================================
 -->
 
-<title>SeWWWeS Call & Chat Gateway v1.0.8 SUPREME</title>
+<title>SeWWWeS Call & Chat Gateway v1.0.9 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -426,7 +426,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.0.8 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.0.9 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -598,7 +598,7 @@ body {
       System-Protokollierung & Fehler-Diagnostik. Sollte eine Verbindung haken, können Sie das Protokoll hier mit einem Klick kopieren und an das Entwicklerteam senden.
     </p>
     <div class="diag-box" id="diagConsoleBox">
-[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.0.8 SUPREME gestartet.
+[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.0.9 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...
     </div>
     <div class="diag-controls">
@@ -637,19 +637,56 @@ function clearDiagnosticsLog() {
   }
 }
 
-// SAFE DEEPLINK TRIGGER VIA ANCHOR CLICK (CRASH-PROTECTED AGAINST ERR_UNKNOWN_URL_SCHEME)
-function triggerAnchorDeepLink(url) {
-  try {
-    logDiagnostics(`🔗 Aktiviere Nomo DeepLink Bridge: ${url}`);
-    let hiddenAnchor = document.getElementById("nomo-deeplink-anchor");
-    if (!hiddenAnchor) {
-      hiddenAnchor = document.createElement("a");
-      hiddenAnchor.id = "nomo-deeplink-anchor";
-      hiddenAnchor.style.display = "none";
-      document.body.appendChild(hiddenAnchor);
+  // 🛡️ 100% CRASH-PROOF IFRAME DEEPLINK DISPATCH (PREVENTS ERR_UNKNOWN_URL_SCHEME GRAY SCREEN)
+  function safeExecuteDeepLink(url) {
+    try {
+      logDiagnostics(`🔗 Dispatche Nomo DeepLink via Iframe-Bridge: ${url}`);
+      let iframe = document.getElementById("nomo-safe-iframe-bridge");
+      if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.id = "nomo-safe-iframe-bridge";
+        iframe.style.display = "none";
+        iframe.style.width = "0px";
+        iframe.style.height = "0px";
+        iframe.style.border = "none";
+        document.body.appendChild(iframe);
+      }
+      iframe.src = url;
+    } catch (err) {
+      logDiagnostics(`⚠️ DeepLink-Iframe Info: ${err.message}`);
     }
-    hiddenAnchor.href = url;
-    hiddenAnchor.click();
+  }
+
+  // 💬/📞 INTERAKTIVES STATUS MODAL ANZEIGEN
+  function showCallStatusModal(partnerName, address, type) {
+    let modal = document.getElementById("p2p-status-modal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "p2p-status-modal";
+      modal.style.cssText = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:20000; display:flex; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;";
+      document.body.appendChild(modal);
+    }
+    const titleText = type === "call" ? "📞 P2P Sprachanruf wird initiiert..." : "💬 P2P Messenger Chat wird geöffnet...";
+    const iconSymbol = type === "call" ? "📞" : "💬";
+    modal.innerHTML = `
+      <div style="background:radial-gradient(circle at center, rgba(20,20,20,0.98) 0%, rgba(5,5,5,0.99) 100%); border:2px solid var(--sewwwes-gold); border-radius:24px; padding:24px; max-width:480px; width:100%; text-align:center; box-shadow:0 0 40px rgba(212,175,55,0.4); color:#FFF; font-family:'Roboto Mono', monospace;">
+        <div style="font-size:2.5rem; margin-bottom:12px;">${iconSymbol}</div>
+        <h3 style="color:var(--sewwwes-gold); margin-bottom:8px; font-size:1.1rem; text-transform:uppercase;">${titleText}</h3>
+        <p style="color:#aaa; font-size:0.85rem; margin-bottom:16px;">Partner: <strong style="color:var(--sewwwes-skyblue);">${partnerName}</strong></p>
+        <div style="background:rgba(0,0,0,0.8); border:1px solid var(--sewwwes-skyblue); border-radius:12px; padding:10px; font-size:0.75rem; word-break:break-all; margin-bottom:18px; color:var(--sewwwes-emerald);">
+          ${address}
+        </div>
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+          <button onclick="navigator.clipboard.writeText('${address}'); alert('📋 Adresse in Zwischenablage kopiert!');" style="background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:10px 18px; border-radius:18px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+            📋 ADRESSE KOPIEREN
+          </button>
+          <button onclick="document.getElementById('p2p-status-modal').style.display='none';" style="background:rgba(255,255,255,0.1); color:#FFF; border:1px solid #666; padding:10px 18px; border-radius:18px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+            SCHLIESSEN
+          </button>
+        </div>
+      </div>
+    `;
+    modal.style.display = "flex";
   } catch (err) {
     logDiagnostics(`❌ DeepLink Fehler: ${err.message}`);
     alert(`P2P DeepLink Execution: ${url}`);
@@ -657,10 +694,46 @@ function triggerAnchorDeepLink(url) {
 }
 
 // 📞 CRASH-SICHERE CALL INITIATION ENGINE
-function initiateP2PCall(targetAddress, targetName) {
-  if (!targetAddress || targetAddress.trim() === "") {
-    alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
-    return;
+  async function initiateP2PCall(targetAddress, targetName) {
+    if (!targetAddress || targetAddress.trim() === "") {
+      alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
+      return;
+    }
+    const cleanAddr = targetAddress.trim();
+    logDiagnostics(`📞 Initiere P2P Sprachanruf an ${targetName || 'Ziel'} [${cleanAddr}]...`);
+
+    let nativeSuccess = false;
+
+    if (window.nomo) {
+      if (typeof window.nomo.messengerCall === 'function') {
+        try {
+          logDiagnostics(`🌐 Rufe window.nomo.messengerCall({ recipientAddress: "${cleanAddr}" })...`);
+          await window.nomo.messengerCall({ recipientAddress: cleanAddr, address: cleanAddr, recipient: cleanAddr });
+          logDiagnostics(`🟢 Native Messenger Call erfolgreich ausgelöst.`);
+          nativeSuccess = true;
+        } catch (e) {
+          logDiagnostics(`⚠️ nomo.messengerCall info: ${e.message || e}`);
+        }
+      }
+      
+      if (!nativeSuccess && typeof window.nomo.call === 'function') {
+        try {
+          logDiagnostics(`🌐 Rufe window.nomo.call auf...`);
+          await window.nomo.call({ address: cleanAddr, recipient: cleanAddr });
+          logDiagnostics(`🟢 Native nomo.call erfolgreich ausgelöst.`);
+          nativeSuccess = true;
+        } catch (e) {
+          logDiagnostics(`⚠️ nomo.call info: ${e.message || e}`);
+        }
+      }
+    }
+
+    if (!nativeSuccess) {
+      const deepLinkUrl = `nomo://messenger/call?address=${encodeURIComponent(cleanAddr)}`;
+      logDiagnostics(`📱 Starte P2P Call DeepLink via Safe-Iframe: ${deepLinkUrl}`);
+      safeExecuteDeepLink(deepLinkUrl);
+    }
+    showCallStatusModal(targetName || cleanAddr, cleanAddr, "call");
   }
   const cleanAddr = targetAddress.trim();
   logDiagnostics(`📞 Initiere P2P Sprachanruf an ${targetName || 'Ziel'} [${cleanAddr}]...`);
@@ -673,7 +746,7 @@ function initiateP2PCall(targetAddress, targetName) {
         })
         .catch(err => {
           logDiagnostics(`⚠️ Native Messenger Call info: ${err.message || err}`);
-          triggerAnchorDeepLink(`nomo://messenger/call?address=${encodeURIComponent(cleanAddr)}`);
+          safeExecuteDeepLink(`nomo://messenger/call?address=${encodeURIComponent(cleanAddr)}`);
         });
       return;
     }
@@ -682,14 +755,50 @@ function initiateP2PCall(targetAddress, targetName) {
   }
 
   // Safe Anchor Fallback
-  triggerAnchorDeepLink(`nomo://messenger/call?address=${encodeURIComponent(cleanAddr)}`);
+  safeExecuteDeepLink(`nomo://messenger/call?address=${encodeURIComponent(cleanAddr)}`);
 }
 
 // 💬 CRASH-SICHERE CHAT INITIATION ENGINE
-function initiateP2PChat(targetAddress, targetName) {
-  if (!targetAddress || targetAddress.trim() === "") {
-    alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
-    return;
+  async function initiateP2PChat(targetAddress, targetName) {
+    if (!targetAddress || targetAddress.trim() === "") {
+      alert("❌ Bitte geben Sie eine gültige Ziel-Adresse oder SID ein.");
+      return;
+    }
+    const cleanAddr = targetAddress.trim();
+    logDiagnostics(`💬 Öffne P2P Messenger Chat für ${targetName || 'Ziel'} [${cleanAddr}]...`);
+
+    let nativeSuccess = false;
+
+    if (window.nomo) {
+      if (typeof window.nomo.messengerChat === 'function') {
+        try {
+          logDiagnostics(`🌐 Rufe window.nomo.messengerChat({ recipientAddress: "${cleanAddr}" })...`);
+          await window.nomo.messengerChat({ recipientAddress: cleanAddr, address: cleanAddr, recipient: cleanAddr });
+          logDiagnostics(`🟢 Native Messenger Chat erfolgreich ausgelöst.`);
+          nativeSuccess = true;
+        } catch (e) {
+          logDiagnostics(`⚠️ nomo.messengerChat info: ${e.message || e}`);
+        }
+      }
+
+      if (!nativeSuccess && typeof window.nomo.chat === 'function') {
+        try {
+          logDiagnostics(`🌐 Rufe window.nomo.chat auf...`);
+          await window.nomo.chat({ address: cleanAddr, recipient: cleanAddr });
+          logDiagnostics(`🟢 Native nomo.chat erfolgreich ausgelöst.`);
+          nativeSuccess = true;
+        } catch (e) {
+          logDiagnostics(`⚠️ nomo.chat info: ${e.message || e}`);
+        }
+      }
+    }
+
+    if (!nativeSuccess) {
+      const deepLinkUrl = `nomo://messenger/chat?address=${encodeURIComponent(cleanAddr)}`;
+      logDiagnostics(`📱 Starte P2P Chat DeepLink via Safe-Iframe: ${deepLinkUrl}`);
+      safeExecuteDeepLink(deepLinkUrl);
+    }
+    showCallStatusModal(targetName || cleanAddr, cleanAddr, "chat");
   }
   const cleanAddr = targetAddress.trim();
   logDiagnostics(`💬 Öffne P2P Messenger Chat für ${targetName || 'Ziel'} [${cleanAddr}]...`);
@@ -702,7 +811,7 @@ function initiateP2PChat(targetAddress, targetName) {
         })
         .catch(err => {
           logDiagnostics(`⚠️ Native Messenger Chat info: ${err.message || err}`);
-          triggerAnchorDeepLink(`nomo://messenger/chat?address=${encodeURIComponent(cleanAddr)}`);
+          safeExecuteDeepLink(`nomo://messenger/chat?address=${encodeURIComponent(cleanAddr)}`);
         });
       return;
     }
@@ -711,7 +820,7 @@ function initiateP2PChat(targetAddress, targetName) {
   }
 
   // Safe Anchor Fallback
-  triggerAnchorDeepLink(`nomo://messenger/chat?address=${encodeURIComponent(cleanAddr)}`);
+  safeExecuteDeepLink(`nomo://messenger/chat?address=${encodeURIComponent(cleanAddr)}`);
 }
 
 // 📷 NATIVE NOMO KAMERA-SCANNER INTEGRATION
