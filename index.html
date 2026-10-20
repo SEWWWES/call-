@@ -1,6 +1,3 @@
-Hier ist das gebrauchsfertige, saubere Template-Code-Paket des SeWWWeS.NET Universal Top-Header Standards (v1.3.285 SUPREME).
-Du kannst diesen Quellcode direkt an die Entwicklerteams für LandingPages, Satelliten und Subdomains weiterleiten. Er enthält alle festen CSS-Styles (820px Zentrierung, Farben, Glanz-Effekte, Kamera-Pulsator) sowie die funktionalen JavaScript-Bridges.
-📄 SeWWWeS_NET_Universal_TopHeader_Template.html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -11,14 +8,11 @@ Du kannst diesen Quellcode direkt an die Entwicklerteams für LandingPages, Sate
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn Header Template
   UNIVERSAL STANDARD: v1.3.285 SUPREME
-  ========================================================================
-  Anleitung für Entwicklerteams:
-  - Bei "WEBON_NAME" und "VERSION_NUMBER" in der Dach-Bar den eigenen Namen eintragen.
-  - Das Design (820px, Farbcodes, Kamera-Pulsator) bleibt strikt unverändert!
+  APPLICATION: SmartEarthPhone P2P Call Gateway v1.0.6 SUPREME
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal Header Standard</title>
+<title>SeWWWeS.NET P2P Call Gateway v1.0.6 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -77,7 +71,7 @@ body {
   font-weight: 600;
 }
 
-/* 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN (Farben & Form aus v1.3.272) */
+/* 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN */
 .spcl-master-frame {
   background: radial-gradient(circle at center, rgba(15,15,15,0.98) 0%, rgba(5,5,5,0.99) 100%);
   border: 2.5px solid var(--sewwwes-gold);
@@ -92,7 +86,6 @@ body {
   margin-bottom: 25px;
 }
 
-/* Symmetrische Marken-Zeile */
 .spcl-brand-header-row {
   display: flex;
   align-items: center;
@@ -112,7 +105,6 @@ body {
   white-space: nowrap;
 }
 
-/* Smaragdgrünes Pulsierendes Kamera-Symbol */
 @keyframes pulse-emerald {
   0% { transform: scale(1); box-shadow: 0 0 10px var(--sewwwes-emerald); }
   50% { transform: scale(1.12); box-shadow: 0 0 25px var(--sewwwes-emerald), 0 0 40px var(--sewwwes-emerald); }
@@ -141,7 +133,6 @@ body {
   background: rgba(0, 255, 65, 0.15);
 }
 
-/* Slogan & Pitch */
 .spcl-triad-slogan {
   color: var(--sewwwes-gold);
   font-weight: 950;
@@ -172,7 +163,6 @@ body {
   display: inline-block;
 }
 
-/* Integrierte Suchbox & Prüfen-Button */
 .search-unified-box {
   position: relative;
   display: flex;
@@ -238,13 +228,153 @@ body {
   font-weight: bold;
 }
 
-/* 🧱 CONTAINER FÜR SPEZIFISCHE INHALTE DES WEBONs */
+/* 🧱 CONTAINER FÜR INHALTE DES WEBONs */
 #sewwwes-master-content {
   width: 100%;
   max-width: 820px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+/* 📞 CALL & CHAT CARDS */
+.call-card {
+  background: rgba(22, 27, 34, 0.95);
+  border: 1px solid var(--sewwwes-gold);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+.call-card-title {
+  color: var(--sewwwes-gold);
+  font-size: 1.10rem;
+  font-weight: 950;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.contact-item {
+  background: rgba(10, 14, 23, 0.9);
+  border: 1px solid #30363d;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  transition: border-color 0.3s;
+}
+
+.contact-item:hover {
+  border-color: var(--sewwwes-skyblue);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-name {
+  color: #FFF;
+  font-weight: 900;
+  font-size: 0.95rem;
+}
+
+.contact-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  margin-left: 6px;
+}
+
+.badge-verified {
+  background: rgba(0, 255, 65, 0.15);
+  border: 1px solid var(--sewwwes-emerald);
+  color: var(--sewwwes-emerald);
+}
+
+.badge-vault {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--sewwwes-gold);
+  color: var(--sewwwes-gold);
+}
+
+.contact-details {
+  color: #8A99AD;
+  font-size: 0.75rem;
+}
+
+.action-btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-action-call {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #000;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s;
+}
+
+.btn-action-call:hover {
+  transform: scale(1.05);
+}
+
+.btn-action-chat {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #FFF;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s;
+}
+
+.btn-action-chat:hover {
+  transform: scale(1.05);
+}
+
+.telemetry-row {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #30363d;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-bottom: 15px;
 }
 </style>
 </head>
@@ -253,7 +383,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.0.5 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.0.6 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -277,124 +407,168 @@ body {
   <div id="spcl-result-area"></div>
 </div>
 
-<!-- ▼ HIER FOLGT DER INDIVIDUELLE INHALT DER WEBON-SATELLITEN ▼ -->
-
+<!-- ▼ INHALT DES P2P CALL & CHAT GATEWAYs ▼ -->
 <main id="sewwwes-master-content">
-  <section class="sewwwes-card" style="background: rgba(22, 27, 34, 0.95); border: 1px solid #30363d; border-radius: 18px; padding: 20px; margin-bottom: 20px;">
-    <div style="color: #D4AF37; font-size: 1.1rem; font-weight: 900; margin-bottom: 12px;">📡 SMART-EARTH-PHONE TELEMETRIE STATUS</div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
-      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
-        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">UMGEBUNG</div>
-        <div id="envStatus" style="color: #00BFFF; font-size: 0.85rem; font-weight: bold;">💻 PC BROWSER</div>
-      </div>
-      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
-        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">NETZWERK</div>
-        <div style="color: #00BFFF; font-size: 0.85rem; font-weight: bold;">ZSC 0x59454e4951</div>
-      </div>
-      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
-        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">KOSTEN-NORM</div>
-        <div style="color: #00FF41; font-size: 0.85rem; font-weight: bold;">100% GEBÜHRENFREI</div>
-      </div>
-      <div style="background: rgba(0,0,0,0.6); border: 1px solid #21262d; border-radius: 10px; padding: 10px; text-align: center;">
-        <div style="color: #8b949e; font-size: 0.70rem; margin-bottom: 4px;">VERSCHLÜSSELUNG</div>
-        <div style="color: #00BFFF; font-size: 0.85rem; font-weight: bold;">P2P ENDE-ZU-ENDE</div>
-      </div>
-    </div>
-  </section>
 
-  <section class="sewwwes-card" style="background: rgba(22, 27, 34, 0.95); border: 1px solid #30363d; border-radius: 18px; padding: 20px;">
-    <div style="color: #D4AF37; font-size: 1.1rem; font-weight: 900; margin-bottom: 12px;">📞 VERIFIZIERTES P2P CALL TELEFONBUCH</div>
-    
-    <div style="background: rgba(0, 191, 255, 0.08); border: 1px solid rgba(0, 191, 255, 0.3); border-radius: 12px; padding: 12px 16px; color: #00BFFF; font-size: 0.78rem; line-height: 1.5; margin-bottom: 15px;">
-      💡 <strong>100 % Gebührenfreie Wallet-Koordinaten:</strong> P2P-Anrufe nutzen ausschließlich mathematisch abgeleitete SIDs und 0x-Hex Wallet-Adressen. Es entstehen keine wiederkehrenden Domain-Abo-Kosten oder versteckten Gebühren.
+  <div class="call-card">
+    <div class="call-card-title">📞 TELEMETRIE & P2P VERBINDUNGS-STATUS</div>
+    <div class="telemetry-row">
+      <span>UMGEBUNG: <strong id="envDisplay" style="color:var(--sewwwes-skyblue);">PRÜFE NOMO APP...</strong></span>
+      <span>NETZWERK: <strong style="color:var(--sewwwes-emerald);">ZSC (0x59454e4951)</strong></span>
+      <span>SCHUTZ: <strong style="color:var(--sewwwes-gold);">P2P ENDE-ZU-ENDE</strong></span>
     </div>
 
-    <!-- DIRECT DIAL BOX -->
-    <div style="background: rgba(0,0,0,0.8); border: 1px solid #D4AF37; border-radius: 14px; padding: 16px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
-      <input type="text" id="customDialInput" style="flex: 1; min-width: 220px; background: #000; border: 1px solid #30363d; color: #FFF; padding: 10px 14px; border-radius: 12px; outline: none; font-size: 0.85rem;" placeholder="SID ODER 0x-HEX ADRESSE TIPPEN...">
-      <button onclick="makeDirectCall()" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 10px 18px; border-radius: 16px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 DIREKT ANRUFEN</button>
-    </div>
+    <div class="call-card-title">📞 & 💬 VERIFIZIERTES P2P CALL & CHAT TELEFONBUCH</div>
+    <p style="color:#aaa; font-size:0.78rem; margin-bottom:15px;">
+      Starten Sie kostenfreie, Ende-zu-Ende verschlüsselte P2P-Anrufe und Direkt-Chats über die mathematisch abgeleiteten Wallet-Koordinaten (SID & Hex-Adresse) – 100% frei von wiederkehrenden Domain-Kosten.
+    </p>
 
-    <!-- KONTAKT 1: DIRK GAMPE -->
-    <div style="background: rgba(0, 0, 0, 0.7); border: 1px solid #00BFFF; border-radius: 14px; padding: 16px; margin-bottom: 14px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <span style="color: #FFF; font-size: 1.05rem; font-weight: 900;">Dirk Gampe (Master System Architect)</span>
-        <span style="background: rgba(0, 255, 65, 0.15); border: 1px solid #00FF41; color: #00FF41; font-size: 0.70rem; padding: 4px 10px; border-radius: 12px; font-weight: bold;">©️ ScanMe.NFT VERIFIZIERT</span>
-      </div>
-      <div style="color: #8b949e; font-size: 0.80rem; line-height: 1.4; margin-bottom: 10px;">
-        <strong style="color: #00BFFF;">SID:</strong> 2464012987 | <strong style="color: #00BFFF;">FID:</strong> 9999999999<br>
-        <strong style="color: #00BFFF;">Hex-Adresse:</strong> 0x90ca10b5185bd65ebf6d6374cce232bc92dddabb
-      </div>
-      <div style="display: flex; gap: 10px;">
-        <button onclick="startP2PCall('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', '2464012987', 'Dirk Gampe')" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 P2P CALL STARTEN</button>
-        <button onclick="openChat('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb', '2464012987', 'Dirk Gampe')" style="background: linear-gradient(135deg, #00BFFF, #2980b9); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">💬 CHAT</button>
-      </div>
-    </div>
+    <div class="contact-grid">
 
-    <!-- KONTAKT 2: MUTTER SA -->
-    <div style="background: rgba(0, 0, 0, 0.7); border: 1px solid #00BFFF; border-radius: 14px; padding: 16px; margin-bottom: 14px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <span style="color: #FFF; font-size: 1.05rem; font-weight: 900;">Mutter Sa (Sa Gampe)</span>
-        <span style="background: rgba(0, 255, 65, 0.15); border: 1px solid #00FF41; color: #00FF41; font-size: 0.70rem; padding: 4px 10px; border-radius: 12px; font-weight: bold;">©️ ScanMe.NFT VERIFIZIERT</span>
+      <!-- Kontakt 1: Dirk Gampe -->
+      <div class="contact-item">
+        <div class="contact-info">
+          <div class="contact-name">
+            Dirk Gampe <span class="contact-badge badge-verified">©️ ScanMe.NFT #5</span>
+          </div>
+          <div class="contact-details">
+            Master System Architect • SID: <strong>2464012987</strong> • FID: 9999999999<br>
+            Hex: <span style="font-family:monospace; color:#ccc;">0x90ca10b5185bd65ebf6d6374cce232bc92dddabb</span>
+          </div>
+        </div>
+        <div class="action-btn-group">
+          <button class="btn-action-call" onclick="startP2pCall('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb')">📞 CALL</button>
+          <button class="btn-action-chat" onclick="startP2pChat('0x90ca10b5185bd65ebf6d6374cce232bc92dddabb')">💬 CHAT</button>
+        </div>
       </div>
-      <div style="color: #8b949e; font-size: 0.80rem; line-height: 1.4; margin-bottom: 10px;">
-        <strong style="color: #00BFFF;">SID:</strong> 8001002026 | <strong style="color: #00BFFF;">Status:</strong> SmartEarthFamily Guardian & Hüterin<br>
-        <strong style="color: #00BFFF;">Hex-Adresse:</strong> 0xeeE15e47440A0Ed4bdC21a0988f2120923718192
-      </div>
-      <div style="display: flex; gap: 10px;">
-        <button onclick="startP2PCall('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', '8001002026', 'Mutter Sa')" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 P2P CALL STARTEN</button>
-        <button onclick="openChat('0xeeE15e47440A0Ed4bdC21a0988f2120923718192', '8001002026', 'Mutter Sa')" style="background: linear-gradient(135deg, #00BFFF, #2980b9); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">💬 CHAT</button>
-      </div>
-    </div>
 
-    <!-- KONTAKT 3: MASTER VAULT -->
-    <div style="background: rgba(0, 0, 0, 0.7); border: 1px solid #00BFFF; border-radius: 14px; padding: 16px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <span style="color: #FFF; font-size: 1.05rem; font-weight: 900;">SmartEarth Master Vault</span>
-        <span style="background: rgba(212, 175, 55, 0.15); border: 1px solid #D4AF37; color: #D4AF37; font-size: 0.70rem; padding: 4px 10px; border-radius: 12px; font-weight: bold;">©️ MASTER VAULT</span>
+      <!-- Kontakt 2: Mutter Sa -->
+      <div class="contact-item">
+        <div class="contact-info">
+          <div class="contact-name">
+            Mutter Sa (Sa Gampe) <span class="contact-badge badge-verified">©️ ScanMe.NFT HÜTERIN</span>
+          </div>
+          <div class="contact-details">
+            SmartEarthFamily Guardian • SID: <strong>8001002026</strong><br>
+            Hex: <span style="font-family:monospace; color:#ccc;">0xeeE15e47440A0Ed4bdC21a0988f2120923718192</span>
+          </div>
+        </div>
+        <div class="action-btn-group">
+          <button class="btn-action-call" onclick="startP2pCall('0xeeE15e47440A0Ed4bdC21a0988f2120923718192')">📞 CALL</button>
+          <button class="btn-action-chat" onclick="startP2pChat('0xeeE15e47440A0Ed4bdC21a0988f2120923718192')">💬 CHAT</button>
+        </div>
       </div>
-      <div style="color: #8b949e; font-size: 0.80rem; line-height: 1.4; margin-bottom: 10px;">
-        <strong style="color: #00BFFF;">SID:</strong> 3e39dbD7EE | <strong style="color: #00BFFF;">Status:</strong> Eigenspenden & $RWA Vault<br>
-        <strong style="color: #00BFFF;">Hex-Adresse:</strong> 0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E
+
+      <!-- Kontakt 3: SmartEarth Master Vault -->
+      <div class="contact-item">
+        <div class="contact-info">
+          <div class="contact-name">
+            SmartEarth Master Vault <span class="contact-badge badge-vault">©️ MASTER VAULT</span>
+          </div>
+          <div class="contact-details">
+            Eigenspenden & RWA Schöpfungsknoten • SID: <strong>3e39dbD7EE</strong><br>
+            Hex: <span style="font-family:monospace; color:#ccc;">0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E</span>
+          </div>
+        </div>
+        <div class="action-btn-group">
+          <button class="btn-action-call" onclick="startP2pCall('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E')">📞 CALL</button>
+          <button class="btn-action-chat" onclick="startP2pChat('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E')">💬 CHAT</button>
+        </div>
       </div>
-      <div style="display: flex; gap: 10px;">
-        <button onclick="startP2PCall('0x3e39dbD7EE545904E428E6f624d9FFEA507Ae11E', '3e39dbD7EE', 'SmartEarth Vault')" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #000; border: none; padding: 8px 16px; border-radius: 14px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">📞 VAULT AUDITO CALL</button>
+
+      <!-- Kontakt 4: Token #1 Inhaber -->
+      <div class="contact-item">
+        <div class="contact-info">
+          <div class="contact-name">
+            Souveräner Partner #1 <span class="contact-badge badge-verified">©️ ScanMe.NFT #1</span>
+          </div>
+          <div class="contact-details">
+            On-Chain Verifiziert • Tx: 0x1a...2797<br>
+            Hex: <span style="font-family:monospace; color:#ccc;">0x3b892a014285d65ebf6d6374cce232bc923b22a3</span>
+          </div>
+        </div>
+        <div class="action-btn-group">
+          <button class="btn-action-call" onclick="startP2pCall('0x3b892a014285d65ebf6d6374cce232bc923b22a3')">📞 CALL</button>
+          <button class="btn-action-chat" onclick="startP2pChat('0x3b892a014285d65ebf6d6374cce232bc923b22a3')">💬 CHAT</button>
+        </div>
       </div>
+
+      <!-- Kontakt 5: Token #2 Inhaber -->
+      <div class="contact-item">
+        <div class="contact-info">
+          <div class="contact-name">
+            Souveräner Partner #2 <span class="contact-badge badge-verified">©️ ScanMe.NFT #2</span>
+          </div>
+          <div class="contact-details">
+            On-Chain Verifiziert • Tx: 0xdf...5848<br>
+            Hex: <span style="font-family:monospace; color:#ccc;">0x2b410982347589237498237489237489202b265c</span>
+          </div>
+        </div>
+        <div class="action-btn-group">
+          <button class="btn-action-call" onclick="startP2pCall('0x2b410982347589237498237489237489202b265c')">📞 CALL</button>
+          <button class="btn-action-chat" onclick="startP2pChat('0x2b410982347589237498237489237489202b265c')">💬 CHAT</button>
+        </div>
+      </div>
+
+      <!-- Kontakt 6: Token #3 Inhaber -->
+      <div class="contact-item">
+        <div class="contact-info">
+          <div class="contact-name">
+            Souveräner Partner #3 <span class="contact-badge badge-verified">©️ ScanMe.NFT #3</span>
+          </div>
+          <div class="contact-details">
+            On-Chain Verifiziert • Tx: 0x55...6092<br>
+            Hex: <span style="font-family:monospace; color:#ccc;">0x2f8912389471289371289371289371282f34d600</span>
+          </div>
+        </div>
+        <div class="action-btn-group">
+          <button class="btn-action-call" onclick="startP2pCall('0x2f8912389471289371289371289371282f34d600')">📞 CALL</button>
+          <button class="btn-action-chat" onclick="startP2pChat('0x2f8912389471289371289371289371282f34d600')">💬 CHAT</button>
+        </div>
+      </div>
+
+      <!-- Kontakt 7: Token #4 Inhaber -->
+      <div class="contact-item">
+        <div class="contact-info">
+          <div class="contact-name">
+            Souveräner Partner #4 <span class="contact-badge badge-verified">©️ ScanMe.NFT #4</span>
+          </div>
+          <div class="contact-details">
+            On-Chain Verifiziert • Tx: 0x8a...a30a<br>
+            Hex: <span style="font-family:monospace; color:#ccc;">0x7e128937128937128937128937128937127e707e</span>
+          </div>
+        </div>
+        <div class="action-btn-group">
+          <button class="btn-action-call" onclick="startP2pCall('0x7e128937128937128937128937128937127e707e')">📞 CALL</button>
+          <button class="btn-action-chat" onclick="startP2pChat('0x7e128937128937128937128937128937127e707e')">💬 CHAT</button>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+
+  <div class="call-card">
+    <div class="call-card-title">⌨️ MANUELLE KOORDINATEN-DIREKTWAHL</div>
+    <div class="search-unified-box" style="margin-top:10px;">
+      <input type="text" id="manualAddressInput" class="search-unified-input" placeholder="0x-HEX WALLET ADRESSE EINGEBEN..." onkeydown="if(event.key==='Enter') executeManualCall()">
+      <button class="btn-unified-check" onclick="executeManualCall()">📞 ANRUFEN</button>
+    </div>
+  </div>
+
 </main>
 
 <script>
-function startP2PCall(hexAddress, sid, name) {
-  if (window.nomo && window.nomo.messengerCall) {
-    window.nomo.messengerCall({ address: hexAddress }).catch(err => {
-      window.location.href = "nomo://messenger/call?address=" + hexAddress;
-    });
+window.addEventListener("DOMContentLoaded", () => {
+  const envDisplay = document.getElementById("envDisplay");
+  if (window.nomo) {
+    envDisplay.innerText = "📱 REAL NOMO APP";
+    envDisplay.style.color = "var(--sewwwes-emerald)";
   } else {
-    window.location.href = "nomo://messenger/call?address=" + hexAddress;
-    alert("📞 Starte P2P Anruf zu " + name + " (SID: " + sid + ")...");
+    envDisplay.innerText = "💻 PC BROWSER / SIMULATOR";
+    envDisplay.style.color = "var(--sewwwes-skyblue)";
   }
-}
-function openChat(hexAddress, sid, name) {
-  window.location.href = "nomo://messenger/chat?address=" + hexAddress;
-  alert("💬 Öffne dezentralen Chat mit " + name + "...");
-}
-function makeDirectCall() {
-  const input = document.getElementById("customDialInput").value.trim();
-  if (!input) { alert("Bitte geben Sie eine SID oder Hex-Adresse ein."); return; }
-  startP2PCall(input, input, "Direktwahl " + input);
-}
-if (window.nomo) {
-  document.getElementById("envStatus").innerText = "📱 REAL NOMO APP";
-  document.getElementById("envStatus").style.color = "#00FF41";
-}
-</script>
+});
 
-  <!-- Individuelle WebOn Module (z. B. Minter, P2P Call Gateway, Token-Phalanx) -->
-</main>
-
-<script>
-// 📷 NATIVE NOMO KAMERA-SCANNER INTEGRATION
 function openSovereignCameraScanner() {
   if (window.nomo && window.nomo.nativeScan) {
     window.nomo.nativeScan().then(res => {
@@ -410,7 +584,6 @@ function openSovereignCameraScanner() {
   }
 }
 
-// 🔍 UNBESTECHLICHE SPCL VERIFIKATIONS-SUCHE
 function executeSpclVerificationSearch() {
   const val = document.getElementById("spclSearchInput").value.trim();
   const resArea = document.getElementById("spcl-result-area");
@@ -420,6 +593,39 @@ function executeSpclVerificationSearch() {
   }
   resArea.style.display = "block";
   resArea.innerHTML = "🟢 SIGNAL VERIFIED • SPCL CERTIFIED: Target [" + val + "] ist unanfechtbar im SeWWWeS Netzwerk verankert!";
+}
+
+function startP2pCall(hexAddress) {
+  if (!hexAddress) return;
+  const callUrl = "nomo://messenger/call?address=" + encodeURIComponent(hexAddress);
+  if (window.nomo && window.nomo.messengerCall) {
+    window.nomo.messengerCall({ address: hexAddress }).catch(err => {
+      window.location.href = callUrl;
+    });
+  } else {
+    window.location.href = callUrl;
+  }
+}
+
+function startP2pChat(hexAddress) {
+  if (!hexAddress) return;
+  const chatUrl = "nomo://messenger/chat?address=" + encodeURIComponent(hexAddress);
+  if (window.nomo && window.nomo.messengerChat) {
+    window.nomo.messengerChat({ address: hexAddress }).catch(err => {
+      window.location.href = chatUrl;
+    });
+  } else {
+    window.location.href = chatUrl;
+  }
+}
+
+function executeManualCall() {
+  const val = document.getElementById("manualAddressInput").value.trim();
+  if (!val) {
+    alert("Bitte geben Sie eine gültige 0x-Hex Wallet-Adresse ein.");
+    return;
+  }
+  startP2pCall(val);
 }
 </script>
 
