@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.1.4 SUPREME (Kaiserliche Norm v1.3.285)
+  UNIVERSAL STANDARD: v1.1.5 SUPREME (Kaiserliche Norm v1.3.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.4 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.1.5 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -420,113 +420,160 @@ body {
   cursor: pointer;
   margin-top: 10px;
 }
-
-  /* 🏛️ HIGH-CONTRAST & CRISP TYPOGRAPHY FOR CONTACT CARDS */
-  .contact-card {
-    background: #0B1120 !important; /* Deep Obsidian Slate */
-    border: 1.5px solid #1E293B !important; /* Crisp Dark Slate Border */
-    border-radius: 18px !important;
-    padding: 18px !important;
-    margin-bottom: 14px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
-  }
-
-  .contact-card:hover {
-    border-color: #00E5FF !important;
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.25) !important;
-  }
-
-  .contact-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 10px !important;
-    border-bottom: 1px solid #1E293B !important;
-    padding-bottom: 10px !important;
-  }
-
-  .contact-name {
-    color: #FFFFFF !important; /* Pure Crisp White */
-    font-size: 1.15rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.3px !important;
-  }
-
-  .contact-badge {
-    background: rgba(16, 185, 129, 0.15) !important;
-    border: 1.5px solid #10B981 !important;
-    color: #34D399 !important; /* Crisp Emerald Green */
-    font-size: 0.72rem !important;
-    padding: 4px 10px !important;
-    border-radius: 12px !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-  }
-
-  .contact-meta {
-    color: #94A3B8 !important; /* Cool Light Slate - High Contrast, Soft on Eyes */
-    font-size: 0.85rem !important;
-    line-height: 1.5 !important;
-    font-weight: 500 !important;
-  }
-
-  .btn-call {
-    background: #059669 !important; /* Solid Emerald Green */
-    color: #FFFFFF !important; /* Pure White Text */
-    border: 1px solid #10B981 !important;
-    padding: 10px 18px !important;
-    border-radius: 14px !important;
-    font-weight: 800 !important;
-    font-size: 0.85rem !important;
-    cursor: pointer !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
-  }
-
-  .btn-chat {
-    background: #0284C7 !important; /* Solid Ocean Blue */
-    color: #FFFFFF !important; /* Pure White Text */
-    border: 1px solid #38BDF8 !important;
-    padding: 10px 18px !important;
-    border-radius: 14px !important;
-    font-weight: 800 !important;
-    font-size: 0.85rem !important;
-    cursor: pointer !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3) !important;
-  }
-
-  .btn-pair {
-    background: #D97706 !important; /* Solid Amber Gold */
-    color: #FFFFFF !important; /* Pure White Text */
-    border: 1px solid #F59E0B !important;
-    padding: 10px 18px !important;
-    border-radius: 14px !important;
-    font-weight: 800 !important;
-    font-size: 0.85rem !important;
-    cursor: pointer !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3) !important;
-  }
-
 </style>
+<!-- 🧱 EMBEDDED NATIVE NOMO WEBON DART BRIDGE (HYBRID RESOLVER v1.0.0 SUPREME) -->
+  <script>
+    (function() {
+      "use strict";
+
+      window.isRealNomoApp = function() {
+        if (typeof window === "undefined") return false;
+        var ua = (navigator && navigator.userAgent) ? navigator.userAgent : "";
+        if (window.ethereum && !/Nomo|WebOn/i.test(ua)) {
+          return false;
+        }
+        if (/Nomo|WebOn/i.test(ua)) return true;
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.NOMOJSChannel) return true;
+        if (window.NOMOJSChannel && typeof window.NOMOJSChannel.postMessage === "function") return true;
+        if (window.chrome && window.chrome.webview && window.chrome.webview.hostObjects && window.chrome.webview.hostObjects.NOMOJSChannel) return true;
+        if (window.nomo && typeof window.nomo.getEvmAddress === "function") return true;
+        return false;
+      };
+
+      function getDartBridge() {
+        if (typeof window === "undefined") return null;
+        if (!window.isRealNomoApp()) return null;
+
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.NOMOJSChannel) {
+          return function(payload) { window.webkit.messageHandlers.NOMOJSChannel.postMessage(payload); };
+        }
+        if (window.NOMOJSChannel && typeof window.NOMOJSChannel.postMessage === "function") {
+          return function(payload) { window.NOMOJSChannel.postMessage(payload); };
+        }
+        if (window.chrome && window.chrome.webview && window.chrome.webview.hostObjects && window.chrome.webview.hostObjects.NOMOJSChannel) {
+          return function(payload) { window.chrome.webview.hostObjects.NOMOJSChannel.postMessage(payload); };
+        }
+        if (window.chrome && window.chrome.webview && typeof window.chrome.webview.postMessage === "function") {
+          return function(payload) { window.chrome.webview.postMessage(payload); };
+        }
+        return null;
+      }
+
+      var invocationCounter = 0;
+      var moduleID = Math.random().toString(36).substring(2, 10);
+      window.nomoResolvePromises = window.nomoResolvePromises || {};
+      window.nomoRejectPromises = window.nomoRejectPromises || {};
+
+      function invokeNomoFunction(functionName, args) {
+        invocationCounter++;
+        var invocationID = invocationCounter.toString() + "_" + functionName + "_" + moduleID;
+        var payload = JSON.stringify({ functionName: functionName, invocationID: invocationID, args: args || {} });
+        return new Promise(function(resolve, reject) {
+          window.nomoResolvePromises[invocationID] = resolve;
+          window.nomoRejectPromises[invocationID] = reject;
+          var bridge = getDartBridge();
+          if (bridge) {
+            try { bridge(payload); } catch (e) { reject(e.message || e); }
+          } else {
+            reject("Not running inside Nomo App.");
+          }
+        });
+      }
+
+      function decodeBase64UTF16(base64EncodedString) {
+        try {
+          var binaryString = atob(base64EncodedString);
+          var bytes = new Uint8Array(binaryString.length);
+          for (var i = 0; i < binaryString.length; i++) { bytes[i] = binaryString.charCodeAt(i); }
+          return new TextDecoder("utf-8").decode(bytes);
+        } catch(e) { return base64EncodedString; }
+      }
+
+      window.fulfillPromiseFromFlutter = function(arg1, arg2, arg3) {
+        try {
+          var invocationID, status, result;
+          if (typeof arg1 === "string" && (!arg2 || typeof arg2 !== "string" || arg1.length > 50)) {
+            var jsonStr = decodeBase64UTF16(arg1);
+            var obj = JSON.parse(jsonStr);
+            invocationID = obj.invocationID;
+            status = obj.status;
+            result = obj.result;
+          } else {
+            invocationID = arg1;
+            result = arg2;
+            status = (arg3 === true || arg3 === "true" || arg3 === "OK" || arg3 === 1) ? "resolve" : "reject";
+          }
+
+          if (!invocationID) return "missing invocationID";
+
+          var fulfillFunction;
+          if (status === "resolve" || status === true) {
+            fulfillFunction = window.nomoResolvePromises[invocationID];
+          } else {
+            fulfillFunction = window.nomoRejectPromises[invocationID];
+          }
+
+          window.nomoResolvePromises[invocationID] = null;
+          window.nomoRejectPromises[invocationID] = null;
+
+          if (fulfillFunction) {
+            if (typeof result === "string" && (result.startsWith("{") || result.startsWith("["))) {
+              try { result = JSON.parse(result); } catch(e){}
+            }
+            fulfillFunction(result);
+            return "OK";
+          }
+        } catch (e) { console.error("fulfillPromiseFromFlutter failed", e); }
+        return "FAIL";
+      };
+
+      var nomoBridge = {
+        messengerCall: function(a) { return invokeNomoFunction("nomoMessengerCall", a || {}).catch(function() { return invokeNomoFunction("nomoCall", a || {}); }); },
+        messengerChat: function(a) { return invokeNomoFunction("nomoMessengerChat", a || {}).catch(function() { return invokeNomoFunction("nomoChat", a || {}); }); },
+        launchUrl: function(a) { return invokeNomoFunction("nomoLaunchUrl", a || {}).catch(function() { return invokeNomoFunction("nomoOpenUrl", a || {}); }); },
+        runsAsWebOn: function() { return window.isRealNomoApp(); },
+        getEvmAddress: function() {
+          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
+          return invokeNomoFunction("nomoGetEvmAddress", {}).then(function(res) {
+            if (typeof res === "object" && res !== null) return res.evmAddress || res.ethAddress || res.address || res;
+            return res;
+          });
+        },
+        sendAssets: function(args) {
+          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
+          return invokeNomoFunction("nomoSendAssets", args || {});
+        },
+        signEvmTransaction: function(args) {
+          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
+          return invokeNomoFunction("nomoSignEvmTransaction", args || {});
+        },
+        signAuthMessage: function(args) {
+          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
+          return invokeNomoFunction("nomoSignAuthMessage", args || {});
+        },
+        addCustomToken: function(args) {
+          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
+          return invokeNomoFunction("nomoAddCustomToken", args || {});
+        },
+        qrScan: function() {
+          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
+          return invokeNomoFunction("nomoQrScan", {});
+        }
+      };
+
+      window.nomo = window.nomo || {};
+      for (var key in nomoBridge) {
+        window.nomo[key] = nomoBridge[key];
+      }
+    })();
+  </script>
 </head>
 <body>
 
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.4 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.1.5 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -721,7 +768,7 @@ body {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.4 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.5 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -754,13 +801,13 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.4 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.1.5 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
 // 🛡️ 100% CRASH-PROOF IFRAME DEEPLINK DISPATCH (PREVENTS ERR_UNKNOWN_URL_SCHEME GRAY SCREEN)
 function safeExecuteDeepLink(url) {
-  logDiagnostics("ℹ️ Safety Mode: Native Call/Chat in progress.");
+  logDiagnostics("ℹ️ No-Navigation Safety Mode: Native Call/Chat initiated.");
 }
 
 // 💬/📞 INTERAKTIVES STATUS MODAL ANZEIGEN
