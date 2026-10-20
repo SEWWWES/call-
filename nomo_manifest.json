@@ -2,17 +2,26 @@
   "nomo_manifest_version": "1.2.0",
   "webon_id": "net.sewwwes.call",
   "webon_name": "SmartEarthPhone P2P Call Gateway",
-  "webon_version": "1.0.3",
-  "webon_description": "call.sewwwes.net - Sovereign SmartEarthPhone P2P Call Gateway & Encrypted Phonebook (ScanMe.NFT Verified) v1.0.3 SUPREME",
+  "webon_version": "1.0.4",
+  "webon_description": "call.sewwwes.net - Sovereign SmartEarthPhone P2P Call Gateway & Encrypted Phonebook v1.0.4 SUPREME",
   "webon_icon": "assets/icon.png",
-  "weboncard": true,
-  "webon_card": true,
+  "weboncard": {
+    "title": "SmartEarthPhone P2P Call",
+    "description": "SmartEarthPhone P2P Call Gateway v1.0.4 SUPREME"
+  },
+  "webon_card": {
+    "title": "SmartEarthPhone P2P Call",
+    "description": "SmartEarthPhone P2P Call Gateway v1.0.4 SUPREME"
+  },
   "nomo_webon_id": "net.sewwwes.call",
   "nomo_webon_name": "SmartEarthPhone P2P Call Gateway",
-  "nomo_webon_version": "1.0.3",
-  "nomo_webon_description": "call.sewwwes.net - Sovereign SmartEarthPhone P2P Call Gateway & Encrypted Phonebook (ScanMe.NFT Verified) v1.0.3 SUPREME",
+  "nomo_webon_version": "1.0.4",
+  "nomo_webon_description": "call.sewwwes.net - Sovereign SmartEarthPhone P2P Call Gateway & Encrypted Phonebook v1.0.4 SUPREME",
   "nomo_webon_icon": "assets/icon.png",
-  "nomo_webon_card": true,
+  "nomo_webon_card": {
+    "title": "SmartEarthPhone P2P Call",
+    "description": "SmartEarthPhone P2P Call Gateway v1.0.4 SUPREME"
+  },
   "min_nomo_version": "0.4.0",
   "dependencies": [],
   "permissions": [
