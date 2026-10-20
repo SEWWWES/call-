@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.3.8 SUPREME (Kaiserliche Norm v1.3.885)
+  UNIVERSAL STANDARD: v1.3.9 SUPREME (Kaiserliche Norm v1.3.985)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.3.8 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.3.9 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -579,7 +579,7 @@ body {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.3.8 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.3.9 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -774,7 +774,7 @@ body {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.3.8 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.3.9 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -783,7 +783,7 @@ body {
   </div>
 
 
-<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.3.8 SUPREME) -->
+<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.3.9 SUPREME) -->
 <div id="webrtc-call-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:25000; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;">
   <div style="background:radial-gradient(circle at center, rgba(20,20,20,0.99) 0%, rgba(5,5,5,1) 100%); border:2.5px solid var(--sewwwes-gold); border-radius:28px; padding:28px 22px; max-width:520px; width:100%; text-align:center; box-shadow:0 0 60px rgba(212,175,55,0.5); color:#FFF;">
     <div style="font-size:3rem; margin-bottom:10px; animation: pulse-emerald 2s infinite ease-in-out; display:inline-block;">🎙️</div>
@@ -836,7 +836,7 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.3.8 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.3.9 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
@@ -1058,7 +1058,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // =========================================================================
-// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.3.8 SUPREME)
+// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.3.9 SUPREME)
 // =========================================================================
 let localAudioStream = null;
 let rtcPeerConnection = null;
@@ -1138,7 +1138,7 @@ function stopCallRingtone() {
 
 
 async function startSovereignWebRtcCall(targetAddress, targetName) {
-  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.3.8 SUPREME für [${targetAddress}]...`);
+  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.3.9 SUPREME für [${targetAddress}]...`);
   
   const modal = document.getElementById("webrtc-call-modal");
   document.getElementById("webrtc-partner-name").innerText = targetName || "Sovereign Contact";
@@ -1167,7 +1167,7 @@ async function startSovereignWebRtcCall(targetAddress, targetName) {
     }
   } catch(err) {
     logDiagnostics(`⚠️ Mikrofon Info/Status: ${err.message || err}`);
-    logDiagnostics("💡 WICHTIG: P2P Signal gesendet!<br><button onclick=\"openHttpsPwaCallGateway(\'${targetAddress}\', \'${targetName}\')\" style=\"margin-top:10px; background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:8px 14px; border-radius:14px; font-weight:900; font-size:0.85rem; cursor:pointer; width:100%; box-shadow:0 0 15px rgba(212,175,55,0.4);\">🌐 IN SAFARI / CHROME TELEFONIEREN (HTTPS PWA)</button> Tippen Sie unten auf '🎙️ MIKROFON PER TIPPER FREIGEBEN', um Ihr Mikrofon zu aktivieren.");
+    logDiagnostics(`💡 WICHTIG: P2P Signal gesendet!<br><button onclick="openHttpsPwaCallGateway('${targetAddress}', '${targetName}')" style="margin-top:10px; background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:8px 14px; border-radius:14px; font-weight:900; font-size:0.85rem; cursor:pointer; width:100%; box-shadow:0 0 15px rgba(212,175,55,0.4);">🌐 IN SAFARI / CHROME TELEFONIEREN (HTTPS PWA)</button> Tippen Sie unten auf '🎙️ MIKROFON PER TIPPER FREIGEBEN', um Ihr Mikrofon zu aktivieren.`);
     
     const statusBox = document.getElementById("webrtc-status-text");
     if (statusBox) {
@@ -1293,7 +1293,7 @@ function hangupWebRtcCall() {
   if (modal) modal.style.display = "none";
 }
 
-// Override initiateP2PCall to ignite WebRTC Audio Engine v1.3.8
+// Override initiateP2PCall to ignite WebRTC Audio Engine v1.3.9
 const originalInitiateCall = initiateP2PCall;
 initiateP2PCall = async function(targetAddress, targetName) {
   if (!targetAddress || targetAddress.trim() === "") {
@@ -1328,6 +1328,33 @@ async function requestMicPermissionAgain(targetAddress, targetName) {
     }
   } catch(e) {
     alert("⚠️ Mikrofon-Zugriff weiterhin blockiert. Bitte in den Smartphone-Einstellungen der NomoApp aktivieren: " + (e.message || e));
+  }
+}
+
+
+
+// 🌐 HTTPS PWA GATEWAY LAUNCHER (SAFARI / CHROME SYSTEM BROWSER)
+async function openHttpsPwaCallGateway(targetAddress, targetName) {
+  const cleanAddr = (targetAddress || '').trim();
+  const cleanName = (targetName || '').trim();
+  logDiagnostics(`🌐 Öffne HTTPS PWA Call Gateway für ${cleanName} [${cleanAddr}] in Safari/Chrome...`);
+  
+  const pwaUrl = "https://" + "sewwwes.net/call/?target=" + encodeURIComponent(cleanAddr) + "&name=" + encodeURIComponent(cleanName);
+  
+  if (window.nomo && typeof window.nomo.launchUrl === "function") {
+    try {
+      await window.nomo.launchUrl({ url: pwaUrl });
+      logDiagnostics("🟢 HTTPS PWA Call Gateway via nomo.launchUrl gestartet!");
+      return;
+    } catch(e) {
+      logDiagnostics(`⚠️ Notice: ${e.message || e}`);
+    }
+  }
+  
+  try {
+    window.open(pwaUrl, "_system") || window.open(pwaUrl, "_blank");
+  } catch(e2) {
+    window.location.href = pwaUrl;
   }
 }
 
