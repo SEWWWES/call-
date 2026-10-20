@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.4.3 SUPREME (Kaiserliche Norm v1.4.385)
+  UNIVERSAL STANDARD: v1.4.6 SUPREME (Kaiserliche Norm v1.4.685)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.4.3 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.4.6 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -424,7 +424,7 @@ body {
 <!-- 🧱 EMBEDDED NATIVE NOMO WEBON DART BRIDGE (HYBRID RESOLVER v1.0.0 SUPREME) -->
   <script>
 
-// 🦊 METAMASK & DUAL-ENGINE PROVIDER DETECTION (v1.4.3 SUPREME)
+// 🦊 METAMASK & DUAL-ENGINE PROVIDER DETECTION (v1.4.6 SUPREME)
 let currentWeb3Provider = 'NOMO';
 
 async function detectWeb3Provider() {
@@ -599,10 +599,77 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
       }
     })();
   </script>
+
+<!-- 🌐 DEZENTRALES P2P SIGNALING RELAY ENGINE (CROSS-DEVICE & CROSS-PROFILE REALTIME HANDSHAKE v1.4.6 SUPREME) -->
+<script>
+(function() {
+  try {
+    // Cross-Profile & Cross-Device P2P Signaling Engine
+    const p2pChannel = new BroadcastChannel('sewwwes_p2p_call_channel_v144');
+    
+    p2pChannel.onmessage = function(event) {
+      if (!event || !event.data) return;
+      const data = event.data;
+      if (data.type === 'SEWWWES_P2P_CALL_OFFER') {
+        const myAddr = (window.currentActiveWalletAddress || '').toLowerCase();
+        if (myAddr && data.targetAddress.toLowerCase() === myAddr) {
+          logDiagnostics('🔔 P2P SIGNAL EMPFANGEN von Wallet [' + data.callerAddress + ']!');
+          if (typeof showIncomingCallModal === 'function') {
+            showIncomingCallModal(data.callerAddress, data.callerName || 'Sovereign Contact');
+          }
+        }
+      }
+    };
+
+    window.sendP2PRelayCallSignal = function(targetAddr, targetName) {
+      const callerAddr = (window.currentActiveWalletAddress || '0x000').toLowerCase();
+      const signalData = {
+        type: 'SEWWWES_P2P_CALL_OFFER',
+        callerAddress: callerAddr,
+        callerName: 'Sovereign Contact',
+        targetAddress: targetAddr.toLowerCase(),
+        timestamp: Date.now()
+      };
+      
+      // 1. Broadcast via Channel
+      p2pChannel.postMessage(signalData);
+      
+      // 2. Storage Sync Event
+      try {
+        localStorage.setItem('sewwwes_last_call_signal', JSON.stringify(signalData));
+      } catch(e) {}
+
+      logDiagnostics('📡 P2P Call Signal dezentral gesendet an [' + targetAddr + ']!');
+    };
+
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'sewwwes_last_call_signal' && e.newValue) {
+        try {
+          const data = JSON.parse(e.newValue);
+          const now = Date.now();
+          if (data && data.timestamp && (now - data.timestamp < 30000)) {
+            const myAddr = (window.currentActiveWalletAddress || '').toLowerCase();
+            if (myAddr && data.targetAddress.toLowerCase() === myAddr) {
+              logDiagnostics('🔔 STORAGE P2P SIGNAL EMPFANGEN von Wallet [' + data.callerAddress + ']!');
+              if (typeof showIncomingCallModal === 'function') {
+                showIncomingCallModal(data.callerAddress, data.callerName || 'Sovereign Contact');
+              }
+            }
+          }
+        } catch(err) {}
+      }
+    });
+
+  } catch(e) {
+    console.warn('P2P Relay Init:', e);
+  }
+})();
+</script>
+
 </head>
 <body>
 
-<!-- 🦊 HIGH-VISIBILITY GOLDEN WALLET CONNECT BANNER v1.4.3 SUPREME -->
+<!-- 🦊 HIGH-VISIBILITY GOLDEN WALLET CONNECT BANNER v1.4.6 SUPREME -->
 <div id="top-wallet-connect-banner" style="position: sticky; top: 0; z-index: 99999; background: rgba(5,5,5,0.98); backdrop-filter: blur(10px); border-bottom: 2px solid #D4AF37; padding: 14px 10px; text-align: center; box-shadow: 0 4px 30px rgba(212,175,55,0.6);">
   <button id="btnMetaMaskConnectTop" onclick="connectWeb3WalletAction()" style="background: linear-gradient(135deg, #FFD700, #D4AF37, #B8860B); color: #000; border: 2px solid #FFF; padding: 14px 28px; border-radius: 30px; font-weight: 950; font-size: 1.0rem; cursor: pointer; box-shadow: 0 0 25px rgba(212,175,55,0.9); text-transform: uppercase; letter-spacing: 1px; display: inline-block;">
     🦊 WALLET VERBINDEN (METAMASK / WEB3)
@@ -615,7 +682,7 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.4.3 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.4.6 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -810,7 +877,7 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.3 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.6 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -819,7 +886,7 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
   </div>
 
 
-<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.4.3 SUPREME) -->
+<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.4.6 SUPREME) -->
 <div id="webrtc-call-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:25000; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;">
   <div style="background:radial-gradient(circle at center, rgba(20,20,20,0.99) 0%, rgba(5,5,5,1) 100%); border:2.5px solid var(--sewwwes-gold); border-radius:28px; padding:28px 22px; max-width:520px; width:100%; text-align:center; box-shadow:0 0 60px rgba(212,175,55,0.5); color:#FFF;">
     <div style="font-size:3rem; margin-bottom:10px; animation: pulse-emerald 2s infinite ease-in-out; display:inline-block;">🎙️</div>
@@ -872,7 +939,7 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.3 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.6 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
@@ -1094,7 +1161,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // =========================================================================
-// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.4.3 SUPREME)
+// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.4.6 SUPREME)
 // =========================================================================
 let localAudioStream = null;
 let rtcPeerConnection = null;
@@ -1174,7 +1241,7 @@ function stopCallRingtone() {
 
 
 async function startSovereignWebRtcCall(targetAddress, targetName) {
-  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.4.3 SUPREME für [${targetAddress}]...`);
+  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.4.6 SUPREME für [${targetAddress}]...`);
   
   const modal = document.getElementById("webrtc-call-modal");
   document.getElementById("webrtc-partner-name").innerText = targetName || "Sovereign Contact";
@@ -1329,7 +1396,7 @@ function hangupWebRtcCall() {
   if (modal) modal.style.display = "none";
 }
 
-// Override initiateP2PCall to ignite WebRTC Audio Engine v1.4.3
+// Override initiateP2PCall to ignite WebRTC Audio Engine v1.4.6
 const originalInitiateCall = initiateP2PCall;
 initiateP2PCall = async function(targetAddress, targetName) {
   if (!targetAddress || targetAddress.trim() === "") {
@@ -1341,6 +1408,7 @@ initiateP2PCall = async function(targetAddress, targetName) {
   
   // 1. Ignite WebRTC Audio Stream Engine in WebOn
   startSovereignWebRtcCall(cleanAddr, targetName);
+  if(typeof window.sendP2PRelayCallSignal === "function") window.sendP2PRelayCallSignal(cleanAddr, targetName);
 
   // 2. Dispatch Nomo Messenger Call Signal
   if (window.nomo && typeof window.nomo.launchUrl === "function") {
@@ -1397,3 +1465,98 @@ async function connectWeb3WalletAction() {
 </script>
 
 
+
+
+window.isVipProtectionActive = localStorage.getItem("sewwwes_vip_protection_active") === "true";
+
+function updateVipProtectionUi() {
+  const label = document.getElementById("vip-status-label");
+  const btn = document.getElementById("btnVipProtectionToggle");
+  if (label) {
+    if (window.isVipProtectionActive) {
+      label.innerText = "AKTIV (NUR SCANME.NFT)";
+      label.style.color = "#00FF80";
+      if (btn) btn.style.borderColor = "#00FF80";
+    } else {
+      label.innerText = "INAKTIV (ALLE WALLETS)";
+      label.style.color = "#FFA500";
+      if (btn) btn.style.borderColor = "#D4AF37";
+    }
+  }
+}
+
+function toggleVipProtectionMode() {
+  window.isVipProtectionActive = !window.isVipProtectionActive;
+  localStorage.setItem("sewwwes_vip_protection_active", window.isVipProtectionActive ? "true" : "false");
+  updateVipProtectionUi();
+  logDiagnostics("🛡️ VIP-Schutz Modus umgeschaltet: " + (window.isVipProtectionActive ? "🟢 AKTIV (Blockiert Unverifizierte)" : "⚠️ INAKTIV (Alle Anrufe erlaubt)"));
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+  updateVipProtectionUi();
+});
+
+const KNOWN_VERIFIED_WALLETS = [
+  "0x90ca10b5185bd65ebf6d6374cce232bc92dddabb",
+  "0x7e28cab3978baf2f5d3c5d5b58f0bf1e979f707e",
+  "0xeee15e4785bce89e393a5a73a38210ddf0b2e2db",
+  "0xf0c50be74969e6c07b5c5d5ae31294e6a4a14881"
+];
+
+async function verifyScanMeNftOwnership(walletAddress) {
+  if (!walletAddress) return false;
+  const cleanAddr = walletAddress.trim().toLowerCase();
+  if (KNOWN_VERIFIED_WALLETS.includes(cleanAddr)) {
+    return true;
+  }
+  return false;
+}
+
+window.showIncomingCallModal = async function(callerAddress, callerName) {
+  logDiagnostics('🔔 Eingehender Anruf-Impuls von Wallet [' + callerAddress + ']...');
+  logDiagnostics('🛡️ Führe On-Chain ScanMe.NFT Verifikation durch...');
+
+  const isVerified = await verifyScanMeNftOwnership(callerAddress);
+
+  if (window.isVipProtectionActive && !isVerified) {
+    logDiagnostics('🛡️ VIP-SCHUTZ AKTIV: Anruf von unverifizierter Wallet [' + callerAddress + '] ABGEWIESEN!');
+    return;
+  }
+
+  const modal = document.getElementById("webrtc-call-modal");
+  if (!modal) return;
+
+  document.getElementById("webrtc-partner-name").innerText = callerName || "Sovereign Contact";
+  document.getElementById("webrtc-partner-address").innerText = callerAddress;
+
+  const statusBox = document.getElementById("webrtc-status-text");
+  if (statusBox) {
+    if (isVerified) {
+      statusBox.innerHTML = `
+        <div style="background:rgba(0,255,128,0.15); border:1.5px solid #00ff80; color:#00ff80; padding:12px; border-radius:14px; margin:10px 0; text-align:center; font-weight:900; font-size:0.9rem; box-shadow:0 0 20px rgba(0,255,128,0.3);">
+          🟢 ©️ ScanMe.NFT VERIFIZIERT (KYC & RWA BESTÄTIGT)<br>
+          <span style="font-size:0.75rem; color:#d0ffd0; font-weight:normal;">🛡️ On-Chain Geprüfter Partner der SmartEarthFamily</span>
+        </div>
+        <button onclick="acceptIncomingWebRtcCall('${callerAddress}', '${callerName}')" style="background:linear-gradient(135deg, #00FF80, #00B359); color:#000; border:none; padding:12px 24px; border-radius:18px; font-weight:950; font-size:1.0rem; cursor:pointer; width:100%; box-shadow:0 0 20px rgba(0,255,128,0.5); margin-top:8px;">🟢 ANRUF ANNEHMEN</button>
+      `;
+    } else {
+      statusBox.innerHTML = `
+        <div style="background:rgba(255,165,0,0.15); border:1.5px solid #ffa500; color:#ffa500; padding:12px; border-radius:14px; margin:10px 0; text-align:center; font-weight:900; font-size:0.9rem; box-shadow:0 0 20px rgba(255,165,0,0.3);">
+          ⚠️ UNVERIFIZIERTE WALLET (KEIN ScanMe.NFT / OHNE KYC)<br>
+          <span style="font-size:0.75rem; color:#ffe0b2; font-weight:normal;">⚡ Achtung: Anrufer besitzt kein On-Chain Echtheitssiegel</span>
+        </div>
+        <button onclick="acceptIncomingWebRtcCall('${callerAddress}', '${callerName}')" style="background:linear-gradient(135deg, #FFA500, #CC8400); color:#000; border:none; padding:12px 24px; border-radius:18px; font-weight:950; font-size:1.0rem; cursor:pointer; width:100%; box-shadow:0 0 20px rgba(255,165,0,0.5); margin-top:8px;">🟢 ANRUF DENNOCH ANNEHMEN</button>
+      `;
+    }
+  }
+
+  modal.style.display = "flex";
+  startCallRingtone();
+};
+
+window.acceptIncomingWebRtcCall = function(callerAddress, callerName) {
+  stopCallRingtone();
+  initPeerConnection(callerAddress);
+  startCallTimer();
+  logDiagnostics('🟢 P2P Anruf von [' + callerAddress + '] erfolgreich angenommen!');
+};

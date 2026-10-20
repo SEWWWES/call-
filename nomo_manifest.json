@@ -1,8 +1,11 @@
 {
-  "nomo_manifest_version": "1.2.0",
-  "webon_id": "net.sewwwes.call",
-  "webon_name": "SeWWWeS P2P Call Gateway",
-  "webon_version": "1.4.3",
+  "manifestVersion": "1.2.0",
+  "webonId": "net.sewwwes.call",
+  "webonName": "Call.SeWWWeS.Net",
+  "webonVersion": "1.4.6",
+  "webonDescription": "SeWWWeS.NET Universal P2P Call & Chat Gateway v1.4.6 SUPREME",
+  "webonIcon": "assets/images/webon-icon-sewwwes-call.png",
+  "webonCard": "assets/images/webon-icon-sewwwes-call.png",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
@@ -10,7 +13,6 @@
     "nomo.permission.SIGN_EVM_TRANSACTION",
     "nomo.permission.SEND_ASSETS",
     "nomo.permission.SIGN_AUTH_MESSAGE",
-    "nomo.permission.CLIPBOARD",
-    "nomo.permission.MEDIA"
+    "nomo.permission.CLIPBOARD"
   ]
 }
