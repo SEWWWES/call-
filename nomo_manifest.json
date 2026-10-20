@@ -1,12 +1,16 @@
 {
-  "manifestVersion": "1.2.0",
+  "nomo_manifest_version": "1.2.0",
   "webon_id": "net.sewwwes.call",
-  "webon_name": "SeWWWeS Call WebOn",
-  "webon_version": "1.4.1",
+  "webon_name": "SeWWWeS P2P Call Gateway",
+  "webon_version": "1.4.2",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
     "nomo.permission.GET_EVM_ADDRESS",
+    "nomo.permission.SIGN_EVM_TRANSACTION",
+    "nomo.permission.SEND_ASSETS",
+    "nomo.permission.SIGN_AUTH_MESSAGE",
+    "nomo.permission.CLIPBOARD",
     "nomo.permission.MEDIA"
   ]
 }

@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.4.0 SUPREME (Kaiserliche Norm v1.4.085)
+  UNIVERSAL STANDARD: v1.4.2 SUPREME (Kaiserliche Norm v1.4.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.4.0 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.4.2 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -424,7 +424,7 @@ body {
 <!-- 🧱 EMBEDDED NATIVE NOMO WEBON DART BRIDGE (HYBRID RESOLVER v1.0.0 SUPREME) -->
   <script>
 
-// 🦊 METAMASK & DUAL-ENGINE PROVIDER DETECTION (v1.4.0 SUPREME)
+// 🦊 METAMASK & DUAL-ENGINE PROVIDER DETECTION (v1.4.2 SUPREME)
 let currentWeb3Provider = 'NOMO';
 
 async function detectWeb3Provider() {
@@ -602,10 +602,20 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
 </head>
 <body>
 
+<!-- 🦊 HIGH-VISIBILITY GOLDEN WALLET CONNECT BANNER v1.4.2 SUPREME -->
+<div id="top-wallet-connect-banner" style="position: sticky; top: 0; z-index: 99999; background: rgba(5,5,5,0.98); backdrop-filter: blur(10px); border-bottom: 2px solid #D4AF37; padding: 14px 10px; text-align: center; box-shadow: 0 4px 30px rgba(212,175,55,0.6);">
+  <button id="btnMetaMaskConnectTop" onclick="connectWeb3WalletAction()" style="background: linear-gradient(135deg, #FFD700, #D4AF37, #B8860B); color: #000; border: 2px solid #FFF; padding: 14px 28px; border-radius: 30px; font-weight: 950; font-size: 1.0rem; cursor: pointer; box-shadow: 0 0 25px rgba(212,175,55,0.9); text-transform: uppercase; letter-spacing: 1px; display: inline-block;">
+    🦊 WALLET VERBINDEN (METAMASK / WEB3)
+  </button>
+  <div id="wallet-connect-status-text" style="color: #4ADE80; font-size: 0.85rem; font-weight: bold; margin-top: 8px;">⚡ Status: Nicht verbunden (Tippen zum Verbinden)</div>
+</div>
+
+
+
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.4.0 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.4.2 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -630,9 +640,6 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
 </div>
 
 <!-- ▼ INHALT DES CALL GATEWAYs ▼ -->
-<div style="text-align:center; margin:10px auto;">
-  <button id="btnMetaMaskConnect" onclick="detectWeb3Provider()" style="background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:10px 20px; border-radius:18px; font-weight:900; font-size:0.85rem; cursor:pointer; box-shadow:0 0 15px rgba(212,175,55,0.4);">🦊 WALLET VERBINDEN (METAMASK / WEB3)</button>
-</div>
 <main id="sewwwes-master-content">
 
   <!-- SEKTION 1: TELEMETRIE & MODE STATUS -->
@@ -803,7 +810,7 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.0 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.2 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -812,7 +819,7 @@ window.addEventListener('DOMContentLoaded', detectWeb3Provider);
   </div>
 
 
-<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.4.0 SUPREME) -->
+<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.4.2 SUPREME) -->
 <div id="webrtc-call-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:25000; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;">
   <div style="background:radial-gradient(circle at center, rgba(20,20,20,0.99) 0%, rgba(5,5,5,1) 100%); border:2.5px solid var(--sewwwes-gold); border-radius:28px; padding:28px 22px; max-width:520px; width:100%; text-align:center; box-shadow:0 0 60px rgba(212,175,55,0.5); color:#FFF;">
     <div style="font-size:3rem; margin-bottom:10px; animation: pulse-emerald 2s infinite ease-in-out; display:inline-block;">🎙️</div>
@@ -865,7 +872,7 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.0 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.4.2 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
@@ -1087,7 +1094,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // =========================================================================
-// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.4.0 SUPREME)
+// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.4.2 SUPREME)
 // =========================================================================
 let localAudioStream = null;
 let rtcPeerConnection = null;
@@ -1167,7 +1174,7 @@ function stopCallRingtone() {
 
 
 async function startSovereignWebRtcCall(targetAddress, targetName) {
-  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.4.0 SUPREME für [${targetAddress}]...`);
+  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.4.2 SUPREME für [${targetAddress}]...`);
   
   const modal = document.getElementById("webrtc-call-modal");
   document.getElementById("webrtc-partner-name").innerText = targetName || "Sovereign Contact";
@@ -1196,7 +1203,7 @@ async function startSovereignWebRtcCall(targetAddress, targetName) {
     }
   } catch(err) {
     logDiagnostics(`⚠️ Mikrofon Info/Status: ${err.message || err}`);
-    logDiagnostics("💡 WICHTIG: P2P Signal gesendet!<br><button onclick="openHttpsPwaCallGateway('${targetAddress}', '${targetName}')" style="margin-top:10px; background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:8px 14px; border-radius:14px; font-weight:900; font-size:0.85rem; cursor:pointer; width:100%; box-shadow:0 0 15px rgba(212,175,55,0.4);">🌐 IN SAFARI / CHROME TELEFONIEREN (HTTPS PWA)</button> Tippen Sie unten auf '🎙️ MIKROFON PER TIPPER FREIGEBEN', um Ihr Mikrofon zu aktivieren.");
+    logDiagnostics("💡 WICHTIG: P2P Signal gesendet!<br><button onclick=\"openHttpsPwaCallGateway('${targetAddress}', '${targetName}')\" style=\"margin-top:10px; background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:8px 14px; border-radius:14px; font-weight:900; font-size:0.85rem; cursor:pointer; width:100%; box-shadow:0 0 15px rgba(212,175,55,0.4);\">🌐 IN SAFARI / CHROME TELEFONIEREN (HTTPS PWA)</button> Tippen Sie unten auf '🎙️ MIKROFON PER TIPPER FREIGEBEN', um Ihr Mikrofon zu aktivieren.");
     
     const statusBox = document.getElementById("webrtc-status-text");
     if (statusBox) {
@@ -1322,7 +1329,7 @@ function hangupWebRtcCall() {
   if (modal) modal.style.display = "none";
 }
 
-// Override initiateP2PCall to ignite WebRTC Audio Engine v1.4.0
+// Override initiateP2PCall to ignite WebRTC Audio Engine v1.4.2
 const originalInitiateCall = initiateP2PCall;
 initiateP2PCall = async function(targetAddress, targetName) {
   if (!targetAddress || targetAddress.trim() === "") {
@@ -1357,6 +1364,33 @@ async function requestMicPermissionAgain(targetAddress, targetName) {
     }
   } catch(e) {
     alert("⚠️ Mikrofon-Zugriff weiterhin blockiert. Bitte in den Smartphone-Einstellungen der NomoApp aktivieren: " + (e.message || e));
+  }
+}
+
+
+
+async function connectWeb3WalletAction() {
+  const statusElem = document.getElementById("wallet-connect-status-text");
+  if (window.ethereum) {
+    try {
+      if (statusElem) statusElem.innerText = "🔄 Verbinde mit MetaMask...";
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      if (accounts && accounts.length > 0) {
+        logDiagnostics('🟢 Active MetaMask Account: ' + accounts[0]);
+        if (statusElem) statusElem.innerText = "🟢 MetaMask Verbunden: " + accounts[0].substring(0,6) + "..." + accounts[0].substring(38);
+        alert("🟢 MetaMask Erfolgreich Verbunden! Wallet: " + accounts[0]);
+      }
+    } catch(err) {
+      logDiagnostics('⚠️ MetaMask Connect Info: ' + (err.message || err));
+      if (statusElem) statusElem.innerText = "⚠️ Verbindung abgebrochen oder gesperrt.";
+      alert("⚠️ MetaMask Verbindung: " + (err.message || err));
+    }
+  } else if (window.nomo) {
+    if (statusElem) statusElem.innerText = "🟢 Native NomoApp Wallet Aktiv";
+    alert("🟢 Native NomoApp Wallet Aktiv!");
+  } else {
+    if (statusElem) statusElem.innerText = "💻 Web3 Browser / HTTPS PWA Modus";
+    alert("💻 Öffnen Sie die Seite im MetaMask Mobile Browser oder mit MetaMask PC-Extension.");
   }
 }
 
