@@ -1,14 +1,17 @@
 {
-  "nomo_manifest_version": "1.1.0",
+  "nomo_manifest_version": "1.0.0",
   "webon_id": "net.sewwwes.call",
-  "webon_name": "SeWWWeS Call",
-  "webon_version": "1.3.7",
-  "webon_description": "SeWWWeS.NET Universal P2P Call & Chat Gateway v1.3.7 SUPREME - WebRTC Audio & Sovereign ScanMe.NFT Gating",
+  "webon_name": "SeWWWeS P2P Call Gateway",
+  "webon_version": "1.3.8",
+  "webon_url": "https://sewwwes.net/call/",
+  "min_nomo_version": "0.4.0",
   "permissions": [
+    "nomo.permission.CAMERA",
+    "nomo.permission.MESSENGER",
+    "nomo.permission.GET_EVM_ADDRESS",
     "nomo.permission.SIGN_EVM_TRANSACTION",
     "nomo.permission.SEND_ASSETS",
-    "nomo.permission.GET_EVM_ADDRESS",
-    "nomo.permission.MEDIA",
-    "nomo.permission.MESSENGER"
+    "nomo.permission.SIGN_AUTH_MESSAGE",
+    "nomo.permission.CLIPBOARD"
   ]
 }
