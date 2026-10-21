@@ -1,19 +1,27 @@
 {
   "nomo_manifest_version": "1.2.0",
+  "manifestVersion": "1.2.0",
+  "webon_id": "net.sewwwes.call",
+  "webonId": "net.sewwwes.call",
   "webOn_id": "net.sewwwes.call",
+  "webon_name": "SeWWWeS Call",
+  "webonName": "SeWWWeS Call",
   "webOn_name": "SeWWWeS Call",
-  "webOn_version": "1.6.6",
-  "webOn_description": "SeWWWeS.NET Sovereign Web3 P2P Call Gateway & Messenger Bridge v1.6.6 SUPREME",
+  "webon_version": "1.6.7",
+  "webonVersion": "1.6.7",
+  "webOn_version": "1.6.7",
+  "webon_description": "SeWWWeS Call Gateway v1.6.7",
+  "webonDescription": "SeWWWeS Call Gateway v1.6.7",
+  "webon_icon": "sewwwes_call_webon_icon.png",
+  "icons": [
+    "sewwwes_call_webon_icon.png"
+  ],
+  "min_nomo_version": "0.5.0",
   "permissions": [
     "MESSENGER",
     "MIC",
     "CAM",
     "CAMERA",
-    "GET_EVM_ADDRESS",
-    "SIGN_EVM_TRANSACTION",
-    "SEND_ASSETS"
-  ],
-  "icons": [
-    "sewwwes_call_webon_icon.png"
+    "CLIPBOARD"
   ]
 }
