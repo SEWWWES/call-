@@ -1,9 +1,16 @@
 {
+  "nomo_manifest_version": "1.1.0",
   "manifestVersion": "1.2.0",
+  "webon_id": "net.sewwwes.call",
   "webonId": "net.sewwwes.call",
+  "webon_name": "Call.SeWWWeS.Net",
   "webonName": "Call.SeWWWeS.Net",
-  "webonVersion": "1.4.7",
-  "webonDescription": "SeWWWeS.NET P2P Call Gateway v1.4.7 SUPREME - Sovereign On-Chain ScanMe.NFT Verification & VIP Guard",
+  "webon_version": "1.5.0",
+  "webonVersion": "1.5.0",
+  "webon_description": "SeWWWeS.NET Universal 4-Rail P2P Call Gateway v1.5.0 SUPREME - Web3 RPC, NomoApp, SIP/PSTN & Nodelink NX1 Mesh",
+  "webon_icon": "assets/images/webon-icon-sewwwes-call.png",
+  "webon_card": "assets/images/webon-icon-sewwwes-call.png",
+  "min_nomo_version": "0.4.0",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
@@ -11,6 +18,13 @@
     "nomo.permission.SIGN_EVM_TRANSACTION",
     "nomo.permission.SEND_ASSETS",
     "nomo.permission.SIGN_AUTH_MESSAGE",
-    "nomo.permission.CLIPBOARD"
+    "nomo.permission.CLIPBOARD",
+    "CAMERA",
+    "MESSENGER",
+    "GET_EVM_ADDRESS",
+    "SIGN_EVM_TRANSACTION",
+    "SEND_ASSETS",
+    "SIGN_AUTH_MESSAGE",
+    "CLIPBOARD"
   ]
 }
