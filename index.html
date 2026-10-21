@@ -7,11 +7,11 @@
 <!-- 
   ========================================================================
   SeWWWeS & SmartEarthWorld Universal WebOn P2P Call & Chat Gateway
-  UNIVERSAL STANDARD: v1.5.0 SUPREME (Kaiserliche Norm v1.5.085)
+  UNIVERSAL STANDARD: v1.5.2 SUPREME (Kaiserliche Norm v1.5.285)
   ========================================================================
 -->
 
-<title>SeWWWeS.NET Universal P2P Call Gateway v1.5.0 SUPREME</title>
+<title>SeWWWeS.NET Universal P2P Call Gateway v1.5.2 SUPREME</title>
 
 <style>
 /* 🎨 UNIVERSALE SEWWWEES.NET FARB- & DESIGN-VARIABLEN */
@@ -422,392 +422,10 @@ body {
 }
 </style>
 
-<!-- 🏛️ SeWWWeS.NET 4-SCHIENEN MULTI-RAIL TELEFONIE PHALANX (Normen-Buch Standard) -->
-<div class="phalanx-container" style="background:rgba(10,12,20,0.95); border:2px solid var(--sewwwes-gold); border-radius:20px; padding:18px; margin:20px auto; box-shadow:0 0 30px rgba(212,175,55,0.3); max-width:900px; text-align:center;">
-  <div style="color:var(--sewwwes-gold); font-size:1.15rem; font-weight:950; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">
-    🏛️ SeWWWeS.NET 4-SCHIENEN MULTI-RAIL TELEFONIE PHALANX
-  </div>
-  <div style="color:var(--sewwwes-skyblue); font-size:0.8rem; font-weight:600; margin-bottom:16px;">
-    📜 Verankert im SeWWWeS.NET Normen-Buch &bull; Freie Routen-Wunschauswahl
-  </div>
-
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
-    <!-- SCHIENE 1 -->
-    <div onclick="selectPhalanxRail(1)" style="background:rgba(0,0,0,0.8); border:1.5px solid var(--sewwwes-gold); border-radius:16px; padding:14px; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(212,175,55,0.2);" onmouseover="this.style.transform='scale(1.03)';" onmouseout="this.style.transform='scale(1)';">
-      <div style="font-size:1.8rem; margin-bottom:4px;">📱</div>
-      <div style="color:var(--sewwwes-gold); font-weight:900; font-size:0.85rem;">SCHIENE 1</div>
-      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:2px 0;">NomoApp WebOn Bridge</div>
-      <div style="color:#00FF80; font-size:0.72rem; font-weight:700;">🟢 Native & DeepLinks</div>
-      <button style="margin-top:8px; background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:4px 10px; border-radius:10px; font-weight:900; font-size:0.7rem; cursor:pointer; width:100%;">ROUTE 1 WÄHLEN</button>
-    </div>
-
-    <!-- SCHIENE 2 -->
-    <div onclick="selectPhalanxRail(2)" style="background:rgba(0,0,0,0.8); border:1.5px solid var(--sewwwes-skyblue); border-radius:16px; padding:14px; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(0,210,255,0.2);" onmouseover="this.style.transform='scale(1.03)';" onmouseout="this.style.transform='scale(1)';">
-      <div style="font-size:1.8rem; margin-bottom:4px;">🦊</div>
-      <div style="color:var(--sewwwes-skyblue); font-weight:900; font-size:0.85rem;">SCHIENE 2</div>
-      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:2px 0;">Web3 RPC P2P & MetaMask</div>
-      <div style="color:#00FF80; font-size:0.72rem; font-weight:700;">🟢 WebRTC / ScanMe.NFT / VIP</div>
-      <button style="margin-top:8px; background:linear-gradient(135deg, var(--sewwwes-skyblue), #0088cc); color:#000; border:none; padding:4px 10px; border-radius:10px; font-weight:900; font-size:0.7rem; cursor:pointer; width:100%;">ROUTE 2 WÄHLEN</button>
-    </div>
-
-    <!-- SCHIENE 3 -->
-    <div onclick="selectPhalanxRail(3)" style="background:rgba(0,0,0,0.8); border:1.5px solid #FF00FF; border-radius:16px; padding:14px; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(255,0,255,0.2);" onmouseover="this.style.transform='scale(1.03)';" onmouseout="this.style.transform='scale(1)';">
-      <div style="font-size:1.8rem; margin-bottom:4px;">☎️</div>
-      <div style="color:#FF00FF; font-weight:900; font-size:0.85rem;">SCHIENE 3</div>
-      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:2px 0;">Mobilfunk & Festnetz</div>
-      <div style="color:#00FF80; font-size:0.72rem; font-weight:700;">🟢 SIP / PSTN Gateway Bridge</div>
-      <button style="margin-top:8px; background:linear-gradient(135deg, #FF00FF, #aa00aa); color:#FFF; border:none; padding:4px 10px; border-radius:10px; font-weight:900; font-size:0.7rem; cursor:pointer; width:100%;">ROUTE 3 WÄHLEN</button>
-    </div>
-
-    <!-- SCHIENE 4 -->
-    <div onclick="selectPhalanxRail(4)" style="background:rgba(0,0,0,0.8); border:1.5px solid #00FF80; border-radius:16px; padding:14px; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(0,255,128,0.2);" onmouseover="this.style.transform='scale(1.03)';" onmouseout="this.style.transform='scale(1)';">
-      <div style="font-size:1.8rem; margin-bottom:4px;">📡</div>
-      <div style="color:#00FF80; font-weight:900; font-size:0.85rem;">SCHIENE 4</div>
-      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:2px 0;">Hardware Mesh Network</div>
-      <div style="color:#00FF80; font-size:0.72rem; font-weight:700;">🟢 Nodelink NX1 / DigaMbase</div>
-      <button style="margin-top:8px; background:linear-gradient(135deg, #00FF80, #00aa55); color:#000; border:none; padding:4px 10px; border-radius:10px; font-weight:900; font-size:0.7rem; cursor:pointer; width:100%;">ROUTE 4 WÄHLEN</button>
-    </div>
-  </div>
-</div>
-
-<!-- 📜 NORM-IDENTITÄTS-PANEL (KYC & ScanMe.NFT LIVE RETRIEVAL PANEL) -->
-<div id="sewwwes-identity-norm-panel" style="background:rgba(12,14,24,0.95); border:2px solid var(--sewwwes-gold); border-radius:20px; padding:18px; margin:20px auto; max-width:900px; box-shadow:0 0 25px rgba(212,175,55,0.25);">
-  <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; border-bottom:1px solid rgba(212,175,55,0.3); padding-bottom:10px; margin-bottom:12px;">
-    <div style="color:var(--sewwwes-gold); font-weight:950; font-size:1.0rem; letter-spacing:0.5px;">
-      🛡️ SeWWWeS.NET LIVE IDENTITÄTS- & QUALITÄTSKONTROLLE
-    </div>
-    <div style="background:rgba(0,255,128,0.15); border:1px solid #00FF80; color:#00FF80; border-radius:12px; padding:4px 12px; font-size:0.75rem; font-weight:900;">
-      ZENIQ SMART CHAIN LIVE
-    </div>
-  </div>
-
-  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:12px; text-align:left;">
-    <!-- CARD 1: ScanMe.NFT -->
-    <div style="background:rgba(0,0,0,0.6); border:1px solid var(--sewwwes-gold); border-radius:14px; padding:12px;">
-      <div style="color:var(--sewwwes-gold); font-size:0.75rem; font-weight:900;">©️ ScanMe.NFT ECHTHEITSSIEGEL</div>
-      <div id="norm-scanme-status" style="color:#00FF80; font-weight:950; font-size:0.95rem; margin-top:4px;">
-        🟢 BESTAND VERIFIZIERT (ZEN-NFT)
-      </div>
-      <div style="color:#aaa; font-size:0.7rem; margin-top:2px;">
-        Contract: 0xf0c50Be7...4a14881 &bull; RWA Backed
-      </div>
-    </div>
-
-    <!-- CARD 2: $KYC TOKEN -->
-    <div style="background:rgba(0,0,0,0.6); border:1px solid var(--sewwwes-skyblue); border-radius:14px; padding:12px;">
-      <div style="color:var(--sewwwes-skyblue); font-size:0.75rem; font-weight:900;">📜 $KYC ZÜNDSCHLÜSSEL / ZEN20</div>
-      <div id="norm-kyc-status" style="color:#00FF80; font-weight:950; font-size:0.95rem; margin-top:4px;">
-        🟢 KYC BESTÄTIGT ($KYC AKTIV)
-      </div>
-      <div style="color:#aaa; font-size:0.7rem; margin-top:2px;">
-        Contract: 0xeeE15e47...f0b2e2db &bull; Full Verification
-      </div>
-    </div>
-
-    <!-- CARD 3: SMARTEARTHFAMILY -->
-    <div style="background:rgba(0,0,0,0.6); border:1px solid #00FF80; border-radius:14px; padding:12px;">
-      <div style="color:#00FF80; font-size:0.75rem; font-weight:900;">🌐 SMARTEARTHFAMILY ZUGEHÖRIGKEIT</div>
-      <div id="norm-family-status" style="color:#FFF; font-weight:950; font-size:0.95rem; margin-top:4px;">
-        🛡️ LEGETIMIERTER PARTNER
-      </div>
-      <div style="color:#aaa; font-size:0.7rem; margin-top:2px;">
-        Zutritt frei &bull; Phalanx Telefonie gestattet
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<script>
-function selectPhalanxRail(railNum) {
-  logDiagnostics('🏛️ Phalanx Route ' + railNum + ' ausgewählt!');
-  
-  if (railNum === 1) {
-    const manualInput = document.getElementById("manualCallAddress");
-    if (manualInput) manualInput.focus();
-    logDiagnostics('📱 Schiene 1: NomoApp WebOn Bridge aktiviert.');
-  } else if (railNum === 2) {
-    const topBtn = document.getElementById("btnMetaMaskConnectTop");
-    if (topBtn) topBtn.click();
-    const dialArea = document.getElementById("sewwwes-master-content");
-    if (dialArea) dialArea.scrollIntoView({ behavior: 'smooth' });
-    logDiagnostics('🦊 Schiene 2: Web3 RPC P2P & MetaMask WebRTC Engine fokussiert.');
-  } else if (railNum === 3) {
-    const sipPad = document.getElementById("sip-dialpad-container");
-    if (sipPad) sipPad.scrollIntoView({ behavior: 'smooth' });
-    logDiagnostics('☎️ Schiene 3: Mobilfunk & Festnetz SIP Gateway angerufen.');
-  } else if (railNum === 4) {
-    alert('📡 Schiene 4: Hardware Mesh Network (Nodelink NX1 / DigaMbase) - Vorbereitung für eigenständiges Netz läuft!');
-    logDiagnostics('📡 Schiene 4: Nodelink NX1 & DigaMbase P2P Mesh Router geaddet.');
-  }
-}
-</script>
-
-<!-- 🧱 EMBEDDED NATIVE NOMO WEBON DART BRIDGE (HYBRID RESOLVER v1.0.0 SUPREME) -->
-  <script>
-
-// 🦊 METAMASK & DUAL-ENGINE PROVIDER DETECTION (v1.5.0 SUPREME)
-let currentWeb3Provider = 'NOMO';
-
-async function detectWeb3Provider() {
-  if (window.ethereum) {
-    currentWeb3Provider = 'METAMASK';
-    logDiagnostics('🦊 MetaMask / Standard EVM Web3 Browser erkannt!');
-    try {
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      if (accounts && accounts.length > 0) {
-        logDiagnostics('🟢 Active MetaMask Account: ' + accounts[0]);
-      }
-    } catch(err) {
-      logDiagnostics('⚠️ MetaMask Connect Info: ' + (err.message || err));
-    }
-  } else if (window.nomo) {
-    currentWeb3Provider = 'NOMO';
-    logDiagnostics('🟢 Native NomoApp Brücke aktiv.');
-  } else {
-    currentWeb3Provider = 'WEB3_GENERIC';
-    logDiagnostics('💻 Web3 Browser / Standalone PWA Modus.');
-  }
-}
-window.addEventListener('DOMContentLoaded', detectWeb3Provider);
-
-    (function() {
-      "use strict";
-
-      window.isRealNomoApp = function() {
-        if (typeof window === "undefined") return false;
-        var ua = (navigator && navigator.userAgent) ? navigator.userAgent : "";
-        if (window.ethereum && !/Nomo|WebOn/i.test(ua)) {
-          return false;
-        }
-        if (/Nomo|WebOn/i.test(ua)) return true;
-        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.NOMOJSChannel) return true;
-        if (window.NOMOJSChannel && typeof window.NOMOJSChannel.postMessage === "function") return true;
-        if (window.chrome && window.chrome.webview && window.chrome.webview.hostObjects && window.chrome.webview.hostObjects.NOMOJSChannel) return true;
-        if (window.nomo && typeof window.nomo.getEvmAddress === "function") return true;
-        return false;
-      };
-
-      function getDartBridge() {
-        if (typeof window === "undefined") return null;
-        if (!window.isRealNomoApp()) return null;
-
-        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.NOMOJSChannel) {
-          return function(payload) { window.webkit.messageHandlers.NOMOJSChannel.postMessage(payload); };
-        }
-        if (window.NOMOJSChannel && typeof window.NOMOJSChannel.postMessage === "function") {
-          return function(payload) { window.NOMOJSChannel.postMessage(payload); };
-        }
-        if (window.chrome && window.chrome.webview && window.chrome.webview.hostObjects && window.chrome.webview.hostObjects.NOMOJSChannel) {
-          return function(payload) { window.chrome.webview.hostObjects.NOMOJSChannel.postMessage(payload); };
-        }
-        if (window.chrome && window.chrome.webview && typeof window.chrome.webview.postMessage === "function") {
-          return function(payload) { window.chrome.webview.postMessage(payload); };
-        }
-        return null;
-      }
-
-      var invocationCounter = 0;
-      var moduleID = Math.random().toString(36).substring(2, 10);
-      window.nomoResolvePromises = window.nomoResolvePromises || {};
-      window.nomoRejectPromises = window.nomoRejectPromises || {};
-
-      function invokeNomoFunction(functionName, args) {
-        invocationCounter++;
-        var invocationID = invocationCounter.toString() + "_" + functionName + "_" + moduleID;
-        var payload = JSON.stringify({ functionName: functionName, invocationID: invocationID, args: args || {} });
-        return new Promise(function(resolve, reject) {
-          window.nomoResolvePromises[invocationID] = resolve;
-          window.nomoRejectPromises[invocationID] = reject;
-          var bridge = getDartBridge();
-          if (bridge) {
-            try { bridge(payload); } catch (e) { reject(e.message || e); }
-          } else {
-            reject("Not running inside Nomo App.");
-          }
-        });
-      }
-
-      function decodeBase64UTF16(base64EncodedString) {
-        try {
-          var binaryString = atob(base64EncodedString);
-          var bytes = new Uint8Array(binaryString.length);
-          for (var i = 0; i < binaryString.length; i++) { bytes[i] = binaryString.charCodeAt(i); }
-          return new TextDecoder("utf-8").decode(bytes);
-        } catch(e) { return base64EncodedString; }
-      }
-
-      window.fulfillPromiseFromFlutter = function(arg1, arg2, arg3) {
-        try {
-          var invocationID, status, result;
-          if (typeof arg1 === "string" && (!arg2 || typeof arg2 !== "string" || arg1.length > 50)) {
-            var jsonStr = decodeBase64UTF16(arg1);
-            var obj = JSON.parse(jsonStr);
-            invocationID = obj.invocationID;
-            status = obj.status;
-            result = obj.result;
-          } else {
-            invocationID = arg1;
-            result = arg2;
-            status = (arg3 === true || arg3 === "true" || arg3 === "OK" || arg3 === 1) ? "resolve" : "reject";
-          }
-
-          if (!invocationID) return "missing invocationID";
-
-          var fulfillFunction;
-          if (status === "resolve" || status === true) {
-            fulfillFunction = window.nomoResolvePromises[invocationID];
-          } else {
-            fulfillFunction = window.nomoRejectPromises[invocationID];
-          }
-
-          window.nomoResolvePromises[invocationID] = null;
-          window.nomoRejectPromises[invocationID] = null;
-
-          if (fulfillFunction) {
-            if (typeof result === "string" && (result.startsWith("{") || result.startsWith("["))) {
-              try { result = JSON.parse(result); } catch(e){}
-            }
-            fulfillFunction(result);
-            return "OK";
-          }
-        } catch (e) { console.error("fulfillPromiseFromFlutter failed", e); }
-        return "FAIL";
-      };
-
-      var nomoBridge = {
-        messengerCall: function(a) { var addr = (typeof a === "string") ? a : (a.recipientAddress || a.address || a.recipient || ""); return this.launchUrl({ url: "nomo://messenger/call?address=" + encodeURIComponent(addr) }).catch(function() { return invokeNomoFunction("nomoLaunchUrl", { url: "https://nomo.id/@" + addr + ":nomo" }); }).catch(function() { return invokeNomoFunction("nomoCall", a || {}); }); },
-        messengerChat: function(a) { var addr = (typeof a === "string") ? a : (a.recipientAddress || a.address || a.recipient || ""); return this.launchUrl({ url: "nomo://messenger/chat?address=" + encodeURIComponent(addr) }).catch(function() { return invokeNomoFunction("nomoLaunchUrl", { url: "https://nomo.id/@" + addr + ":nomo" }); }).catch(function() { return invokeNomoFunction("nomoChat", a || {}); }); },
-        launchUrl: function(a) {
-          var url = (typeof a === "string") ? a : (a ? (a.url || a.href) : "");
-          if (!url) return Promise.reject("MISSING_URL");
-          safeExecuteDeepLink(url);
-          return Promise.resolve("DISPATCHED_VIA_IFRAME");
-        },
-        runsAsWebOn: function() { return window.isRealNomoApp(); },
-        getEvmAddress: function() {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoGetEvmAddress", {}).then(function(res) {
-            if (typeof res === "object" && res !== null) return res.evmAddress || res.ethAddress || res.address || res;
-            return res;
-          });
-        },
-        sendAssets: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoSendAssets", args || {});
-        },
-        signEvmTransaction: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoSignEvmTransaction", args || {});
-        },
-        signAuthMessage: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoSignAuthMessage", args || {});
-        },
-        addCustomToken: function(args) {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoAddCustomToken", args || {});
-        },
-        nativeScan: function() { return this.qrScan(); },
-        qrScan: function() {
-          if (!window.isRealNomoApp()) return Promise.reject("NOT_IN_NOMO_APP");
-          return invokeNomoFunction("nomoQrScan", {});
-        }
-      };
-
-      window.nomo = window.nomo || {};
-      for (var key in nomoBridge) {
-        window.nomo[key] = nomoBridge[key];
-      }
-    })();
-  
-// ☎️ KLASSISCHE TELEFONIE & MOBILFUNK/FESTNETZ BRIDGE (v1.5.0 SUPREME)
-function initiateClassicPhoneCall() {
-  const input = document.getElementById("classicPhoneInput");
-  if (!input || !input.value.trim()) {
-    alert("❌ Bitte geben Sie eine gültige Mobilfunk- oder Festnetz-Rufnummer ein.");
-    return;
-  }
-  const rawNum = input.value.trim();
-  const cleanNum = rawNum.replace(/[^0-9+]/g, '');
-  logDiagnostics('☎️ Initiere Klassischen Telefonanruf an [' + cleanNum + '] via SIP/PSTN Gateway Bridge...');
-  
-  // 1. Direct tel: protocol dispatch
-  window.location.href = "tel:" + cleanNum;
-}
-
-</script>
-
-<!-- 🌐 DEZENTRALES P2P SIGNALING RELAY ENGINE (CROSS-DEVICE & CROSS-PROFILE REALTIME HANDSHAKE v1.5.0 SUPREME) -->
-<script>
-(function() {
-  try {
-    // Cross-Profile & Cross-Device P2P Signaling Engine
-    const p2pChannel = new BroadcastChannel('sewwwes_p2p_call_channel_v144');
-    
-    p2pChannel.onmessage = function(event) {
-      if (!event || !event.data) return;
-      const data = event.data;
-      if (data.type === 'SEWWWES_P2P_CALL_OFFER') {
-        const myAddr = (window.currentActiveWalletAddress || '').toLowerCase();
-        if (myAddr && data.targetAddress.toLowerCase() === myAddr) {
-          logDiagnostics('🔔 P2P SIGNAL EMPFANGEN von Wallet [' + data.callerAddress + ']!');
-          if (typeof showIncomingCallModal === 'function') {
-            showIncomingCallModal(data.callerAddress, data.callerName || 'Sovereign Contact');
-          }
-        }
-      }
-    };
-
-    window.sendP2PRelayCallSignal = function(targetAddr, targetName) {
-      const callerAddr = (window.currentActiveWalletAddress || '0x000').toLowerCase();
-      const signalData = {
-        type: 'SEWWWES_P2P_CALL_OFFER',
-        callerAddress: callerAddr,
-        callerName: 'Sovereign Contact',
-        targetAddress: targetAddr.toLowerCase(),
-        timestamp: Date.now()
-      };
-      
-      // 1. Broadcast via Channel
-      p2pChannel.postMessage(signalData);
-      
-      // 2. Storage Sync Event
-      try {
-        localStorage.setItem('sewwwes_last_call_signal', JSON.stringify(signalData));
-      } catch(e) {}
-
-      logDiagnostics('📡 P2P Call Signal dezentral gesendet an [' + targetAddr + ']!');
-    };
-
-    window.addEventListener('storage', function(e) {
-      if (e.key === 'sewwwes_last_call_signal' && e.newValue) {
-        try {
-          const data = JSON.parse(e.newValue);
-          const now = Date.now();
-          if (data && data.timestamp && (now - data.timestamp < 30000)) {
-            const myAddr = (window.currentActiveWalletAddress || '').toLowerCase();
-            if (myAddr && data.targetAddress.toLowerCase() === myAddr) {
-              logDiagnostics('🔔 STORAGE P2P SIGNAL EMPFANGEN von Wallet [' + data.callerAddress + ']!');
-              if (typeof showIncomingCallModal === 'function') {
-                showIncomingCallModal(data.callerAddress, data.callerName || 'Sovereign Contact');
-              }
-            }
-          }
-        } catch(err) {}
-      }
-    });
-
-  } catch(e) {
-    console.warn('P2P Relay Init:', e);
-  }
-})();
-</script>
-
-</head>
+</head></head>
 <body>
 
-<!-- 🦊 HIGH-VISIBILITY GOLDEN WALLET CONNECT BANNER v1.5.0 SUPREME -->
+<!-- 🦊 HIGH-VISIBILITY GOLDEN WALLET CONNECT BANNER v1.5.2 SUPREME -->
 <div id="top-wallet-connect-banner" style="position: sticky; top: 0; z-index: 99999; background: rgba(5,5,5,0.98); backdrop-filter: blur(10px); border-bottom: 2px solid #D4AF37; padding: 14px 10px; text-align: center; box-shadow: 0 4px 30px rgba(212,175,55,0.6);">
   <button id="btnMetaMaskConnectTop" onclick="connectWeb3WalletAction()" style="background: linear-gradient(135deg, #FFD700, #D4AF37, #B8860B); color: #000; border: 2px solid #FFF; padding: 14px 28px; border-radius: 30px; font-weight: 950; font-size: 1.0rem; cursor: pointer; box-shadow: 0 0 25px rgba(212,175,55,0.9); text-transform: uppercase; letter-spacing: 1px; display: inline-block;">
     🦊 WALLET VERBINDEN (METAMASK / WEB3)
@@ -820,7 +438,7 @@ function initiateClassicPhoneCall() {
 <!-- 🔍 1. SeWWWeS.NET DACH-HEADER TELEMETRIE-BAR -->
 <div class="spcl-top-roof-banner">
   <div class="spcl-top-roof-line1">SeWWWeS.NET 🔍 SPCL | SEARCH PROOF CONTROL LABELING | SIGNAL VERIFIED</div>
-  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.5.0 SUPREME)</div>
+  <div class="spcl-top-roof-line2">powered by SmartEarthFamily (SeWWWeS.Net NomoApp WebOn Version SmartEarthPhone P2P Call Gateway v1.5.2 SUPREME)</div>
 </div>
 
 <!-- 🛡️ 2. SeWWWeS.NET SPCL-SCANNER HAUPTRAHMEN -->
@@ -846,59 +464,123 @@ function initiateClassicPhoneCall() {
 
 <!-- ▼ INHALT DES CALL GATEWAYs ▼ -->
 
-  <!-- ▼ SEKTION: 4-SCHIENEN MULTI-RAIL TELEFONIE PHALANX (SeWWWeS.NET Normen-Buch) (v1.5.0 SUPREME) ▼ -->
-  <section class="telemetry-card" style="border: 2px solid var(--sewwwes-gold); background: linear-gradient(135deg, rgba(20,20,20,0.95), rgba(5,5,5,0.98)); margin: 15px auto; max-width: 900px; padding: 20px; border-radius: 20px; box-shadow: 0 0 25px rgba(212,175,55,0.3);">
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(212,175,55,0.3); padding-bottom:10px; margin-bottom:15px;">
-      <h3 style="color:var(--sewwwes-gold); margin:0; font-size:1.15rem; font-weight:950; letter-spacing:1px; text-transform:uppercase;">🌐 4-SCHIENEN MULTI-RAIL TELEFONIE PHALANX (SeWWWeS.NET Normen-Buch)</h3>
-      <span style="background:var(--sewwwes-gold); color:#000; padding:4px 10px; border-radius:12px; font-weight:900; font-size:0.75rem;">v1.5.0 SUPREME</span>
+<!-- 📜 3. SeWWWeS.NET NORM-IDENTITÄTS-PANEL (KYC & ScanMe.NFT LIVE RETRIEVAL PANEL) -->
+<div id="sewwwes-identity-norm-panel" style="background:rgba(12,14,24,0.95); border:2.5px solid var(--sewwwes-gold); border-radius:24px; padding:22px; margin:20px auto; max-width:820px; box-shadow:0 0 35px rgba(212,175,55,0.35);">
+  <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; border-bottom:1px solid rgba(212,175,55,0.35); padding-bottom:12px; margin-bottom:16px;">
+    <div style="color:var(--sewwwes-gold); font-weight:950; font-size:1.05rem; letter-spacing:0.5px; text-transform:uppercase;">
+      🛡️ SeWWWeS.NET LIVE IDENTITÄTS- & QUALITÄTSKONTROLLE
     </div>
-    
-    <p style="color:#d0d0d0; font-size:0.85rem; line-height:1.4; margin-bottom:15px;">
-      <strong>Philosophisches Fundament:</strong> Freiheit, Frieden, Wahrhaftigkeit, Liebe und Selbstbestimmung jedes Individuums. Mensch, Natur & Technik im Einklang.
-    </p>
+    <div style="background:rgba(0,255,128,0.15); border:1.5px solid #00FF80; color:#00FF80; border-radius:14px; padding:6px 14px; font-size:0.8rem; font-weight:900;">
+      ZENIQ SMART CHAIN LIVE
+    </div>
+  </div>
 
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:15px;">
-      <!-- Schiene 1 -->
-      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(212,175,55,0.4); padding:12px; border-radius:14px; text-align:center;">
-        <div style="font-size:1.2rem; margin-bottom:5px;">📱</div>
-        <div style="color:var(--sewwwes-gold); font-weight:900; font-size:0.8rem; text-transform:uppercase;">SCHIENE 1</div>
-        <div style="color:#fff; font-size:0.75rem; font-weight:bold; margin-top:3px;">NomoApp WebOn Bridge</div>
-        <div style="color:#00ff80; font-size:0.7rem; margin-top:4px;">🟢 Native & DeepLinks</div>
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; text-align:left;">
+    <!-- CARD 1: ScanMe.NFT -->
+    <div style="background:rgba(0,0,0,0.7); border:1.5px solid var(--sewwwes-gold); border-radius:16px; padding:16px; box-shadow:0 0 15px rgba(212,175,55,0.2);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="font-size:1.5rem;">©️</span>
+        <div>
+          <div style="color:var(--sewwwes-gold); font-weight:950; font-size:0.9rem;">ScanMe.NFT ECHTHEITSSIEGEL</div>
+          <div style="color:#aaa; font-size:0.75rem;">Contract: 0xf0c50Be7...4a14881</div>
+        </div>
       </div>
-      <!-- Schiene 2 -->
-      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,255,128,0.4); padding:12px; border-radius:14px; text-align:center;">
-        <div style="font-size:1.2rem; margin-bottom:5px;">🦊</div>
-        <div style="color:#00ff80; font-weight:900; font-size:0.8rem; text-transform:uppercase;">SCHIENE 2</div>
-        <div style="color:#fff; font-size:0.75rem; font-weight:bold; margin-top:3px;">Web3 RPC P2P & MetaMask</div>
-        <div style="color:#00ff80; font-size:0.7rem; margin-top:4px;">🟢 WebRTC / ScanMe.NFT / VIP</div>
-      </div>
-      <!-- Schiene 3 -->
-      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,191,255,0.4); padding:12px; border-radius:14px; text-align:center;">
-        <div style="font-size:1.2rem; margin-bottom:5px;">☎️</div>
-        <div style="color:var(--sewwwes-skyblue); font-weight:900; font-size:0.8rem; text-transform:uppercase;">SCHIENE 3</div>
-        <div style="color:#fff; font-size:0.75rem; font-weight:bold; margin-top:3px;">Mobilfunk & Festnetz</div>
-        <div style="color:#00bfff; font-size:0.7rem; margin-top:4px;">🟢 SIP / PSTN Gateway Bridge</div>
-      </div>
-      <!-- Schiene 4 -->
-      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,215,0,0.4); padding:12px; border-radius:14px; text-align:center;">
-        <div style="font-size:1.2rem; margin-bottom:5px;">📡</div>
-        <div style="color:#ffd700; font-weight:900; font-size:0.8rem; text-transform:uppercase;">SCHIENE 4</div>
-        <div style="color:#fff; font-size:0.75rem; font-weight:bold; margin-top:3px;">Hardware Mesh Network</div>
-        <div style="color:#ffd700; font-size:0.7rem; margin-top:4px;">🟢 Nodelink NX1 / DigaMbase</div>
+      <div style="color:#00FF80; font-size:0.8rem; font-weight:800; background:rgba(0,255,128,0.1); padding:6px 10px; border-radius:10px; border-left:3px solid #00FF80;">
+        🟢 On-Chain Identität Bestätigt
       </div>
     </div>
 
-    <!-- Schiene 3 Dialer Interface -->
-    <div style="background:rgba(0,0,0,0.6); border:1px solid rgba(0,191,255,0.3); border-radius:14px; padding:15px; margin-top:10px;">
-      <div style="color:var(--sewwwes-skyblue); font-weight:900; font-size:0.85rem; margin-bottom:8px;">☎️ KLASSISCHER TELEFONIE DIALER (MOBILFUNK & FESTNETZ BRIDGE)</div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <input type="tel" id="classicPhoneInput" placeholder="Rufnummer eingeben (z.B. +49 171 1234567)..." style="flex:1; min-width:220px; background:rgba(10,10,10,0.9); border:1px solid var(--sewwwes-skyblue); border-radius:12px; padding:10px 14px; color:#fff; font-size:0.85rem;">
-        <button onclick="initiateClassicPhoneCall()" style="background:linear-gradient(135deg, #00bfff, #0080ff); color:#fff; border:none; padding:10px 20px; border-radius:12px; font-weight:900; font-size:0.85rem; cursor:pointer; box-shadow:0 0 15px rgba(0,191,255,0.4);">📞 RUFNUMMER WÄHLEN</button>
+    <!-- CARD 2: $KYC Zündschlüssel -->
+    <div style="background:rgba(0,0,0,0.7); border:1.5px solid var(--sewwwes-skyblue); border-radius:16px; padding:16px; box-shadow:0 0 15px rgba(0,191,255,0.2);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="font-size:1.5rem;">📜</span>
+        <div>
+          <div style="color:var(--sewwwes-skyblue); font-weight:950; font-size:0.9rem;">$KYC ZÜNDSCHLÜSSEL TOKEN</div>
+          <div style="color:#aaa; font-size:0.75rem;">Contract: 0xeeE15e47...f0b2e2db</div>
+        </div>
+      </div>
+      <div style="color:#00FF80; font-size:0.8rem; font-weight:800; background:rgba(0,255,128,0.1); padding:6px 10px; border-radius:10px; border-left:3px solid var(--sewwwes-skyblue);">
+        🟢 ZEN20 KYC Token Bestand Verifiziert
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-<main id="sewwwes-master-content">
+<!-- 🏛️ 4. SeWWWeS.NET 4-SCHIENEN MULTI-RAIL TELEFONIE PHALANX (Normen-Buch Standard v1.5.2 SUPREME) -->
+<section style="border: 2.5px solid var(--sewwwes-gold); background: linear-gradient(135deg, rgba(20,20,20,0.96), rgba(5,5,5,0.98)); margin: 20px auto; max-width: 820px; padding: 22px; border-radius: 24px; box-shadow: 0 0 35px rgba(212,175,55,0.35);">
+  
+  <!-- Header Row -->
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:1px solid rgba(212,175,55,0.35); padding-bottom:12px; margin-bottom:14px;">
+    <h3 style="color:var(--sewwwes-gold); margin:0; font-size:1.15rem; font-weight:950; letter-spacing:1px; text-transform:uppercase;">
+      🏛️ SeWWWeS.NET 4-SCHIENEN MULTI-RAIL TELEFONIE PHALANX
+    </h3>
+    <span style="background:var(--sewwwes-gold); color:#000; padding:4px 12px; border-radius:12px; font-weight:900; font-size:0.75rem;">
+      v1.5.2 SUPREME
+    </span>
+  </div>
+
+  <!-- Sub-line & Philosophical Foundation -->
+  <div style="color:var(--sewwwes-skyblue); font-size:0.85rem; font-weight:700; margin-bottom:8px;">
+    📜 Verankert im SeWWWeS.NET Normen-Buch &bull; Freie Routen-Wunschauswahl
+  </div>
+  <p style="color:#e0e0e0; font-size:0.85rem; line-height:1.45; margin-bottom:18px; background:rgba(0,0,0,0.6); padding:12px 16px; border-radius:14px; border-left:4px solid var(--sewwwes-gold);">
+    <strong>Philosophisches Fundament:</strong> Freiheit, Frieden, Wahrhaftigkeit, Liebe und Selbstbestimmung jedes Individuums. Mensch, Natur & Technik im Einklang.
+  </p>
+
+  <!-- 4 Schienen Grid with Interactive Selection Buttons -->
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap:12px; margin-bottom:20px;">
+    <!-- Schiene 1 -->
+    <div onclick="selectPhalanxRail(1)" style="background:rgba(0,0,0,0.85); border:1.5px solid var(--sewwwes-gold); border-radius:18px; padding:16px 12px; text-align:center; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(212,175,55,0.2);">
+      <div style="font-size:2.0rem; margin-bottom:4px;">📱</div>
+      <div style="color:var(--sewwwes-gold); font-weight:950; font-size:0.85rem;">SCHIENE 1</div>
+      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:3px 0;">NomoApp WebOn Bridge</div>
+      <div style="color:#00FF80; font-size:0.72rem; font-weight:700; margin-bottom:10px;">🟢 Native & DeepLinks</div>
+      <button style="background:linear-gradient(135deg, var(--sewwwes-gold), #b89628); color:#000; border:none; padding:8px 12px; border-radius:12px; font-weight:950; font-size:0.75rem; cursor:pointer; width:100%; text-transform:uppercase;">ROUTE 1 WÄHLEN</button>
+    </div>
+
+    <!-- Schiene 2 -->
+    <div onclick="selectPhalanxRail(2)" style="background:rgba(0,0,0,0.85); border:1.5px solid var(--sewwwes-skyblue); border-radius:18px; padding:16px 12px; text-align:center; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(0,210,255,0.2);">
+      <div style="font-size:2.0rem; margin-bottom:4px;">🦊</div>
+      <div style="color:var(--sewwwes-skyblue); font-weight:950; font-size:0.85rem;">SCHIENE 2</div>
+      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:3px 0;">Web3 RPC P2P & MetaMask</div>
+      <div style="color:#00FF80; font-size:0.72rem; font-weight:700; margin-bottom:10px;">🟢 WebRTC / ScanMe.NFT / VIP</div>
+      <button style="background:linear-gradient(135deg, var(--sewwwes-skyblue), #0088cc); color:#000; border:none; padding:8px 12px; border-radius:12px; font-weight:950; font-size:0.75rem; cursor:pointer; width:100%; text-transform:uppercase;">ROUTE 2 WÄHLEN</button>
+    </div>
+
+    <!-- Schiene 3 -->
+    <div onclick="selectPhalanxRail(3)" style="background:rgba(0,0,0,0.85); border:1.5px solid #FF00FF; border-radius:18px; padding:16px 12px; text-align:center; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(255,0,255,0.2);">
+      <div style="font-size:2.0rem; margin-bottom:4px;">☎️</div>
+      <div style="color:#FF00FF; font-weight:950; font-size:0.85rem;">SCHIENE 3</div>
+      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:3px 0;">Mobilfunk & Festnetz</div>
+      <div style="color:#00FF80; font-size:0.72rem; font-weight:700; margin-bottom:10px;">🟢 SIP / PSTN Gateway Bridge</div>
+      <button style="background:linear-gradient(135deg, #FF00FF, #aa00aa); color:#FFF; border:none; padding:8px 12px; border-radius:12px; font-weight:950; font-size:0.75rem; cursor:pointer; width:100%; text-transform:uppercase;">ROUTE 3 WÄHLEN</button>
+    </div>
+
+    <!-- Schiene 4 -->
+    <div onclick="selectPhalanxRail(4)" style="background:rgba(0,0,0,0.85); border:1.5px solid #00FF80; border-radius:18px; padding:16px 12px; text-align:center; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px rgba(0,255,128,0.2);">
+      <div style="font-size:2.0rem; margin-bottom:4px;">📡</div>
+      <div style="color:#00FF80; font-weight:950; font-size:0.85rem;">SCHIENE 4</div>
+      <div style="color:#FFF; font-weight:800; font-size:0.8rem; margin:3px 0;">Hardware Mesh Network</div>
+      <div style="color:#00FF80; font-size:0.72rem; font-weight:700; margin-bottom:10px;">🟢 Nodelink NX1 / DigaMbase</div>
+      <button style="background:linear-gradient(135deg, #00FF80, #00aa55); color:#000; border:none; padding:8px 12px; border-radius:12px; font-weight:950; font-size:0.75rem; cursor:pointer; width:100%; text-transform:uppercase;">ROUTE 4 WÄHLEN</button>
+    </div>
+  </div>
+
+  <!-- Schiene 3: Klassischer Telefonie Dialer mit großen, haptisch perfekten Eingabefeldern -->
+  <div id="classic-dialer-box" style="background:rgba(0,0,0,0.8); border:2px solid var(--sewwwes-skyblue); border-radius:20px; padding:20px; margin-top:16px; box-shadow:0 0 25px rgba(0,191,255,0.25);">
+    <div style="color:var(--sewwwes-skyblue); font-weight:950; font-size:1.0rem; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px;">
+      ☎️ KLASSISCHER TELEFONIE DIALER (MOBILFUNK & FESTNETZ BRIDGE)
+    </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+      <input type="tel" id="classicPhoneInput" placeholder="Rufnummer eingeben (z.B. +49 171 1234567)..." style="flex:1; min-width:260px; background:rgba(5,5,5,0.95); border:2px solid var(--sewwwes-skyblue); border-radius:18px; padding:16px 20px; color:#FFF; font-size:1.1rem; font-weight:800; min-height:56px; box-shadow:inset 0 0 12px rgba(0,191,255,0.2); outline:none;">
+      <button onclick="initiateClassicPhoneCall()" style="background:linear-gradient(135deg, #00bfff, #0080ff); color:#FFF; border:none; padding:16px 28px; border-radius:18px; font-weight:950; font-size:1.0rem; cursor:pointer; min-height:56px; box-shadow:0 0 20px rgba(0,191,255,0.4); text-transform:uppercase; letter-spacing:0.5px;">📞 RUFNUMMER WÄHLEN</button>
+    </div>
+  </div>
+</section>
+
+
+
+  <main id="sewwwes-master-content">
 
   <!-- SEKTION 1: TELEMETRIE & MODE STATUS -->
   <div class="card-box">
@@ -1057,7 +739,7 @@ function initiateClassicPhoneCall() {
   <div class="card-box">
     <div class="card-title">💬 FREIE DIREKTWAHL / TARGET ADRESSE</div>
     <div style="display:flex; flex-direction:column; gap:10px;">
-      <input type="text" id="manualCallAddress" class="search-unified-input" style="background:rgba(0,0,0,0.8); border:1px solid var(--sewwwes-skyblue); border-radius:12px; padding:12px; width:100%; box-sizing:border-box;" placeholder="SID (z.B. 2464012987) ODER 0x WALLET-ADRESSE...">
+      <input type="text" id="manualCallAddress" class="search-unified-input" style="background:rgba(0,0,0,0.9); border:2px solid var(--sewwwes-skyblue); border-radius:18px; padding:16px 20px; color:#FFF; font-size:1.1rem; font-weight:800; min-height:56px; width:100%; box-sizing:border-box; box-shadow:inset 0 0 12px rgba(0,191,255,0.2); outline:none;" placeholder="SID (z.B. 2464012987) ODER 0x WALLET-ADRESSE...">
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <button class="btn-call" style="padding:10px 20px;" onclick="initiateP2PCall(document.getElementById('manualCallAddress').value, 'Direktwahl')">📞 P2P ANRUF STARTEN</button>
         <button class="btn-chat" style="padding:10px 20px;" onclick="initiateP2PChat(document.getElementById('manualCallAddress').value, 'Direktwahl')">💬 MESSENGER CHAT ÖFFNEN</button>
@@ -1068,7 +750,7 @@ function initiateClassicPhoneCall() {
   <!-- SEKTION 4: SEWWWES.NET DIAGNOSTIK & TELEMETRIE LOG -->
   <div class="card-box">
     <div class="card-title">📊 SEWWWES.NET DIAGNOSTIK & TELEMETRIE PROTOKOLL</div>
-    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.5.0 SUPREME gestartet.
+    <div class="diag-console" id="diagConsoleBox">[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.5.2 SUPREME gestartet.
 [SYSTEM DIAGNOSTICS] Prüfe NomoApp Native Bridge...</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn-diag-copy" onclick="copyDiagnosticsLog()">📋 DIAGNOSTIK-PROTOKOLL KOPIEREN</button>
@@ -1077,7 +759,7 @@ function initiateClassicPhoneCall() {
   </div>
 
 
-<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.5.0 SUPREME) -->
+<!-- 🎙️ WEBRTC P2P AUDIO ENGINE MODAL & CONTROLS (v1.5.2 SUPREME) -->
 <div id="webrtc-call-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:25000; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;">
   <div style="background:radial-gradient(circle at center, rgba(20,20,20,0.99) 0%, rgba(5,5,5,1) 100%); border:2.5px solid var(--sewwwes-gold); border-radius:28px; padding:28px 22px; max-width:520px; width:100%; text-align:center; box-shadow:0 0 60px rgba(212,175,55,0.5); color:#FFF;">
     <div style="font-size:3rem; margin-bottom:10px; animation: pulse-emerald 2s infinite ease-in-out; display:inline-block;">🎙️</div>
@@ -1130,7 +812,7 @@ function copyDiagnosticsLog() {
 function clearDiagnosticsLog() {
   const box = document.getElementById("diagConsoleBox");
   if (box) {
-    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.5.0 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
+    box.innerText = "[SYSTEM INIT] SeWWWeS.NET P2P Call Gateway v1.5.2 SUPREME gestartet.\n[SYSTEM DIAGNOSTICS] Bereit für Anruf- und Chat-Steuerung.";
   }
 }
 
@@ -1352,7 +1034,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // =========================================================================
-// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.5.0 SUPREME)
+// 🎙️ SeWWWeS.NET NATIVE WEBRTC P2P AUDIO ENGINE (v1.5.2 SUPREME)
 // =========================================================================
 let localAudioStream = null;
 let rtcPeerConnection = null;
@@ -1432,7 +1114,7 @@ function stopCallRingtone() {
 
 
 async function startSovereignWebRtcCall(targetAddress, targetName) {
-  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.5.0 SUPREME für [${targetAddress}]...`);
+  logDiagnostics(`🎙️ Starte WebRTC P2P Audio Engine v1.5.2 SUPREME für [${targetAddress}]...`);
   
   const modal = document.getElementById("webrtc-call-modal");
   document.getElementById("webrtc-partner-name").innerText = targetName || "Sovereign Contact";
@@ -1587,7 +1269,7 @@ function hangupWebRtcCall() {
   if (modal) modal.style.display = "none";
 }
 
-// Override initiateP2PCall to ignite WebRTC Audio Engine v1.5.0
+// Override initiateP2PCall to ignite WebRTC Audio Engine v1.5.2
 const originalInitiateCall = initiateP2PCall;
 initiateP2PCall = async function(targetAddress, targetName) {
   if (!targetAddress || targetAddress.trim() === "") {

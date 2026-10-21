@@ -2,8 +2,10 @@
   "manifestVersion": "1.2.0",
   "webonId": "net.sewwwes.call",
   "webonName": "Call.SeWWWeS.Net",
-  "webonVersion": "1.5.1",
-  "webonDescription": "SeWWWeS.NET 4-Schienen Multi-Rail Telefonie Phalanx v1.5.1 SUPREME - ScanMe.NFT & $KYC Identity Panel",
+  "webonVersion": "1.5.2",
+  "webonDescription": "SeWWWeS.NET Universal P2P Call Gateway v1.5.2 SUPREME - 4-Schienen Multi-Rail Telefonie Phalanx",
+  "webonIcon": "assets/images/webon-icon-sewwwes-call.png",
+  "minNomoVersion": "0.4.0",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
