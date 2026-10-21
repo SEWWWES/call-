@@ -2,11 +2,16 @@
   "nomo_manifest_version": "1.2.0",
   "webOn_id": "net.sewwwes.call",
   "webOn_name": "SeWWWeS Call",
-  "webOn_version": "1.6.5",
-  "webOn_description": "SeWWWeS.NET Sovereign Web3 P2P Call Gateway - NomoApp & MetaMask Dual Engine",
+  "webOn_version": "1.6.6",
+  "webOn_description": "SeWWWeS.NET Sovereign Web3 P2P Call Gateway & Messenger Bridge v1.6.6 SUPREME",
   "permissions": [
+    "MESSENGER",
+    "MIC",
     "CAM",
-    "MIC"
+    "CAMERA",
+    "GET_EVM_ADDRESS",
+    "SIGN_EVM_TRANSACTION",
+    "SEND_ASSETS"
   ],
   "icons": [
     "sewwwes_call_webon_icon.png"
