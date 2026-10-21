@@ -2,8 +2,8 @@
   "manifestVersion": "1.2.0",
   "webonId": "net.sewwwes.call",
   "webonName": "Call.SeWWWeS.Net",
-  "webonVersion": "1.5.9",
-  "webonDescription": "SeWWWeS.NET Universal P2P Call Gateway v1.5.9 SUPREME - Dual SID/Wallet Address P2P Signaling Engine",
+  "webonVersion": "1.6.0",
+  "webonDescription": "SeWWWeS.NET Universal P2P Call Gateway v1.6.0 SUPREME - Global PeerJS & Web3 Relay Cross-Profile Signaling Engine",
   "webonIcon": "sewwwes_call_webon_icon.png",
   "permissions": [
     "nomo.permission.CAMERA",
