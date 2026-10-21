@@ -2,9 +2,8 @@
   "manifestVersion": "1.2.0",
   "webonId": "net.sewwwes.call",
   "webonName": "Call.SeWWWeS.Net",
-  "webonVersion": "1.5.7",
-  "webonDescription": "SeWWWeS.NET Universal P2P Call Gateway v1.5.7 SUPREME - High-Contrast SmartEarthFamily On-Chain Identity Engine",
-  "webonIcon": "sewwwes_call_webon_icon.png",
+  "webonVersion": "1.5.8",
+  "webonDescription": "SeWWWeS.NET Universal P2P Call Gateway v1.5.8 SUPREME - Realtime Cross-Device P2P Signaling & On-Chain Identity Control",
   "permissions": [
     "nomo.permission.CAMERA",
     "nomo.permission.MESSENGER",
