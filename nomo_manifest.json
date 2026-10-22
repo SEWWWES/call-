@@ -1,31 +1,13 @@
 {
-  "nomo_manifest_version": "1.2.0",
-  "manifestVersion": "1.2.0",
+  "nomo_manifest_version": "1.1.0",
   "webon_id": "net.sewwwes.call",
-  "webonId": "net.sewwwes.call",
-  "webOn_id": "net.sewwwes.call",
-  "webon_name": "\u00a9\ufe0f CALL.SeWWWeS.NET",
-  "webonName": "\u00a9\ufe0f CALL.SeWWWeS.NET",
-  "webOn_name": "\u00a9\ufe0f CALL.SeWWWeS.NET",
-  "webon_version": "1.7.6",
-  "webonVersion": "1.7.6",
-  "webon_description": "SeWWWeS.NET Sovereign Web3 P2P Call Gateway & Messenger Bridge v1.7.6 SUPREME",
+  "webon_name": "©️ CALL.SeWWWeS.NET",
+  "webon_version": "1.7.9",
   "webon_icon": "assets/images/webon-icon-sewwwes-call.png",
-  "webonIcon": "assets/images/webon-icon-sewwwes-call.png",
-  "webon_card": "assets/images/webon-icon-sewwwes-call.png",
-  "icons": [
-    "assets/images/webon-icon-sewwwes-call.png",
-    "webon-icon-sewwwes-call.png",
-    "sewwwes_call_webon_icon.png"
-  ],
   "permissions": [
-    "MESSENGER",
-    "MIC",
-    "CAM",
-    "CAMERA",
-    "GET_EVM_ADDRESS",
-    "SIGN_EVM_TRANSACTION",
-    "SEND_ASSETS",
-    "CLIPBOARD"
+    "nomo.permission.CAMERA",
+    "nomo.permission.SIGN_EVM_TRANSACTION",
+    "nomo.permission.GET_INSTALLED_WEBONS",
+    "nomo.permission.MESSENGER"
   ]
 }
